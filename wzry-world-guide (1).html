@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王者天下 · 王者荣耀世界攻略站</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#c9a84c; --gold-light:#e8cb7a; --gold-dim:#7a5f28;
+  --ink:#0a0b0e; --ink2:#12141a; --ink3:#1c1f28; --ink4:#252836; --ink5:#2e3245;
+  --text-main:#e8e4d8; --text-sub:#8e8a7e; --text-dim:#555062;
+  --red:#c0392b; --teal:#1a8a72; --radius:6px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Serif SC',serif;background:var(--ink);color:var(--text-main);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;background-image:
+  radial-gradient(ellipse 60% 40% at 50% 0%,rgba(201,168,76,.07) 0%,transparent 60%),
+  repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.013) 40px),
+  repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.013) 40px);
+  pointer-events:none;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(10,11,14,.94);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(201,168,76,.18);padding:0 32px;display:flex;align-items:center;
+  justify-content:space-between;height:60px;gap:16px;}
+.nav-logo{font-size:19px;font-weight:700;color:var(--gold);letter-spacing:2px;
+  display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0;}
+.logo-hex{width:30px;height:30px;background:var(--gold);
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  display:flex;align-items:center;justify-content:center;}
+.logo-hex span{font-size:12px;font-weight:700;color:var(--ink);}
+.nav-links{display:flex;gap:2px;list-style:none;}
+.nav-links a{color:var(--text-sub);text-decoration:none;font-size:13px;letter-spacing:.5px;
+  padding:6px 12px;border-radius:var(--radius);transition:all .2s;white-space:nowrap;cursor:pointer;}
+.nav-links a:hover{color:var(--gold-light);background:rgba(201,168,76,.08);}
+.nav-links a.active{color:var(--gold);background:rgba(201,168,76,.1);}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.search-wrap{position:relative;}
+.search-input{background:var(--ink3);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius);
+  padding:6px 12px 6px 34px;font-size:13px;color:var(--text-main);width:200px;
+  font-family:'Noto Serif SC',serif;outline:none;transition:all .25s;}
+.search-input::placeholder{color:var(--text-dim);}
+.search-input:focus{border-color:var(--gold-dim);width:260px;background:var(--ink4);}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);
+  width:14px;height:14px;stroke:var(--text-dim);pointer-events:none;}
+.search-results{position:absolute;top:calc(100% + 6px);left:0;right:0;
+  background:var(--ink3);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius);
+  overflow:hidden;display:none;z-index:300;box-shadow:0 8px 24px rgba(0,0,0,.5);min-width:240px;}
+.search-results.show{display:block;}
+.search-result-item{padding:10px 14px;font-size:13px;cursor:pointer;
+  display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s;}
+.search-result-item:last-child{border-bottom:none;}
+.search-result-item:hover{background:var(--ink4);}
+.search-result-icon{font-size:16px;width:24px;text-align:center;}
+.search-result-name{color:var(--text-main);font-size:13px;}
+.search-result-type{color:var(--text-dim);font-size:11px;}
+
+/* PAGES */
+.page{display:none;position:relative;z-index:1;animation:fadeUp .3s ease both;}
+.page.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* HERO BANNER */
+.hero-banner{padding:80px 32px 56px;text-align:center;}
+.hero-tag{display:inline-block;border:1px solid var(--gold-dim);color:var(--gold);
+  font-size:11px;letter-spacing:3px;padding:4px 14px;margin-bottom:20px;text-transform:uppercase;
+  font-family:'Rajdhani',sans-serif;}
+.hero-banner h1{font-size:52px;font-weight:700;line-height:1.1;margin-bottom:16px;
+  background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 50%,#a07832 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-banner p{font-size:16px;color:var(--text-sub);max-width:480px;margin:0 auto 36px;line-height:1.8;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--ink);padding:12px 28px;font-size:14px;
+  font-weight:700;letter-spacing:2px;border:none;border-radius:var(--radius);cursor:pointer;
+  transition:all .2s;font-family:'Noto Serif SC',serif;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--gold);padding:12px 28px;font-size:14px;
+  letter-spacing:2px;border:1px solid var(--gold-dim);border-radius:var(--radius);cursor:pointer;
+  transition:all .2s;font-family:'Noto Serif SC',serif;}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
+
+/* DIVIDER */
+.divider{display:flex;align-items:center;gap:16px;max-width:1200px;margin:0 auto 36px;padding:0 32px;}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent);}
+.divider-text{font-size:12px;color:var(--gold-dim);letter-spacing:4px;white-space:nowrap;}
+
+/* SECTION */
+.sec{position:relative;z-index:1;max-width:1200px;margin:0 auto 60px;padding:0 32px;}
+.sec-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;}
+.sec-title{font-size:20px;font-weight:700;color:var(--gold-light);display:flex;align-items:center;gap:10px;}
+.sec-title::before{content:'';display:inline-block;width:4px;height:18px;background:var(--gold);border-radius:2px;}
+.sec-more{font-size:13px;color:var(--gold-dim);cursor:pointer;transition:color .2s;}
+.sec-more:hover{color:var(--gold);}
+
+/* QUICK NAV */
+.quick-nav{max-width:1200px;margin:0 auto 60px;padding:0 32px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:12px;position:relative;z-index:1;}
+.qnav-card{background:var(--ink3);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);
+  padding:20px 18px;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;gap:10px;
+  position:relative;overflow:hidden;}
+.qnav-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--card-accent,var(--gold));opacity:0;transition:opacity .25s;}
+.qnav-card:hover{background:var(--ink4);border-color:rgba(201,168,76,.2);transform:translateY(-2px);}
+.qnav-card:hover::before{opacity:1;}
+.qnav-card:active{transform:scale(.98);}
+.qnav-icon{width:36px;height:36px;background:var(--icon-bg,rgba(201,168,76,.1));border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;font-size:18px;}
+.qnav-card h3{font-size:15px;font-weight:600;color:var(--text-main);}
+.qnav-card p{font-size:12px;color:var(--text-dim);line-height:1.5;}
+
+/* FILTER */
+.filter-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.filter-tab{padding:5px 14px;font-size:12px;border:1px solid rgba(255,255,255,.1);border-radius:100px;
+  color:var(--text-sub);cursor:pointer;transition:all .2s;background:transparent;font-family:'Noto Serif SC',serif;}
+.filter-tab:hover{border-color:var(--gold-dim);color:var(--gold);}
+.filter-tab.active{background:rgba(201,168,76,.15);border-color:var(--gold-dim);color:var(--gold);}
+
+/* HERO GRID */
+.hero-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:14px;}
+.hcard{background:var(--ink3);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);
+  overflow:hidden;cursor:pointer;transition:all .25s;}
+.hcard:hover{border-color:rgba(201,168,76,.35);transform:translateY(-3px);}
+.hcard:active{transform:scale(.97);}
+.hcard.hidden{display:none;}
+.hcard-img{width:100%;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
+  font-size:52px;transition:filter .25s;position:relative;}
+.hcard:hover .hcard-img{filter:brightness(1.1);}
+.hcard-rar{position:absolute;top:8px;right:8px;font-size:10px;font-weight:600;
+  padding:2px 6px;border-radius:3px;letter-spacing:1px;font-family:'Rajdhani',sans-serif;}
+.rs{background:rgba(201,168,76,.2);color:var(--gold);border:1px solid rgba(201,168,76,.4);}
+.ra{background:rgba(130,80,180,.2);color:#b388e8;border:1px solid rgba(130,80,180,.4);}
+.hcard-info{padding:10px 12px 12px;}
+.hcard-name{font-size:14px;font-weight:600;color:var(--text-main);margin-bottom:4px;}
+.hcard-role{font-size:11px;color:var(--text-dim);margin-bottom:8px;}
+.hcard-tags{display:flex;gap:4px;flex-wrap:wrap;}
+.tag{font-size:10px;padding:2px 7px;border-radius:3px;font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+.td{background:rgba(192,57,43,.15);color:#e87f72;border:1px solid rgba(192,57,43,.3);}
+.tt{background:rgba(26,138,114,.15);color:#5dcaa5;border:1px solid rgba(26,138,114,.3);}
+.ts{background:rgba(52,100,200,.15);color:#7ea8f0;border:1px solid rgba(52,100,200,.3);}
+.tc{background:rgba(150,60,180,.15);color:#c085e8;border:1px solid rgba(150,60,180,.3);}
+
+/* LINEUP */
+.lineup-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;}
+.lcard{background:var(--ink3);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);
+  padding:20px;cursor:pointer;transition:all .25s;}
+.lcard:hover{border-color:rgba(201,168,76,.25);background:var(--ink4);}
+.lcard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.lcard-name{font-size:16px;font-weight:600;color:var(--text-main);}
+.ltier{font-size:11px;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:3px;}
+.lt0{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.3);}
+.lt1{background:rgba(130,80,180,.15);color:#b388e8;border:1px solid rgba(130,80,180,.3);}
+.lheroes{display:flex;gap:8px;margin-bottom:14px;}
+.lhero{flex:1;background:var(--ink2);border-radius:var(--radius);padding:8px 6px;
+  text-align:center;font-size:22px;border:1px solid rgba(255,255,255,.05);position:relative;}
+.lhero-name{font-size:10px;color:var(--text-dim);margin-top:4px;}
+.lhero-pos{position:absolute;top:4px;left:4px;font-size:9px;color:var(--gold-dim);font-family:'Rajdhani',sans-serif;}
+.ldesc{font-size:12px;color:var(--text-dim);line-height:1.7;margin-bottom:14px;}
+.lstats{display:flex;gap:12px;}
+.sitem{display:flex;flex-direction:column;gap:3px;}
+.slabel{font-size:10px;color:var(--text-dim);}
+.sbar{width:80px;height:4px;background:var(--ink);border-radius:2px;overflow:hidden;}
+.sfill{height:100%;border-radius:2px;}
+
+/* GUIDE */
+.guide-list{display:flex;flex-direction:column;}
+.gitem{display:flex;align-items:center;gap:14px;padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;transition:all .2s;}
+.gitem:last-child{border-bottom:none;}
+.gitem:hover .gtitle{color:var(--gold-light);}
+.gbadge{flex-shrink:0;font-size:10px;font-family:'Rajdhani',sans-serif;font-weight:600;
+  letter-spacing:1px;padding:3px 8px;border-radius:3px;min-width:50px;text-align:center;}
+.bnew{background:rgba(192,57,43,.15);color:#e87f72;border:1px solid rgba(192,57,43,.3);}
+.bhot{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.3);}
+.btip{background:rgba(26,138,114,.15);color:#5dcaa5;border:1px solid rgba(26,138,114,.3);}
+.gcontent{flex:1;min-width:0;}
+.gtitle{font-size:14px;color:var(--text-main);margin-bottom:4px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .2s;}
+.gmeta{font-size:11px;color:var(--text-dim);display:flex;gap:10px;}
+.gviews{flex-shrink:0;font-size:12px;color:var(--text-dim);}
+
+/* PATCH */
+.patch-card{background:var(--ink3);border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);
+  padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+.pver{font-family:'Rajdhani',sans-serif;font-size:48px;font-weight:700;color:var(--gold);line-height:1;}
+.pname{font-size:17px;font-weight:600;color:var(--text-main);margin:8px 0 4px;}
+.pdate{font-size:12px;color:var(--text-dim);}
+.plist{list-style:none;}
+.plist li{font-size:13px;color:var(--text-sub);padding:6px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+.plist li::before{content:'';width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--text-dim);margin-top:5px;}
+.plist li.buff::before{background:#5dcaa5;}
+.plist li.nerf::before{background:#e87f72;}
+
+/* PAGE HEADER */
+.page-hd{padding:48px 32px 24px;max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.page-hd h2{font-size:32px;font-weight:700;color:var(--gold-light);margin-bottom:6px;}
+.page-hd p{font-size:14px;color:var(--text-sub);}
+.breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:10px;}
+.breadcrumb span{color:var(--gold-dim);cursor:pointer;}
+.breadcrumb span:hover{color:var(--gold);}
+
+/* MODAL */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:500;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .25s;}
+.overlay.show{opacity:1;pointer-events:all;}
+.modal{background:var(--ink3);border:1px solid rgba(201,168,76,.2);border-radius:10px;
+  max-width:640px;width:100%;max-height:86vh;overflow-y:auto;position:relative;
+  transform:translateY(18px);transition:transform .25s;}
+.overlay.show .modal{transform:translateY(0);}
+.modal-x{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.07);
+  border:none;color:var(--text-sub);font-size:18px;width:30px;height:30px;border-radius:50%;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:10;}
+.modal-x:hover{background:rgba(255,255,255,.14);color:var(--text-main);}
+
+/* HERO MODAL */
+.hm-top{display:flex;gap:22px;padding:26px 26px 18px;border-bottom:1px solid rgba(255,255,255,.06);}
+.hm-avatar{width:96px;height:128px;border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;font-size:56px;flex-shrink:0;}
+.hm-meta{flex:1;}
+.hm-name{font-size:24px;font-weight:700;color:var(--gold-light);margin-bottom:4px;}
+.hm-role{font-size:13px;color:var(--text-sub);margin-bottom:10px;}
+.hm-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+.hm-stats{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.mstat{display:flex;flex-direction:column;gap:3px;}
+.mstat-lbl{font-size:11px;color:var(--text-dim);}
+.mstat-bar{height:4px;background:var(--ink);border-radius:2px;overflow:hidden;}
+.mstat-fill{height:100%;border-radius:2px;}
+.hm-body{padding:18px 26px 26px;}
+.hm-sec{margin-bottom:18px;}
+.hm-sec h4{font-size:11px;color:var(--gold-dim);letter-spacing:2px;margin-bottom:8px;text-transform:uppercase;}
+.skill-list{display:flex;flex-direction:column;gap:7px;}
+.skill-item{display:flex;gap:10px;align-items:flex-start;}
+.skey{background:var(--ink4);border:1px solid rgba(255,255,255,.1);border-radius:4px;
+  padding:2px 7px;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;
+  color:var(--gold);min-width:28px;text-align:center;flex-shrink:0;margin-top:1px;}
+.sdesc{font-size:13px;color:var(--text-sub);line-height:1.6;}
+.sdesc strong{color:var(--text-main);}
+.equip-list{display:flex;gap:8px;flex-wrap:wrap;}
+.eitem{background:var(--ink4);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);
+  padding:7px 11px;font-size:12px;color:var(--text-sub);display:flex;align-items:center;gap:6px;}
+.tips-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.tips-list li{font-size:13px;color:var(--text-sub);line-height:1.6;padding-left:13px;position:relative;}
+.tips-list li::before{content:'·';position:absolute;left:0;color:var(--gold);}
+
+/* LINEUP MODAL */
+.lm-body{padding:22px 26px 26px;}
+.lm-heroes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px;}
+.lm-hero{background:var(--ink4);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);
+  padding:12px 8px;text-align:center;}
+.lm-icon{font-size:34px;margin-bottom:6px;}
+.lm-hname{font-size:12px;color:var(--text-main);font-weight:600;}
+.lm-hrole{font-size:10px;color:var(--text-dim);margin-top:2px;}
+.lm-hpos{font-size:10px;color:var(--gold-dim);font-family:'Rajdhani',sans-serif;margin-top:3px;}
+.vs-row{display:flex;gap:10px;margin-bottom:18px;}
+.vs-box{flex:1;border-radius:var(--radius);padding:12px;}
+.vs-title{font-size:11px;letter-spacing:2px;margin-bottom:7px;text-transform:uppercase;}
+.vs-box ul{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.vs-box li{font-size:12px;line-height:1.5;padding-left:12px;position:relative;}
+.vs-box li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;}
+.vsa{background:rgba(26,138,114,.1);border:1px solid rgba(26,138,114,.2);}
+.vsa .vs-title{color:#5dcaa5;}
+.vsa li::before{background:#5dcaa5;}
+.vsa li{color:var(--text-sub);}
+.vsd{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.2);}
+.vsd .vs-title{color:#e87f72;}
+.vsd li::before{background:#e87f72;}
+.vsd li{color:var(--text-sub);}
+.phase-list{display:flex;flex-direction:column;}
+.pitem{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.pitem:last-child{border-bottom:none;}
+.pnum{width:22px;height:22px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-family:'Rajdhani',sans-serif;color:var(--gold);flex-shrink:0;margin-top:1px;}
+.ptext{font-size:13px;color:var(--text-sub);line-height:1.6;}
+.ptext strong{color:var(--text-main);}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;z-index:600;
+  background:var(--ink4);border:1px solid rgba(201,168,76,.3);border-radius:var(--radius);
+  padding:11px 16px;font-size:13px;color:var(--text-main);
+  transform:translateY(16px);opacity:0;transition:all .28s;pointer-events:none;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);
+  padding:28px;text-align:center;font-size:12px;color:var(--text-dim);line-height:2;}
+footer a{color:var(--gold-dim);text-decoration:none;cursor:pointer;}
+footer a:hover{color:var(--gold);}
+
+@media(max-width:768px){
+  nav{padding:0 14px;}
+  .nav-links{display:none;}
+  .search-input{width:130px;}
+  .hero-banner{padding:44px 16px 32px;}
+  .hero-banner h1{font-size:30px;}
+  .quick-nav,.sec{padding:0 16px;}
+  .patch-card{grid-template-columns:1fr;}
+  .hero-grid{grid-template-columns:repeat(3,1fr);}
+  .two-col{grid-template-columns:1fr !important;}
+  .lm-heroes{grid-template-columns:repeat(2,1fr);}
+  .hm-top{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo" onclick="goPage('home')">
+    <div class="logo-hex"><span>王</span></div>王者天下
+  </div>
+  <ul class="nav-links">
+    <li><a data-page="home" class="active" onclick="goPage('home')">首页</a></li>
+    <li><a data-page="heroes" onclick="goPage('heroes')">英雄图鉴</a></li>
+    <li><a data-page="lineup" onclick="goPage('lineup')">阵容推荐</a></li>
+    <li><a data-page="equip" onclick="goPage('equip')">装备解析</a></li>
+    <li><a data-page="boss" onclick="goPage('boss')">Boss攻略</a></li>
+    <li><a data-page="newbie" onclick="goPage('newbie')">新手指南</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="search-input" id="navSearch" placeholder="搜索英雄、攻略…" autocomplete="off">
+      <div class="search-results" id="searchDrop"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero-banner">
+    <div class="hero-tag">王者荣耀世界 · 专属攻略站</div>
+    <h1>制霸天下<br>始于此处</h1>
+    <p>英雄图鉴 · 阵容搭配 · Boss攻略 · 版本解读<br>助你称霸王者世界每一寸疆土</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="goPage('heroes')">浏览英雄图鉴</button>
+      <button class="btn-ghost" onclick="goPage('newbie')">新手指南</button>
+    </div>
+  </div>
+  <div class="divider">
+    <div class="divider-line"></div><div class="divider-text">快捷入口</div><div class="divider-line"></div>
+  </div>
+  <div class="quick-nav">
+    <div class="qnav-card" style="--card-accent:#c9a84c;--icon-bg:rgba(201,168,76,.1)" onclick="goPage('heroes')">
+      <div class="qnav-icon">⚔️</div><h3>英雄图鉴</h3><p>全英雄属性、技能、出装一览</p></div>
+    <div class="qnav-card" style="--card-accent:#5dcaa5;--icon-bg:rgba(26,138,114,.1)" onclick="goPage('lineup')">
+      <div class="qnav-icon">🛡️</div><h3>阵容推荐</h3><p>T0~A 梯队阵容搭配思路</p></div>
+    <div class="qnav-card" style="--card-accent:#e87f72;--icon-bg:rgba(192,57,43,.1)" onclick="goPage('boss')">
+      <div class="qnav-icon">🐉</div><h3>Boss 攻略</h3><p>精英/世界Boss弱点与打法</p></div>
+    <div class="qnav-card" style="--card-accent:#7ea8f0;--icon-bg:rgba(52,100,200,.1)" onclick="goPage('equip')">
+      <div class="qnav-icon">📦</div><h3>装备合成</h3><p>装备树图解与适用场景</p></div>
+    <div class="qnav-card" style="--card-accent:#c085e8;--icon-bg:rgba(150,60,180,.1)" onclick="showToast('地图探索页面开发中…')">
+      <div class="qnav-icon">🗺️</div><h3>地图探索</h3><p>隐藏资源点与路线规划</p></div>
+    <div class="qnav-card" style="--card-accent:#fac775;--icon-bg:rgba(201,120,20,.1)" onclick="showToast('任务攻略页面开发中…')">
+      <div class="qnav-icon">📖</div><h3>任务攻略</h3><p>主线 / 支线全流程解析</p></div>
+  </div>
+  <div class="sec">
+    <div class="sec-header">
+      <div class="sec-title">热门英雄</div>
+      <span class="sec-more" onclick="goPage('heroes')">查看全部 →</span>
+    </div>
+    <div class="hero-grid" id="homeHeroGrid"></div>
+  </div>
+  <div class="sec">
+    <div class="sec-header">
+      <div class="sec-title">热门阵容推荐</div>
+      <span class="sec-more" onclick="goPage('lineup')">完整梯队榜 →</span>
+    </div>
+    <div class="lineup-grid" id="homeLineupGrid"></div>
+  </div>
+  <div class="sec" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start" id="homeBottom">
+    <div>
+      <div class="sec-header">
+        <div class="sec-title">最新攻略</div>
+        <span class="sec-more" onclick="showToast('攻略列表页开发中…')">更多 →</span>
+      </div>
+      <div class="guide-list" id="homeGuides"></div>
+    </div>
+    <div>
+      <div class="sec-header"><div class="sec-title">版本情报</div></div>
+      <div class="patch-card">
+        <div><div class="pver">1.2</div><div class="pname">「天裂苍穹」版本</div><div class="pdate">2025年11月14日更新</div></div>
+        <ul class="plist">
+          <li class="buff">新英雄「盘古」上线，定位战士/坦克</li>
+          <li class="buff">韩信位移距离 +10%，Q冷却缩短</li>
+          <li class="nerf">诸葛亮大招伤害 -8%，施法前摇增加</li>
+          <li class="nerf">妲己被动触发间隔延长至 1.2 秒</li>
+          <li>新增「天域秘境」副本区域开放</li>
+          <li class="buff">嫦娥治疗量提升 12%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HEROES -->
+<div class="page" id="page-heroes">
+  <div class="page-hd">
+    <div class="breadcrumb"><span onclick="goPage('home')">首页</span> / 英雄图鉴</div>
+    <h2>英雄图鉴</h2>
+    <p>共收录 <span id="heroCount">0</span> 位英雄，点击英雄卡片查看详细技能与出装推荐</p>
+  </div>
+  <div class="sec" style="margin-top:0">
+    <div class="filter-tabs" id="heroTabs">
+      <button class="filter-tab active" data-role="全部">全部</button>
+      <button class="filter-tab" data-role="战士">战士</button>
+      <button class="filter-tab" data-role="法师">法师</button>
+      <button class="filter-tab" data-role="坦克">坦克</button>
+      <button class="filter-tab" data-role="刺客">刺客</button>
+      <button class="filter-tab" data-role="辅助">辅助</button>
+      <button class="filter-tab" data-role="射手">射手</button>
+    </div>
+    <div class="hero-grid" id="heroesGrid"></div>
+  </div>
+</div>
+
+<!-- LINEUP -->
+<div class="page" id="page-lineup">
+  <div class="page-hd">
+    <div class="breadcrumb"><span onclick="goPage('home')">首页</span> / 阵容推荐</div>
+    <h2>阵容推荐</h2><p>点击阵容卡片查看详细打法、优劣势与操作节奏</p>
+  </div>
+  <div class="sec" style="margin-top:0">
+    <div class="filter-tabs" id="lineupTabs">
+      <button class="filter-tab active" data-tier="全部">全部</button>
+      <button class="filter-tab" data-tier="T0">T0 阵容</button>
+      <button class="filter-tab" data-tier="T1">T1 阵容</button>
+    </div>
+    <div class="lineup-grid" id="lineupGrid"></div>
+  </div>
+</div>
+
+<!-- BOSS -->
+<div class="page" id="page-boss">
+  <div class="page-hd">
+    <div class="breadcrumb"><span onclick="goPage('home')">首页</span> / Boss攻略</div>
+    <h2>Boss 攻略</h2><p>精英怪与世界Boss打法、弱点、掉落一览，点击查看详细攻略</p>
+  </div>
+  <div class="sec" style="margin-top:0">
+    <div class="hero-grid" id="bossGrid"></div>
+  </div>
+</div>
+
+<!-- EQUIP -->
+<div class="page" id="page-equip">
+  <div class="page-hd">
+    <div class="breadcrumb"><span onclick="goPage('home')">首页</span> / 装备解析</div>
+    <h2>装备解析</h2><p>装备合成路线图解与各职业推荐配置</p>
+  </div>
+  <div class="sec" style="margin-top:0">
+    <div class="guide-list" id="equipList"></div>
+  </div>
+</div>
+
+<!-- NEWBIE -->
+<div class="page" id="page-newbie">
+  <div class="page-hd">
+    <div class="breadcrumb"><span onclick="goPage('home')">首页</span> / 新手指南</div>
+    <h2>新手指南</h2><p>从零开始的王者世界入门教程，按顺序阅读效果最佳</p>
+  </div>
+  <div class="sec" style="margin-top:0">
+    <div class="guide-list" id="newbieList"></div>
+  </div>
+</div>
+
+<!-- MODALS -->
+<div class="overlay" id="heroOverlay" onclick="closeModal('heroOverlay')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-x" onclick="closeModal('heroOverlay')">✕</button>
+    <div id="heroModalBody"></div>
+  </div>
+</div>
+<div class="overlay" id="lineupOverlay" onclick="closeModal('lineupOverlay')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-x" onclick="closeModal('lineupOverlay')">✕</button>
+    <div id="lineupModalBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <p>王者天下 · 非官方攻略站 · 内容仅供参考</p>
+  <p><a onclick="showToast('关于我们页面开发中…')">关于我们</a> · <a onclick="showToast('投稿功能开发中…')">投稿攻略</a> · <a onclick="showToast('免责声明页面开发中…')">免责声明</a></p>
+</footer>
+
+<script>
+// ── DATA ──────────────────────────────
+const HEROES=[
+  {id:'hanxin',name:'韩信',role:'刺客',sub:'战士',icon:'🗡️',rar:'S',
+   bg:'linear-gradient(180deg,#1a1220,#2d1810)',
+   tags:[{c:'td',t:'爆发'},{c:'tc',t:'位移'}],
+   st:{atk:95,def:40,hp:55,sk:80},
+   desc:'高机动性刺客，擅长穿插突进、连段爆发击杀后排。开放世界中对单体精英怪极具威胁。',
+   skills:[
+     {key:'被动',name:'军魂',desc:'每段伤害命中敌人后，下次普攻伤害提升 15%，最多叠加 3 层。'},
+     {key:'Q',name:'逐日追风',desc:'向前突进，对路径上敌人造成 <strong>240%</strong> 物理伤害，冷却 6 秒。'},
+     {key:'W',name:'追云斩',desc:'原地蓄力后跃起，砸落目标点造成 <strong>320%</strong> 物理伤害并将敌人上挑。'},
+     {key:'R',name:'星落九天',desc:'起跳后标记地面，1.5 秒后降落造成 <strong>600%</strong> 物理伤害并击飞目标。'},
+   ],
+   equips:['⚔️ 暗影战刃','🩸 饮血剑','💨 疾风之靴','🔪 破晓之刃','🛡️ 不祥征兆'],
+   tips:['利用Q技能在精英怪换技能硬直时突进打断','大招起跳期间有无敌帧，可规避Boss爆发技','配合W的上挑效果可打断精英怪的蓄力前摇'],
+  },
+  {id:'zhugeliang',name:'诸葛亮',role:'法师',sub:'',icon:'🌊',rar:'S',
+   bg:'linear-gradient(180deg,#0d1a1a,#0a2520)',
+   tags:[{c:'td',t:'高爆发'},{c:'tc',t:'群控'}],
+   st:{atk:92,def:30,hp:45,sk:98},
+   desc:'顶级法师，超强范围AOE与减速控制。多怪场景和团战输出极为恐怖，版本核心角色。',
+   skills:[
+     {key:'被动',name:'智算',desc:'每次技能命中敌人留下印记，3个印记后触发额外 <strong>200%</strong> 法术爆炸。'},
+     {key:'Q',name:'八阵图',desc:'在目标区域部署阵法，持续 3 秒对区域内敌人造成法术伤害并减速 30%。'},
+     {key:'W',name:'七星落地',desc:'连续释放 7 颗星形冲击波，每颗造成 <strong>120%</strong> 法术伤害。'},
+     {key:'R',name:'卧龙翔天',desc:'飞升后召唤陨石阵雨，范围内造成 <strong>800%</strong> 法术伤害并眩晕 1 秒。'},
+   ],
+   equips:['📚 焚天之眼','❄️ 冰封法典','🌀 幽冥法杖','💎 虚空法球','👟 贤者之鞋'],
+   tips:['Q技能提前布置在Boss走位必经路上','W技能配合被动快速叠满3层印记触发爆炸','大招落地时机选择Boss聚怪完成后'],
+  },
+  {id:'sunwukong',name:'孙悟空',role:'战士',sub:'刺客',icon:'🔥',rar:'S',
+   bg:'linear-gradient(180deg,#1a1010,#2a1f0a)',
+   tags:[{c:'td',t:'持续'},{c:'tc',t:'控场'}],
+   st:{atk:88,def:65,hp:78,sk:75},
+   desc:'兼具爆发与续航，分身机制极难被针对，擅长持续输出和扰乱敌方阵型，适应能力极强。',
+   skills:[
+     {key:'被动',name:'齐天',desc:'血量低于 30% 时，下次技能必定留下分身，分身持续 2 秒吸引仇恨。'},
+     {key:'Q',name:'如意棒',desc:'挥舞金箍棒形成旋风，对范围内敌人造成 <strong>280%</strong> 物理伤害。'},
+     {key:'W',name:'腾云驾雾',desc:'瞬间位移至目标位置，留下分身迷惑敌人，位移距离 600 码。'},
+     {key:'R',name:'大闹天宫',desc:'变大后对周围敌人连续击打 5 次，每次 <strong>200%</strong> 物理伤害，期间可减少技能CD。'},
+   ],
+   equips:['⚔️ 无尽战刃','🩸 饮血剑','🛡️ 守护之甲','💨 疾风之靴','🔥 烈焰战刃'],
+   tips:['分身可以代替自己承受Boss的锁定技','大招期间优先消耗Boss的无敌时间窗','W位移可以翻越地图中的障碍物取捷径'],
+  },
+  {id:'change',name:'嫦娥',role:'法师',sub:'辅助',icon:'🌙',rar:'A',
+   bg:'linear-gradient(180deg,#0d1520,#0a1830)',
+   tags:[{c:'ts',t:'治疗'},{c:'tc',t:'减速'}],
+   st:{atk:70,def:55,hp:65,sk:85},
+   desc:'优秀奶师型法师，治疗量可观，减速控制为队伍创造输出窗口，持久战中不可或缺。',
+   skills:[
+     {key:'被动',name:'月华',desc:'每隔 4 秒，下次技能附带额外 <strong>150%</strong> 法术治疗效果。'},
+     {key:'Q',name:'玉兔跳跃',desc:'召唤玉兔向前突进，沿途治疗友方英雄并减速敌人 25%，持续 2 秒。'},
+     {key:'W',name:'月影乱舞',desc:'召唤月影在周围旋转 3 秒，每次命中造成 <strong>90%</strong> 法术伤害。'},
+     {key:'R',name:'嫦娥奔月',desc:'升空并召唤月光柱治疗范围内所有友方英雄，总治疗量 <strong>500%</strong> 法术强度。'},
+   ],
+   equips:['💊 圣愈圣冠','❄️ 冰封法典','📚 焚天之眼','👟 贤者之鞋','🌀 流光宝典'],
+   tips:['大招优先在Boss高伤害技能落地后释放','Q减速帮助战士角色追击逃跑精英怪','保留被动充能给治疗量最大化输出时机'],
+  },
+  {id:'daji',name:'妲己',role:'法师',sub:'',icon:'⚡',rar:'S',
+   bg:'linear-gradient(180deg,#181020,#200f2a)',
+   tags:[{c:'td',t:'范围'},{c:'tc',t:'眩晕'}],
+   st:{atk:94,def:28,hp:40,sk:95},
+   desc:'极具爆发力的范围法师，连锁闪电在多目标场景中伤害倍增，眩晕控制非常稳定可靠。',
+   skills:[
+     {key:'被动',name:'狐魅',desc:'技能命中敌人后，下次普攻附带额外 <strong>120%</strong> 法术伤害并回复少量法力。'},
+     {key:'Q',name:'锁心狐火',desc:'释放3颗追踪火球，每颗命中造成 <strong>180%</strong> 法术伤害，命中同一目标有额外加成。'},
+     {key:'W',name:'偶像魅惑',desc:'眩晕目标区域内敌人 1.2 秒，并造成 <strong>220%</strong> 法术伤害。'},
+     {key:'R',name:'女王法令',desc:'召唤闪电在敌人之间跳跃弹射 8 次，每次 <strong>160%</strong> 法术伤害，总伤害极高。'},
+   ],
+   equips:['📚 焚天之眼','💎 虚空法球','🌀 幽冥法杖','❄️ 冰封法典','👟 贤者之鞋'],
+   tips:['R大招优先在多怪聚集时释放以最大化弹射次数','W眩晕可打断大多数精英怪的蓄力前摇','Q三球尽量打同一目标触发额外伤害加成'],
+  },
+  {id:'luna',name:'露娜',role:'战士',sub:'',icon:'🌿',rar:'A',
+   bg:'linear-gradient(180deg,#0e1a10,#132015)',
+   tags:[{c:'td',t:'爆发'},{c:'tt',t:'耐久'}],
+   st:{atk:82,def:75,hp:82,sk:68},
+   desc:'兼顾爆发与生存的战士，月光刀机制在持续战斗中触发大量伤害，非常适合Solo精英怪。',
+   skills:[
+     {key:'被动',name:'月光刀',desc:'每次使用技能后，下次普攻变为月光斩，造成 <strong>200%</strong> 物理伤害并回血。'},
+     {key:'Q',name:'新月打击',desc:'快速挥砍目标造成 <strong>260%</strong> 物理伤害，并使目标短暂缓速。'},
+     {key:'W',name:'月影冲锋',desc:'向前冲锋并连续攻击路径上的所有敌人，总计 <strong>380%</strong> 物理伤害。'},
+     {key:'R',name:'月华绽放',desc:'召唤月轮绕身旋转 4 秒，期间提升护甲并每秒对周围敌人造成 <strong>200%</strong> 物理伤害。'},
+   ],
+   equips:['🛡️ 守护之甲','⚔️ 暗影战刃','🩸 饮血剑','💨 疾风之靴','🔥 日炎斗篷'],
+   tips:['利用被动月光斩循环打出最高DPS','大招期间可以主动贴脸，月轮伤害极高','W冲锋优先在多怪情况使用打出范围价值'],
+  },
+  {id:'lianpo',name:'廉颇',role:'坦克',sub:'战士',icon:'🛡️',rar:'A',
+   bg:'linear-gradient(180deg,#101820,#0a1520)',
+   tags:[{c:'tt',t:'厚血'},{c:'tc',t:'减速'}],
+   st:{atk:60,def:95,hp:98,sk:55},
+   desc:'最坚固的坦克之一，超高生存能力可以吸引所有仇恨，是队伍不可或缺的铜墙铁壁。',
+   skills:[
+     {key:'被动',name:'百战不殆',desc:'受到伤害后获得护甲层，最多叠加 5 层，每层提升 8% 物理护甲。'},
+     {key:'Q',name:'横冲直撞',desc:'向前冲锋撞击敌人，造成 <strong>180%</strong> 物理伤害并减速 40% 持续 2 秒。'},
+     {key:'W',name:'血肉之墙',desc:'进入防御姿态持续 2 秒，受到伤害减少 50%，结束后爆发反击。'},
+     {key:'R',name:'怒吼',desc:'发出战吼震慑附近所有敌人，造成 <strong>300%</strong> 物理伤害并击飞 0.8 秒。'},
+   ],
+   equips:['🛡️ 守护之甲','🔩 钢铁之心','💪 冰甲卫士','👟 坚毅战靴','🏔️ 山岳之盾'],
+   tips:['W防御姿态专门用来硬吃Boss的必杀技','主动吸引精英怪仇恨后队友输出更安全','大招击飞时机选择敌方蓄力前摇期间'],
+  },
+];
+
+const LINEUPS=[
+  {id:'l1',name:'破阵穿云流',tier:'T0',
+   heroes:[{id:'hanxin',pos:'核心C位',role:'主输出'},{id:'sunwukong',pos:'前排坦打',role:'副输出'},{id:'zhugeliang',pos:'法术覆盖',role:'远程输出'},{id:'change',pos:'后排治疗',role:'奶妈'}],
+   desc:'强爆发+高机动的进攻型阵容，适合喜欢主动进攻风格的玩家。',
+   st:{atk:90,sus:60,err:55},
+   adv:['机动性极强，可以快速脱战和追击','爆发期间单轮伤害惊人，Boss硬直窗口完全打满','嫦娥治疗可以弥补韩信的脆皮短板'],
+   dis:['容错率偏低，韩信被打断就崩','对站场持续输出类Boss较为被动','需要较高操作水平才能发挥全部潜力'],
+   phases:[
+     {t:'开局阶段',d:'孙悟空先行吸引Boss仇恨锁定前排，避免Boss直接攻击韩信。'},
+     {t:'爆发窗口',d:'Boss进入硬直后韩信Q突进，打出Q→普攻→W→普攻→R完整连招，诸葛亮大招跟进覆盖。'},
+     {t:'续航循环',d:'爆发结束后立即拉开距离，嫦娥释放大招回复全队，等待下一轮技能CD转好。'},
+     {t:'收尾阶段',d:'Boss血量低于20%时全技能爆发打出最终DPS，不必保留CD。'},
+   ],
+  },
+  {id:'l2',name:'铜墙铁壁稳阵',tier:'T0',
+   heroes:[{id:'lianpo',pos:'主坦开路',role:'坦克'},{id:'daji',pos:'群控输出',role:'法师'},{id:'luna',pos:'持续DPS',role:'战士'},{id:'change',pos:'后排治疗',role:'辅助'}],
+   desc:'以高韧性坦克开路，辅以群控法师反制敌方突进，新手友好，容错率极高。',
+   st:{atk:55,sus:88,err:92},
+   adv:['容错率极高，即使操作失误也不会团灭','持续输出稳定，适合打消耗战','廉颇完全吸收Boss仇恨保护后排'],
+   dis:['爆发伤害不足，击杀Boss时间较长','对需要速杀的限时Boss效率较低','妲己被nerf后输出有所下滑'],
+   phases:[
+     {t:'开局阶段',d:'廉颇率先进入，W防御姿态硬吃Boss第一轮开幕爆发，叠满被动护甲层。'},
+     {t:'持续输出',d:'妲己保持安全距离输出，W眩晕控制Boss技能前摇，露娜在廉颇旁跟进持续平砍。'},
+     {t:'危机处理',d:'队伍血量低于50%时嫦娥优先释放大招，廉颇开W防御，全队拉开距离等待回血。'},
+     {t:'资源争夺',d:'精英怪刷新时廉颇先行吸引，妲己R跳电覆盖多怪，最大化资源获取效率。'},
+   ],
+  },
+  {id:'l3',name:'法爆三明治',tier:'T1',
+   heroes:[{id:'zhugeliang',pos:'主力法师',role:'主输出'},{id:'daji',pos:'副法师',role:'副输出'},{id:'lianpo',pos:'人肉盾牌',role:'坦克'},{id:'change',pos:'治疗维持',role:'辅助'}],
+   desc:'双法师组合打出恐怖法术爆发，廉颇做肉盾嫦娥续航，整体输出上限极高。',
+   st:{atk:85,sus:65,err:60},
+   adv:['双法师叠加法术穿透效果显著','控制链可以无限打断Boss技能','法术伤害对多数精英怪有属性克制'],
+   dis:['物理输出几乎为零，遇到高法抗Boss头疼','前排只有廉颇一人，容错相对有限','两个法师需要精确站位避免被AOE命中'],
+   phases:[
+     {t:'开局阶段',d:'廉颇冲锋吸引仇恨，两个法师在外围等待Boss走位稳定后再进入输出区域。'},
+     {t:'控制链',d:'妲己W眩晕结束前，诸葛亮Q八阵图覆盖，形成无缝控制链，Boss无法行动。'},
+     {t:'爆发连招',d:'控制期间两位法师齐发大招，是全游戏输出效率最高的爆发窗口之一。'},
+   ],
+  },
+];
+
+const GUIDES=[
+  {badge:'bnew',bt:'NEW',title:'韩信开放世界精英怪打法全解析',cat:'英雄攻略',time:'3小时前',views:'12.4k'},
+  {badge:'bhot',bt:'HOT',title:'1.2版本最强T0阵容详解与实战演示',cat:'阵容攻略',time:'6小时前',views:'38.1k'},
+  {badge:'btip',bt:'TIP',title:'新手必看：五大隐藏资源点位置汇总',cat:'地图探索',time:'1天前',views:'21.7k'},
+  {badge:'bhot',bt:'HOT',title:'世界Boss「混沌魔君」全阶段攻略',cat:'Boss攻略',time:'2天前',views:'54.2k'},
+  {badge:'btip',bt:'TIP',title:'诸葛亮法师流出装思路：五种变体对比',cat:'出装攻略',time:'3天前',views:'17.9k'},
+];
+const BOSSES=[
+  {icon:'🐲',name:'混沌魔君',bg:'linear-gradient(180deg,#1a0a0a,#2a0f10)',rar:'S',
+   tags:[{c:'td',t:'极高伤害'},{c:'tc',t:'多阶段'}],role:'世界Boss · 天域秘境'},
+  {icon:'👹',name:'九尾妖狐',bg:'linear-gradient(180deg,#1a0a1a,#200f28)',rar:'S',
+   tags:[{c:'td',t:'魅惑控制'},{c:'tc',t:'范围AOE'}],role:'精英Boss · 幽冥森林'},
+  {icon:'🦅',name:'天命神鹰',bg:'linear-gradient(180deg,#0a1015,#0a1828)',rar:'A',
+   tags:[{c:'td',t:'快速机动'},{c:'tc',t:'俯冲攻击'}],role:'精英Boss · 苍云高地'},
+  {icon:'🐍',name:'虚空蛇神',bg:'linear-gradient(180deg,#0f1a0a,#122010)',rar:'A',
+   tags:[{c:'tt',t:'高韧性'},{c:'tc',t:'毒雾持续'}],role:'精英Boss · 毒沼泽地'},
+];
+const EQUIPS=[
+  {badge:'bhot',bt:'HOT',title:'暗影战刃：刺客首选，全合成路线与使用时机',cat:'物理装备',time:'',views:'28.3k'},
+  {badge:'btip',bt:'TIP',title:'焚天之眼：法师核心装，属性解读与适用英雄',cat:'法术装备',time:'',views:'19.7k'},
+  {badge:'bnew',bt:'NEW',title:'1.2版本装备树改动：受影响英雄出装变化',cat:'版本更新',time:'',views:'32.1k'},
+  {badge:'btip',bt:'TIP',title:'守护之甲 vs 钢铁之心：坦克装备选择指南',cat:'防御装备',time:'',views:'15.4k'},
+  {badge:'bhot',bt:'HOT',title:'饮血剑：战士续航核心，触发条件与选择时机',cat:'物理装备',time:'',views:'22.8k'},
+];
+const NEWBIE=[
+  {badge:'btip',bt:'第一步',title:'认识王者世界：地图区域与核心玩法概览',cat:'入门教程',time:'',views:''},
+  {badge:'btip',bt:'第二步',title:'如何选择你的第一个英雄？新手三强推荐',cat:'英雄选择',time:'',views:''},
+  {badge:'btip',bt:'第三步',title:'基础战斗：技能释放节奏与走位入门',cat:'战斗技巧',time:'',views:''},
+  {badge:'btip',bt:'第四步',title:'装备系统入门：从零学会合理出装',cat:'装备系统',time:'',views:''},
+  {badge:'btip',bt:'第五步',title:'资源规划：每日任务与高效升级路线',cat:'进阶攻略',time:'',views:''},
+];
+
+// ── RENDER ────────────────────────────
+function heroCardHTML(h,onclick){
+  const tags=h.tags.map(t=>`<span class="tag ${t.c}">${t.t}</span>`).join('');
+  return `<div class="hcard" data-role="${h.role}" data-sub="${h.sub||''}" onclick="${onclick}">
+    <div class="hcard-img" style="background:${h.bg}">${h.icon}<span class="hcard-rar r${h.rar.toLowerCase()}">${h.rar}</span></div>
+    <div class="hcard-info">
+      <div class="hcard-name">${h.name}</div>
+      <div class="hcard-role">${h.role}${h.sub?' · '+h.sub:''}</div>
+      <div class="hcard-tags">${tags}</div>
+    </div>
+  </div>`;
+}
+function lineupCardHTML(l){
+  const ht=l.heroes.map(lh=>{const h=HEROES.find(x=>x.id===lh.id)||{icon:'❓',name:lh.id};
+    return `<div class="lhero">${h.icon}<div class="lhero-pos">${lh.role.substring(0,2)}</div><div class="lhero-name">${h.name}</div></div>`;}).join('');
+  const tc=l.tier==='T0'?'lt0':'lt1';
+  return `<div class="lcard" data-tier="${l.tier}" onclick="openLineup('${l.id}')">
+    <div class="lcard-header"><div class="lcard-name">${l.name}</div><span class="ltier ${tc}">${l.tier}</span></div>
+    <div class="lheroes">${ht}</div>
+    <div class="ldesc">${l.desc}</div>
+    <div class="lstats">
+      <div class="sitem"><div class="slabel">爆发</div><div class="sbar"><div class="sfill" style="width:${l.st.atk}%;background:var(--red)"></div></div></div>
+      <div class="sitem"><div class="slabel">续航</div><div class="sbar"><div class="sfill" style="width:${l.st.sus}%;background:var(--teal)"></div></div></div>
+      <div class="sitem"><div class="slabel">容错</div><div class="sbar"><div class="sfill" style="width:${l.st.err}%;background:var(--gold)"></div></div></div>
+    </div>
+  </div>`;
+}
+function guideHTML(g){
+  return `<div class="gitem" onclick="showToast('攻略详情页开发中…')">
+    <span class="gbadge ${g.badge}">${g.bt}</span>
+    <div class="gcontent"><div class="gtitle">${g.title}</div>
+      <div class="gmeta">${g.cat?`<span>${g.cat}</span>`:''}${g.time?`<span>${g.time}</span>`:''}</div>
+    </div>
+    ${g.views?`<span class="gviews">${g.views}</span>`:''}
+  </div>`;
+}
+
+// ── INIT ──────────────────────────────
+function init(){
+  document.getElementById('homeHeroGrid').innerHTML=HEROES.slice(0,6).map(h=>heroCardHTML(h,`openHero('${h.id}')`)).join('');
+  document.getElementById('homeLineupGrid').innerHTML=LINEUPS.slice(0,2).map(lineupCardHTML).join('');
+  document.getElementById('homeGuides').innerHTML=GUIDES.map(guideHTML).join('');
+  document.getElementById('heroesGrid').innerHTML=HEROES.map(h=>heroCardHTML(h,`openHero('${h.id}')`)).join('');
+  document.getElementById('heroCount').textContent=HEROES.length;
+  document.getElementById('lineupGrid').innerHTML=LINEUPS.map(lineupCardHTML).join('');
+  document.getElementById('bossGrid').innerHTML=BOSSES.map(b=>{
+    const tags=b.tags.map(t=>`<span class="tag ${t.c}">${t.t}</span>`).join('');
+    return `<div class="hcard" onclick="showToast('${b.name}详细攻略开发中…')">
+      <div class="hcard-img" style="background:${b.bg}">${b.icon}<span class="hcard-rar r${b.rar.toLowerCase()}">${b.rar}</span></div>
+      <div class="hcard-info"><div class="hcard-name">${b.name}</div><div class="hcard-role">${b.role}</div><div class="hcard-tags">${tags}</div></div>
+    </div>`;
+  }).join('');
+  document.getElementById('equipList').innerHTML=EQUIPS.map(guideHTML).join('');
+  document.getElementById('newbieList').innerHTML=NEWBIE.map(guideHTML).join('');
+
+  // hero filter
+  document.getElementById('heroTabs').addEventListener('click',e=>{
+    const tab=e.target.closest('.filter-tab'); if(!tab) return;
+    document.querySelectorAll('#heroTabs .filter-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const role=tab.dataset.role;
+    document.querySelectorAll('#heroesGrid .hcard').forEach(c=>{
+      c.classList.toggle('hidden',role!=='全部'&&c.dataset.role!==role&&c.dataset.sub!==role);
+    });
+  });
+
+  // lineup filter
+  document.getElementById('lineupTabs').addEventListener('click',e=>{
+    const tab=e.target.closest('.filter-tab'); if(!tab) return;
+    document.querySelectorAll('#lineupTabs .filter-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const tier=tab.dataset.tier;
+    document.querySelectorAll('#lineupGrid .lcard').forEach(c=>{
+      c.style.display=(tier==='全部'||c.dataset.tier===tier)?'':'none';
+    });
+  });
+}
+
+// ── PAGE NAV ─────────────────────────
+function goPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.page===name));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── HERO MODAL ───────────────────────
+function openHero(id){
+  const h=HEROES.find(x=>x.id===id); if(!h) return;
+  const skills=h.skills.map(s=>`<div class="skill-item"><div class="skey">${s.key}</div><div class="sdesc"><strong>${s.name}</strong> — ${s.desc}</div></div>`).join('');
+  const equips=h.equips.map(e=>{const[ic,...r]=e.split(' ');return`<div class="eitem"><span>${ic}</span>${r.join(' ')}</div>`;}).join('');
+  const tips=h.tips.map(t=>`<li>${t}</li>`).join('');
+  document.getElementById('heroModalBody').innerHTML=`
+    <div class="hm-top">
+      <div class="hm-avatar" style="background:${h.bg}">${h.icon}</div>
+      <div class="hm-meta">
+        <div class="hm-name">${h.name}</div>
+        <div class="hm-role">${h.role}${h.sub?' · '+h.sub:''} &nbsp;·&nbsp; <span style="color:var(--gold)">★ ${h.rar}级英雄</span></div>
+        <div class="hm-tags">${h.tags.map(t=>`<span class="tag ${t.c}">${t.t}</span>`).join('')}</div>
+        <div class="hm-stats">
+          <div class="mstat"><div class="mstat-lbl">攻击</div><div class="mstat-bar"><div class="mstat-fill" style="width:${h.st.atk}%;background:var(--red)"></div></div></div>
+          <div class="mstat"><div class="mstat-lbl">防御</div><div class="mstat-bar"><div class="mstat-fill" style="width:${h.st.def}%;background:var(--teal)"></div></div></div>
+          <div class="mstat"><div class="mstat-lbl">生命</div><div class="mstat-bar"><div class="mstat-fill" style="width:${h.st.hp}%;background:#7ea8f0"></div></div></div>
+          <div class="mstat"><div class="mstat-lbl">技能</div><div class="mstat-bar"><div class="mstat-fill" style="width:${h.st.sk}%;background:var(--gold)"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="hm-body">
+      <div class="hm-sec"><h4>英雄简介</h4><p style="font-size:13px;color:var(--text-sub);line-height:1.7">${h.desc}</p></div>
+      <div class="hm-sec"><h4>技能介绍</h4><div class="skill-list">${skills}</div></div>
+      <div class="hm-sec"><h4>推荐出装</h4><div class="equip-list">${equips}</div></div>
+      <div class="hm-sec"><h4>实战技巧</h4><ul class="tips-list">${tips}</ul></div>
+    </div>`;
+  showModal('heroOverlay');
+}
+
+// ── LINEUP MODAL ─────────────────────
+function openLineup(id){
+  const l=LINEUPS.find(x=>x.id===id); if(!l) return;
+  const heroes=l.heroes.map(lh=>{const h=HEROES.find(x=>x.id===lh.id)||{icon:'❓',name:lh.id,bg:'var(--ink4)'};
+    return `<div class="lm-hero"><div class="lm-icon" style="background:${h.bg};border-radius:6px;padding:8px">${h.icon}</div>
+      <div class="lm-hname">${h.name}</div><div class="lm-hrole">${lh.role}</div><div class="lm-hpos">${lh.pos}</div></div>`;}).join('');
+  const adv=l.adv.map(a=>`<li>${a}</li>`).join('');
+  const dis=l.dis.map(d=>`<li>${d}</li>`).join('');
+  const phases=l.phases.map((p,i)=>`<div class="pitem"><div class="pnum">${i+1}</div><div class="ptext"><strong>${p.t}</strong> — ${p.d}</div></div>`).join('');
+  const tc=l.tier==='T0'?'lt0':'lt1';
+  document.getElementById('lineupModalBody').innerHTML=`
+    <div style="padding:22px 26px 14px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between">
+      <div><div style="font-size:21px;font-weight:700;color:var(--gold-light);margin-bottom:4px">${l.name}</div>
+        <div style="font-size:13px;color:var(--text-sub)">${l.desc}</div></div>
+      <span class="ltier ${tc}" style="font-size:13px;padding:4px 12px;flex-shrink:0;margin-left:12px">${l.tier}</span>
+    </div>
+    <div class="lm-body">
+      <div style="font-size:11px;color:var(--gold-dim);letter-spacing:2px;margin-bottom:8px">阵容成员</div>
+      <div class="lm-heroes">${heroes}</div>
+      <div style="font-size:11px;color:var(--gold-dim);letter-spacing:2px;margin-bottom:8px">优劣势分析</div>
+      <div class="vs-row">
+        <div class="vs-box vsa"><div class="vs-title">优势</div><ul>${adv}</ul></div>
+        <div class="vs-box vsd"><div class="vs-title">劣势</div><ul>${dis}</ul></div>
+      </div>
+      <div style="font-size:11px;color:var(--gold-dim);letter-spacing:2px;margin-bottom:8px">战斗节奏</div>
+      <div class="phase-list">${phases}</div>
+    </div>`;
+  showModal('lineupOverlay');
+}
+
+// ── MODAL / OVERLAY ──────────────────
+function showModal(id){document.getElementById(id).classList.add('show');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('show');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){document.querySelectorAll('.overlay.show').forEach(m=>m.classList.remove('show'));document.body.style.overflow='';}
+});
+
+// ── SEARCH ───────────────────────────
+const searchIdx=[
+  ...HEROES.map(h=>({icon:h.icon,name:h.name,type:'英雄',action:()=>{goPage('heroes');setTimeout(()=>openHero(h.id),80);}})),
+  ...LINEUPS.map(l=>({icon:'🛡️',name:l.name,type:'阵容',action:()=>{goPage('lineup');setTimeout(()=>openLineup(l.id),80);}})),
+  ...BOSSES.map(b=>({icon:b.icon,name:b.name,type:'Boss',action:()=>goPage('boss')})),
+  {icon:'📖',name:'新手指南',type:'页面',action:()=>goPage('newbie')},
+  {icon:'📦',name:'装备解析',type:'页面',action:()=>goPage('equip')},
+];
+const ns=document.getElementById('navSearch');
+const sd=document.getElementById('searchDrop');
+ns.addEventListener('input',()=>{
+  const q=ns.value.trim();
+  if(!q){sd.classList.remove('show');return;}
+  const res=searchIdx.filter(x=>x.name.includes(q)||x.type.includes(q)).slice(0,7);
+  sd.innerHTML=res.length
+    ? res.map((r,i)=>`<div class="search-result-item" data-i="${i}"><div class="search-result-icon">${r.icon}</div><div><div class="search-result-name">${r.name}</div><div class="search-result-type">${r.type}</div></div></div>`).join('')
+    : `<div class="search-result-item"><div class="search-result-icon">🔍</div><div><div class="search-result-name" style="color:var(--text-dim)">未找到相关内容</div></div></div>`;
+  sd.classList.add('show');
+  sd.querySelectorAll('[data-i]').forEach(el=>{
+    el.addEventListener('click',()=>{res[+el.dataset.i].action();sd.classList.remove('show');ns.value='';});
+  });
+});
+ns.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Enter'){sd.classList.remove('show');}});
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))sd.classList.remove('show');});
+
+// ── TOAST ────────────────────────────
+let tt;
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200);
+}
+
+init();
+</script>
+</body>
+</html>
