@@ -4,7 +4,153 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GamePanduan — Game Guides & Walkthroughs</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    :root {
+      --accent: #e63946;
+      --accent-light: #f4a261;
+      --bg-dark: #0d0d0d;
+      --bg-card: #141414;
+      --bg-card-hover: #1e1e1e;
+      --text-primary: #e8e6e3;
+      --text-secondary: #a09d98;
+      --border: #2a2a2a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    a { color: var(--accent-light); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    /* Nav */
+    .navbar {
+      background: linear-gradient(180deg, #111 0%, var(--bg-dark) 100%);
+      border-bottom: 2px solid var(--accent);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    .nav-links a { color: var(--text-secondary); font-weight: 500; padding: 0.5rem 0; border-bottom: 2px solid transparent; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      background: linear-gradient(180deg, rgba(230,57,70,0.08) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 { font-size: 3rem; color: var(--accent); margin-bottom: 1rem; letter-spacing: 2px; }
+    .hero p { font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+
+    /* Container */
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+    /* Section */
+    .section { margin: 3rem 0; }
+    .section h2 { color: var(--accent); font-size: 1.8rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent); display: inline-block; }
+    .section > p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.05rem; }
+
+    /* Cards */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: transform 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); background: var(--bg-card-hover); }
+    .card h3 { color: var(--accent-light); margin-bottom: 0.75rem; font-size: 1.2rem; }
+    .card p { color: var(--text-secondary); font-size: 0.95rem; }
+    a.card { display: block; }
+    a.card:hover h3 { color: var(--accent); }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin: 0.5rem 0.25rem 0 0;
+    }
+    .tag-rpg { background: rgba(244,162,97,0.15); color: var(--accent-light); }
+    .tag-action { background: rgba(230,57,70,0.15); color: var(--accent); }
+    .tag-hard { background: rgba(192,57,43,0.2); color: #e74c3c; }
+
+    /* Table */
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; }
+    th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: rgba(230,57,70,0.12); color: var(--accent); font-weight: 600; }
+    tr:hover { background: rgba(255,255,255,0.03); }
+
+    /* Amazon */
+    .amazon-section {
+      background: linear-gradient(135deg, rgba(230,57,70,0.08) 0%, transparent 100%);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .amazon-section h3 { color: var(--accent); margin-bottom: 0.75rem; }
+    .amazon-section p { color: var(--text-secondary); margin-bottom: 1rem; }
+    .amazon-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), #c0392b);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: bold;
+      margin: 0.4rem;
+      transition: transform 0.2s;
+    }
+    .amazon-btn:hover { transform: scale(1.05); color: #fff; }
+
+    /* Disclaimer */
+    .disclaimer {
+      background: rgba(255,255,255,0.03);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      border-radius: 0 8px 8px 0;
+    }
+    .disclaimer strong { color: var(--accent); }
+
+    /* Footer */
+    .footer {
+      background: #0a0a0a;
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .navbar { flex-direction: column; align-items: flex-start; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  
   <meta http-equiv="Content-Security-Policy"
     content="script-src 'self' 'unsafe-inline' 'unsafe-eval' *; script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' *;">
   <script src="https://pl29394501.profitablecpmratenetwork.com/4c/10/22/4c1022b0545ba449de23968397f57708.js"></script>
@@ -15,7 +161,7 @@
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="EldenRing/index.html">Elden Ring</a></li>
-      <li><a href="Sekiro/index.html">Sekiro</a></li>
+      <li><a href="SekiroGuide/index.html">Sekiro</a></li>
       <li><a href="#games">All Games</a></li>
       <li><a href="#about">About</a></li>
     </ul>
@@ -65,15 +211,15 @@
       <div class="card-grid">
         <a href="EldenRing/index.html" class="card" style="text-decoration:none;">
           <h3>🔥 Elden Ring</h3>
-          <p>Complete walkthrough for the Lands Between. Boss strategies for Malenia, Radahn, and more. Bleed builds, sorcery setups, and colossal strength loadouts. Interactive map with region progression.</p>
-          <span class="tag tag-type">Open World RPG</span>
-          <span class="tag tag-difficulty-hard">Hard</span>
+          <p>Complete walkthrough for the Lands Between. Boss strategies for Malenia, Radahn, and more. Bleed builds, sorcery setups, and colossal strength loadouts.</p>
+          <span class="tag tag-rpg">Open World RPG</span>
+          <span class="tag tag-hard">Hard</span>
         </a>
-        <a href="Sekiro/index.html" class="card" style="text-decoration:none;">
+        <a href="SekiroGuide/index.html" class="card" style="text-decoration:none;">
           <h3>🗡️ Sekiro: Shadows Die Twice</h3>
           <p>Master the way of the shinobi. Deflection timing, Perilous Attack counters, and prosthetic builds. Full boss guides for Isshin, Guardian Ape, and Lady Butterfly.</p>
-          <span class="tag tag-type">Action / Stealth</span>
-          <span class="tag tag-difficulty-hard">Very Hard</span>
+          <span class="tag tag-action">Action / Stealth</span>
+          <span class="tag tag-hard">Very Hard</span>
         </a>
       </div>
       <p style="margin-top:1.5rem; color: var(--text-secondary);">More games coming soon. Follow us for updates.</p>
@@ -98,13 +244,13 @@
         <h3>Get the Games</h3>
         <p>Support this guide by purchasing through our affiliate links:</p>
         <a href="https://amzn.to/4u0x9gY" target="_blank" rel="nofollow" class="amazon-btn">
-          Buy Elden Ring (PS5) on Amazon
+          Buy Elden Ring (PS5)
         </a>
         <a href="https://amzn.to/4wj3AIL" target="_blank" rel="nofollow" class="amazon-btn">
-          Buy Sekiro (PS5) on Amazon
+          Buy Sekiro (PS5)
         </a>
         <a href="https://amzn.to/4u0dlKt" target="_blank" rel="nofollow" class="amazon-btn">
-          Buy Controller on Amazon
+          Buy Controller
         </a>
       </div>
     </section>
@@ -119,7 +265,8 @@
     <p> GamePanduan — Game Guides & Walkthroughs. Not affiliated with game publishers or developers.</p>
     <p>All game content and trademarks belong to their respective owners.</p>
   </footer>
-  <script src="assets/main.js"></script>
-  <script src="https://pl29394499.profitablecpmratenetwork.com/07/72/62/0772626ee22582f2a64ddfcc02038e52.js"></script>
+
+    <script src="https://pl29394499.profitablecpmratenetwork.com/07/72/62/0772626ee22582f2a64ddfcc02038e52.js"></script>
+
 </body>
 </html>
