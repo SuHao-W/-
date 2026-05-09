@@ -124,3 +124,7 @@ This project is open source. Feel free to fork, modify, and deploy your own vers
 ---
 
 *Happy gaming. Hesitation is defeat.* 🎮
+
+
+## 攻略清单
+黑魂3、艾尔登法环、只狼、王者荣耀世界
