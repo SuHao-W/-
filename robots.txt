@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gamepanduan.dpdns.org/sitemap.xml
