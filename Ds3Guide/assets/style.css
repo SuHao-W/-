@@ -31,10 +31,13 @@ tr:hover{background:rgba(255,255,255,0.03)}
 .tag-med{background:rgba(244,162,97,0.2);color:var(--accent-light)}
 .tag-hard{background:rgba(192,57,43,0.2);color:var(--danger)}
 .tag-type{background:rgba(125,60,255,0.2);color:var(--magic)}
-.amazon-section{background:linear-gradient(135deg,rgba(232,93,4,0.1) 0%,rgba(232,93,4,0.02) 100%);border:1px solid var(--accent);border-radius:8px;padding:1.5rem;margin:2rem 0;text-align:center}
-.amazon-section h3{color:var(--accent);margin-bottom:0.75rem}
-.amazon-btn{display:inline-block;background:linear-gradient(135deg,var(--accent),#c0392b);color:#fff;padding:0.75rem 2rem;border-radius:6px;font-weight:bold;margin:0.4rem;transition:transform 0.2s}
-.amazon-btn:hover{transform:scale(1.05);color:#fff}
+.amazon-section{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;margin:3rem 0;text-align:center;position:relative;overflow:hidden}
+.amazon-section::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#ff6b35)}
+.amazon-section h3{color:var(--accent);margin-bottom:0.5rem;font-size:1.3rem}
+.amazon-section p{color:var(--text-secondary);margin-bottom:1.25rem;font-size:0.95rem}
+.amazon-btn{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#ff9500,#e85d04);color:#fff;padding:0.85rem 2rem;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(232,93,4,0.3)}
+.amazon-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,93,4,0.4);color:#fff}
+.amazon-btn::before{content:"🛒";font-size:1.1rem}
 .disclaimer{background:rgba(255,255,255,0.03);border-left:3px solid var(--accent);padding:1rem 1.5rem;margin:2rem 0;font-size:0.9rem;color:var(--text-secondary);border-radius:0 8px 8px 0}
 .disclaimer strong{color:var(--accent)}
 .footer{background:#0a0a0a;border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--text-secondary);font-size:0.9rem;margin-top:3rem}
