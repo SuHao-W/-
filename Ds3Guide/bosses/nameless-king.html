@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nameless King Boss Guide — DS3 Guide</title>
   <link rel="stylesheet" href="../assets/style.css">
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' *; script-src-elem 'self' 'unsafe-inline' 'unsafe-eval' *;">
-  <script src="https://pl29394501.profitablecpmratenetwork.com/4c/10/22/4c1022b0545ba449de23968397f57708.js"></script>
+  <script src="../assets/ads.js"></script>
 </head>
 <body>
   <nav class="navbar">
@@ -113,21 +112,54 @@
       </div>
     </section>
     
-    <div class="amazon-section">
-      <h3>Get Dark Souls 3</h3>
-      <p>Support this guide by purchasing through our affiliate link:</p>
-      <a href="https://amzn.to/4d5BHuY" target="_blank" rel="nofollow" class="amazon-btn">Buy Dark Souls 3: Fire Fades Edition (PS4) on Amazon</a>
-    </div>
-    <div class="disclaimer">
-      <strong>Amazon Affiliate Disclosure:</strong> This site contains affiliate links. As an Amazon Associate, we earn from qualifying purchases. This comes at no additional cost to you and helps support the maintenance of this guide.
-    </div>
+
 
   </main>
+    <div id="ads-container"></div>
+    <script src="../assets/load-ads.js"></script>
 
   <footer class="footer">
     <p> Dark Souls 3 Guide — Unofficial fan project. Not affiliated with FromSoftware or Bandai Namco.</p>
     <p>All game content and trademarks belong to their respective owners.</p>
   </footer>
-  <script src="https://pl29394499.profitablecpmratenetwork.com/07/72/62/0772626ee22582f2a64ddfcc02038e52.js"></script>
+
+
+<script>
+(function() {
+  // Collapsible
+  document.querySelectorAll('.collapsible').forEach(function(c) {
+    var h = c.querySelector('.collapsible-header');
+    if (h) h.addEventListener('click', function() { c.classList.toggle('open'); });
+  });
+
+  // Nav highlight
+  var path = window.location.pathname;
+  document.querySelectorAll('.nav-links a').forEach(function(link) {
+    var href = link.getAttribute('href') || '';
+    var isActive = false;
+    if (href.indexOf('faq') !== -1 && path.indexOf('faq') !== -1) isActive = true;
+    else if (href.indexOf('characters') !== -1 && path.indexOf('characters') !== -1) isActive = true;
+    else if (href.indexOf('bosses') !== -1 && path.indexOf('bosses') !== -1) isActive = true;
+    else if (href.indexOf('builds') !== -1 && path.indexOf('builds') !== -1) isActive = true;
+    else if (href.indexOf('tips') !== -1 && path.indexOf('tips') !== -1) isActive = true;
+    else if (href.indexOf('map') !== -1 && path.indexOf('map') !== -1) isActive = true;
+    else if ((href === 'index.html' || href.indexOf('/index.html') !== -1) && (path.endsWith('index.html') || path.endsWith('/'))) isActive = true;
+    if (isActive) link.classList.add('active');
+  });
+
+  // FAQ search
+  document.querySelectorAll('.search-box').forEach(function(box) {
+    var target = box.dataset.target;
+    if (!target) return;
+    box.addEventListener('input', function(e) {
+      var q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll(target).forEach(function(item) {
+        item.style.display = (q === '' || item.textContent.toLowerCase().indexOf(q) !== -1) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

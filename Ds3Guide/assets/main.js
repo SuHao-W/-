@@ -11,20 +11,53 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ===== NAVIGATION HIGHLIGHT =====
+  var currentUrl = window.location.href;
   var currentPath = window.location.pathname;
-  var currentFile = currentPath.split('/').pop() || 'index.html';
-  var currentFolder = currentPath.split('/').slice(-2)[0];
 
   document.querySelectorAll('.nav-links a').forEach(function(link) {
-    link.classList.remove('active');
     var href = link.getAttribute('href');
-    if (href) {
-      var linkFolder = href.split('/').slice(-2)[0];
-      var linkFile = href.split('/').pop();
-      // Match by folder first, then by file
-      if (currentFolder === linkFolder || currentFile === linkFile) {
-        link.classList.add('active');
+    if (!href) return;
+
+    // 获取链接的绝对路径
+    var linkUrl = new URL(href, window.location.origin + currentPath).pathname;
+    var currentUrlPath = currentPath;
+
+    // 简化匹配：如果当前路径包含链接的关键部分
+    var isActive = false;
+
+    // 首页特殊处理
+    if (href === 'index.html' || href === './index.html') {
+      if (currentUrlPath.endsWith('/index.html') || currentUrlPath.endsWith('/')) {
+        isActive = true;
       }
+    }
+    // FAQ特殊处理
+    else if (href.indexOf('faq.html') !== -1) {
+      if (currentUrlPath.indexOf('faq.html') !== -1) {
+        isActive = true;
+      }
+    }
+    // 子目录匹配
+    else if (href.indexOf('characters/') !== -1 && currentUrlPath.indexOf('characters') !== -1) {
+      isActive = true;
+    }
+    else if (href.indexOf('bosses/') !== -1 && currentUrlPath.indexOf('bosses') !== -1) {
+      isActive = true;
+    }
+    else if (href.indexOf('builds/') !== -1 && currentUrlPath.indexOf('builds') !== -1) {
+      isActive = true;
+    }
+    else if (href.indexOf('tips/') !== -1 && currentUrlPath.indexOf('tips') !== -1) {
+      isActive = true;
+    }
+    else if (href.indexOf('map/') !== -1 && currentUrlPath.indexOf('map') !== -1) {
+      isActive = true;
+    }
+
+    if (isActive) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
   });
 
