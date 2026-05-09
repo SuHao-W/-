@@ -1,28 +1,23 @@
 
 // Load ads and affiliate content from ads.html
-// Modifying ads.html updates ALL pages automatically
+// The correct path is set via data-ads-path on the ads-container element
 (function() {
   var container = document.getElementById('ads-container');
   if (!container) return;
 
-  // Determine correct path based on current page depth
-  var path = window.location.pathname;
-  var parts = path.split('/').filter(function(p) { return p.length > 0; });
-  var depth = 0;
-  for (var i = 0; i < parts.length; i++) {
-    if (parts[i].indexOf('.html') === -1) depth++;
+  var adsPath = container.getAttribute('data-ads-path');
+  if (!adsPath) {
+    console.error('ads-container missing data-ads-path attribute');
+    return;
   }
-  var prefix = '';
-  for (var i = 0; i < depth; i++) prefix += '../';
 
-  fetch(prefix + 'ads.html')
+  fetch(adsPath)
     .then(function(r) { return r.text(); })
     .then(function(html) {
-      // Parse the fetched HTML
       var parser = new DOMParser();
       var doc = parser.parseFromString(html, 'text/html');
 
-      // 1. Move head-positioned scripts to document.head
+      // Move head-positioned scripts to document.head
       var headScripts = doc.querySelectorAll('script[data-ad-position="head"]');
       headScripts.forEach(function(script) {
         var newScript = document.createElement('script');
@@ -31,11 +26,11 @@
         document.head.appendChild(newScript);
       });
 
-      // 2. Insert body content (amazon + disclaimer) into container
+      // Insert body content into container
       var bodyContent = html.replace(/<script[^>]*data-ad-position="head"[^>]*><\/script>/g, '');
       container.innerHTML = bodyContent;
 
-      // 3. Execute body-positioned scripts
+      // Execute body-positioned scripts
       var bodyScripts = container.querySelectorAll('script[data-ad-position="body"]');
       bodyScripts.forEach(function(oldScript) {
         var newScript = document.createElement('script');
