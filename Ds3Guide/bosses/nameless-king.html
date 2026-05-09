@@ -125,28 +125,39 @@
 
 <script>
 (function() {
-  // Collapsible
+  // Collapsible sections
   document.querySelectorAll('.collapsible').forEach(function(c) {
     var h = c.querySelector('.collapsible-header');
     if (h) h.addEventListener('click', function() { c.classList.toggle('open'); });
   });
 
-  // Nav highlight
-  var path = window.location.pathname;
+  // Navigation highlight - based on current URL path
+  var path = window.location.pathname.toLowerCase();
   document.querySelectorAll('.nav-links a').forEach(function(link) {
-    var href = link.getAttribute('href') || '';
+    link.classList.remove('active');
+    var href = (link.getAttribute('href') || '').toLowerCase();
     var isActive = false;
-    if (href.indexOf('faq') !== -1 && path.indexOf('faq') !== -1) isActive = true;
-    else if (href.indexOf('characters') !== -1 && path.indexOf('characters') !== -1) isActive = true;
-    else if (href.indexOf('bosses') !== -1 && path.indexOf('bosses') !== -1) isActive = true;
-    else if (href.indexOf('builds') !== -1 && path.indexOf('builds') !== -1) isActive = true;
-    else if (href.indexOf('tips') !== -1 && path.indexOf('tips') !== -1) isActive = true;
-    else if (href.indexOf('map') !== -1 && path.indexOf('map') !== -1) isActive = true;
-    else if ((href === 'index.html' || href.indexOf('/index.html') !== -1) && (path.endsWith('index.html') || path.endsWith('/'))) isActive = true;
+
+    if (path.indexOf('/characters/') !== -1 || path.indexOf('/characters.') !== -1) {
+      isActive = href.indexOf('characters') !== -1;
+    } else if (path.indexOf('/bosses/') !== -1 || path.indexOf('/bosses.') !== -1) {
+      isActive = href.indexOf('bosses') !== -1;
+    } else if (path.indexOf('/builds/') !== -1 || path.indexOf('/builds.') !== -1) {
+      isActive = href.indexOf('builds') !== -1;
+    } else if (path.indexOf('/tips/') !== -1 || path.indexOf('/tips.') !== -1) {
+      isActive = href.indexOf('tips') !== -1;
+    } else if (path.indexOf('/map/') !== -1 || path.indexOf('/map.') !== -1) {
+      isActive = href.indexOf('map') !== -1;
+    } else if (path.indexOf('faq') !== -1) {
+      isActive = href.indexOf('faq') !== -1;
+    } else if (path.endsWith('/index.html') || path.endsWith('/')) {
+      isActive = href.indexOf('index.html') !== -1 && href.indexOf('/') === -1;
+    }
+
     if (isActive) link.classList.add('active');
   });
 
-  // FAQ search
+  // FAQ search filter
   document.querySelectorAll('.search-box').forEach(function(box) {
     var target = box.dataset.target;
     if (!target) return;
