@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident Evil 9 - B.O.W. Omega Boss Guide</title>
+  <meta name="description" content="Complete strategy guide for B.O.W. Omega boss fight">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../characters/index.html">Characters</a></li>
+        <li><a href="index.html" class="active">Bosses</a></li>
+        <li><a href="../builds/index.html">Builds</a></li>
+        <li><a href="../tips/index.html">Tips</a></li>
+        <li><a href="../map/index.html">Map</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>B.O.W. Omega</h1>
+    
+    <div class="card">
+      <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=armored%20mech%20robot%20BOW%20boss%20Resident%20Evil%20sci-fi%20weapon&image_size=landscape_16_9" alt="B.O.W. Omega" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+      <h2 class="card-title">Overview</h2>
+      <p class="card-description">
+        B.O.W. Omega is the ultimate bioweapon, combining organic tissue with advanced armor and weaponry. It's designed to be the perfect killing machine.
+      </p>
+      <div style="margin-top: 15px;">
+        <span class="weakness-tag">Plasma</span>
+        <span class="weakness-tag">EMP</span>
+        <span class="weakness-tag">Energy Weapons</span>
+      </div>
+    </div>
+
+    <h2>Phase Breakdown</h2>
+    
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 1 - Deployment</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 100% - 65%</p>
+        <p>B.O.W. Omega activates and begins its assault with basic attacks.</p>
+        <ul>
+          <li><strong>Missile Barrage:</strong> Launches multiple rockets</li>
+          <li><strong>Arm Cannon:</strong> Rapid energy shots</li>
+          <li><strong>Charge:</strong> Full-speed ramming attack</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 2 - Systems Active</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 65% - 30%</p>
+        <p>Omega activates its advanced systems, becoming more dangerous.</p>
+        <ul>
+          <li><strong>Shield:</strong> Energy barrier</li>
+          <li><strong>Plasma Sword:</strong> Melee attacks</li>
+          <li><strong>Targeted Laser:</strong> Precision beam attack</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 3 - Overdrive</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 30% - 0%</p>
+        <p>Omega enters overdrive mode, attacking with all systems.</p>
+        <ul>
+          <li><strong>Omega Cannon:</strong> Massive energy blast</li>
+          <li><strong>Self-Destruct:</strong> Final explosion attempt</li>
+          <li><strong>Unlimited Ammo:</strong> Continuous fire</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Recommended Build</h2>
+    <div class="build-item">
+      <h3>Anti-Armor</h3>
+      <ul>
+        <li><strong>Primary Weapon:</strong> Plasma Rifle</li>
+        <li><strong>Secondary Weapon:</strong> Rocket Launcher</li>
+        <li><strong>Equipment:</strong> EMP Grenades x5</li>
+        <li><strong>Skills:</strong> Precision Aim, Iron Will</li>
+      </ul>
+    </div>
+
+    <h2>Weakness Analysis</h2>
+    <div class="card">
+      <h3 class="card-title">Key Weak Points</h3>
+      <ul>
+        <li><strong>Power Core:</strong> Critical hit area (3x multiplier)</li>
+        <li><strong>Joint Armor:</strong> Weaker at joints</li>
+        <li><strong>Optics:</strong> Blind with flashbangs</li>
+      </ul>
+      <p style="margin-top: 15px;"><strong>Tip:</strong> Use EMP to disable shields and weapons temporarily.</p>
+    </div>
+
+    <div id="ads-container" data-ads-path="../ads.html"></div>
+  </main>
+
+  <script src="../assets/load-ads.js"></script>
+  <script>
+    document.querySelectorAll('.collapsible-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const collapsible = header.parentElement;
+        collapsible.classList.toggle('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === 'index.html') {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

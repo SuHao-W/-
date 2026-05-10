@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident Evil 9 - The Specter Boss Guide</title>
+  <meta name="description" content="Complete strategy guide for The Specter boss fight">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../characters/index.html">Characters</a></li>
+        <li><a href="index.html" class="active">Bosses</a></li>
+        <li><a href="../builds/index.html">Builds</a></li>
+        <li><a href="../tips/index.html">Tips</a></li>
+        <li><a href="../map/index.html">Map</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>The Specter</h1>
+    
+    <div class="card">
+      <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=ghost%20spirit%20specter%20phantom%20horror%20boss%20Resident%20Evil%20dark&image_size=landscape_16_9" alt="The Specter" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+      <h2 class="card-title">Overview</h2>
+      <p class="card-description">
+        The Specter is a ghostly entity that can phase through walls and attack from unexpected angles. It uses fear and illusions to disorient its prey.
+      </p>
+      <div style="margin-top: 15px;">
+        <span class="weakness-tag">Light</span>
+        <span class="weakness-tag">Holy Items</span>
+        <span class="weakness-tag">Silver Bullets</span>
+      </div>
+    </div>
+
+    <h2>Phase Breakdown</h2>
+    
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 1 - Manifestation</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 100% - 70%</p>
+        <p>The Specter appears as a translucent figure, attacking from shadows and using basic ghostly abilities.</p>
+        <ul>
+          <li><strong>Phantom Strike:</strong> Quick melee attack</li>
+          <li><strong>Teleport:</strong> Disappears and reappears</li>
+          <li><strong>Fear Aura:</strong> Slows player movement</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 2 - Illusions</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 70% - 35%</p>
+        <p>The Specter creates illusions to confuse the player while attacking.</p>
+        <ul>
+          <li><strong>Clone Creation:</strong> Spawns fake copies</li>
+          <li><strong>Mirror Image:</strong> Reflects damage briefly</li>
+          <li><strong>Shadow Bind:</strong> Traps player in darkness</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 3 - True Form</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 35% - 0%</p>
+        <p>The Specter reveals its true form, becoming more powerful and aggressive.</p>
+        <ul>
+          <li><strong>Reality Rift:</strong> Alters the environment</li>
+          <li><strong>Soul Drain:</strong> Drains health over time</li>
+          <li><strong>Final Possession:</strong> Instant kill if caught</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Recommended Build</h2>
+    <div class="build-item">
+      <h3>Holy Weapons</h3>
+      <ul>
+        <li><strong>Primary Weapon:</strong> Silver Revolver</li>
+        <li><strong>Secondary Weapon:</strong> Light Crossbow</li>
+        <li><strong>Equipment:</strong> Flashlights, Holy Grenades</li>
+        <li><strong>Skills:</strong> Stealth Master, Fast Heal</li>
+      </ul>
+    </div>
+
+    <h2>Weakness Analysis</h2>
+    <div class="card">
+      <h3 class="card-title">Key Weak Points</h3>
+      <ul>
+        <li><strong>Core:</strong> Glowing center (3x multiplier)</li>
+        <li><strong>Light Sources:</strong> Repelled by bright light</li>
+        <li><strong>Silver:</strong> Holy damage effective</li>
+      </ul>
+      <p style="margin-top: 15px;"><strong>Tip:</strong> Use flashlights to keep The Specter at bay and reveal its true position.</p>
+    </div>
+
+    <div id="ads-container" data-ads-path="../ads.html"></div>
+  </main>
+
+  <script src="../assets/load-ads.js"></script>
+  <script>
+    document.querySelectorAll('.collapsible-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const collapsible = header.parentElement;
+        collapsible.classList.toggle('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === 'index.html') {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

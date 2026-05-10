@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident Evil 9 - FAQ</title>
+  <meta name="description" content="Frequently asked questions about Resident Evil 9">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="characters/index.html">Characters</a></li>
+        <li><a href="bosses/index.html">Bosses</a></li>
+        <li><a href="builds/index.html">Builds</a></li>
+        <li><a href="tips/index.html">Tips</a></li>
+        <li><a href="map/index.html">Map</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Frequently Asked Questions</h1>
+    
+    <div class="card">
+      <h2 class="card-title">Search FAQs</h2>
+      <input type="text" id="faq-search" class="search-box" placeholder="Search for answers...">
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>When is Resident Evil 9 releasing?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>Resident Evil 9 is scheduled to release in [TBD]. Stay tuned for official announcements from Capcom.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>Which platforms will RE9 be available on?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>Resident Evil 9 will be available on PlayStation 5, Xbox Series X/S, and PC. Next-gen consoles will feature enhanced graphics and performance.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>Is RE9 a direct sequel to RE8?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>While RE9 continues the overall Resident Evil storyline, it features new characters and a fresh setting. It maintains connections to previous games but is accessible to new players.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>Will there be multiplayer modes?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>Resident Evil 9 focuses on single-player storytelling. However, Capcom has hinted at potential post-launch content including co-op modes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>What difficulty levels are available?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>RE9 offers multiple difficulty settings: Casual, Normal, Hard, and Nightmare. Each setting adjusts enemy health, damage, and resource availability.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>How long is the main story?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>The main story campaign takes approximately 15-20 hours to complete, depending on exploration and difficulty. Completionists can expect 30+ hours.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>Are there any returning characters?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>Yes, several classic Resident Evil characters make appearances, including Chris Redfield and Jill Valentine, alongside new protagonists.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>What is the recommended play order?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>While RE9 can be enjoyed standalone, playing Resident Evil 7 and 8 first provides valuable context for the ongoing storyline.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>Does RE9 support VR?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>VR support is planned as post-launch DLC, similar to Resident Evil 7. The VR mode will offer an immersive first-person experience.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item visible">
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h4>How many endings does RE9 have?</h4>
+          <span class="collapsible-icon">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <p>Resident Evil 9 features multiple endings based on player choices throughout the game. The true ending requires completing specific objectives.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="ads-container" data-ads-path="ads.html"></div>
+  </main>
+
+  <script src="assets/load-ads.js"></script>
+  <script>
+    document.querySelectorAll('.collapsible-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const collapsible = header.parentElement;
+        collapsible.classList.toggle('active');
+      });
+    });
+
+    document.getElementById('faq-search').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('h4').textContent.toLowerCase();
+        if (question.includes(searchTerm)) {
+          item.classList.add('visible');
+        } else {
+          item.classList.remove('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

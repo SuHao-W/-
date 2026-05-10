@@ -127,4 +127,4 @@ This project is open source. Feel free to fork, modify, and deploy your own vers
 
 
 ## 攻略清单
-黑魂3、艾尔登法环、只狼、王者荣耀世界
+黑魂3、艾尔登法环、只狼、王者荣耀世界、暗黑破坏神4

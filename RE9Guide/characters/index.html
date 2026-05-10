@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident Evil 9 - Characters</title>
+  <meta name="description" content="Character profiles, abilities and skill trees for Resident Evil 9">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="index.html" class="active">Characters</a></li>
+        <li><a href="../bosses/index.html">Bosses</a></li>
+        <li><a href="../builds/index.html">Builds</a></li>
+        <li><a href="../tips/index.html">Tips</a></li>
+        <li><a href="../map/index.html">Map</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Characters & Skills</h1>
+    
+    <div class="card">
+      <h2 class="card-title">Main Protagonists</h2>
+      <p class="card-description">
+        Meet the heroes of Resident Evil 9. Each character brings unique abilities and playstyles to survive the horrors ahead.
+      </p>
+    </div>
+
+    <div class="boss-grid">
+      <div class="boss-card">
+        <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=Resident%20Evil%20protagonist%20male%20survivor%20dark%20horror%20game%20portrait&image_size=square_hd" alt="Chris Redfield">
+        <h3>Chris Redfield</h3>
+        <p>Former BSAA operative with unmatched combat experience.</p>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <label>Strength</label>
+            <value>90</value>
+          </div>
+          <div class="stat-item">
+            <label>Speed</label>
+            <value>65</value>
+          </div>
+          <div class="stat-item">
+            <label>Stamina</label>
+            <value>85</value>
+          </div>
+        </div>
+      </div>
+
+      <div class="boss-card">
+        <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=Resident%20Evil%20female%20protagonist%20survivor%20dark%20horror%20game%20portrait&image_size=square_hd" alt="Jill Valentine">
+        <h3>Jill Valentine</h3>
+        <p>Master of stealth and precision with quick reflexes.</p>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <label>Strength</label>
+            <value>70</value>
+          </div>
+          <div class="stat-item">
+            <label>Speed</label>
+            <value>95</value>
+          </div>
+          <div class="stat-item">
+            <label>Stamina</label>
+            <value>75</value>
+          </div>
+        </div>
+      </div>
+
+      <div class="boss-card">
+        <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=Resident%20Evil%20new%20character%20young%20survivor%20dark%20horror%20portrait&image_size=square_hd" alt="New Character">
+        <h3>Alex Chen</h3>
+        <p>Biologist with unique knowledge of the infection.</p>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <label>Strength</label>
+            <value>55</value>
+          </div>
+          <div class="stat-item">
+            <label>Speed</label>
+            <value>80</value>
+          </div>
+          <div class="stat-item">
+            <label>Stamina</label>
+            <value>70</value>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Skill Trees</h2>
+    
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Combat Skills</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <ul>
+          <li><strong>Heavy Strike:</strong> Increased melee damage output</li>
+          <li><strong>Quick Reload:</strong> Faster weapon reload speed</li>
+          <li><strong>Precision Aim:</strong> Reduced recoil and improved accuracy</li>
+          <li><strong>Combo Master:</strong> Unlock powerful melee combos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Survival Skills</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <ul>
+          <li><strong>Iron Will:</strong> Increased maximum health</li>
+          <li><strong>Fast Heal:</strong> Quicker item usage animation</li>
+          <li><strong>Resourceful:</strong> Find more ammo and healing items</li>
+          <li><strong>Stealth Master:</strong> Move silently and avoid detection</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Defensive Skills</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <ul>
+          <li><strong>Dodge Expert:</strong> Perfect dodge window extension</li>
+          <li><strong>Shield Up:</strong> Reduce damage taken by 15%</li>
+          <li><strong>Counter Attack:</strong> Perform counter after successful dodge</li>
+          <li><strong>Resistance:</strong> Reduce poison and status effect duration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="ads-container" data-ads-path="../ads.html"></div>
+  </main>
+
+  <script src="../assets/load-ads.js"></script>
+  <script>
+    document.querySelectorAll('.collapsible-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const collapsible = header.parentElement;
+        collapsible.classList.toggle('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname.split('/').pop() || 
+          link.getAttribute('href') === './') {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

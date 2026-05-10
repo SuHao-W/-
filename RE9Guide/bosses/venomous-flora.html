@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident Evil 9 - Venomous Flora Boss Guide</title>
+  <meta name="description" content="Complete strategy guide for Venomous Flora boss fight">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../characters/index.html">Characters</a></li>
+        <li><a href="index.html" class="active">Bosses</a></li>
+        <li><a href="../builds/index.html">Builds</a></li>
+        <li><a href="../tips/index.html">Tips</a></li>
+        <li><a href="../map/index.html">Map</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Venomous Flora</h1>
+    
+    <div class="card">
+      <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=giant%20mutant%20plant%20vines%20carnivorous%20monster%20boss%20Resident%20Evil&image_size=landscape_16_9" alt="Venomous Flora" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+      <h2 class="card-title">Overview</h2>
+      <p class="card-description">
+        The Venomous Flora is a giant sentient plant that has mutated due to the T-Virus. It uses vines and deadly toxins to trap and kill its prey.
+      </p>
+      <div style="margin-top: 15px;">
+        <span class="weakness-tag">Fire</span>
+        <span class="weakness-tag">Acid</span>
+        <span class="weakness-tag">Herbicide</span>
+      </div>
+    </div>
+
+    <h2>Phase Breakdown</h2>
+    
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 1 - Root Awakening</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 100% - 70%</p>
+        <p>The plant begins to stir, using vines to attack from the ground.</p>
+        <ul>
+          <li><strong>Vine Whip:</strong> Long range attack</li>
+          <li><strong>Root Grab:</strong> Pulls player closer</li>
+          <li><strong>Spore Cloud:</strong> Poison gas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 2 - Full Bloom</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 70% - 35%</p>
+        <p>The plant fully blooms, revealing its deadly flower and increasing attack frequency.</p>
+        <ul>
+          <li><strong>Pollen Burst:</strong> Area poison damage</li>
+          <li><strong>Venom Spit:</strong> Long-range poison projectile</li>
+          <li><strong>Entangle:</strong> Traps player with vines</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 3 - Seed Release</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 35% - 0%</p>
+        <p>The plant releases its seeds and goes into a final desperate attack.</p>
+        <ul>
+          <li><strong>Seed Pods:</strong> Spawns mini-plants</li>
+          <li><strong>Acid Rain:</strong> Area of effect attack</li>
+          <li><strong>Final Crush:</strong> Attempts to smother player</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Recommended Build</h2>
+    <div class="build-item">
+      <h3>Fire & Poison Resistance</h3>
+      <ul>
+        <li><strong>Primary Weapon:</strong> Flamethrower</li>
+        <li><strong>Secondary Weapon:</strong> Grenade Launcher (incendiary)</li>
+        <li><strong>Equipment:</strong> Antidotes x5, Gas Mask</li>
+        <li><strong>Skills:</strong> Resistance, Iron Will</li>
+      </ul>
+    </div>
+
+    <h2>Weakness Analysis</h2>
+    <div class="card">
+      <h3 class="card-title">Key Weak Points</h3>
+      <ul>
+        <li><strong>Flower:</strong> Critical hit area (3x multiplier)</li>
+        <li><strong>Roots:</strong> Destroy to weaken</li>
+        <li><strong>Stem:</strong> High damage area</li>
+      </ul>
+      <p style="margin-top: 15px;"><strong>Tip:</strong> Focus fire on the central flower for maximum damage. Use fire to prevent regrowth.</p>
+    </div>
+
+    <div id="ads-container" data-ads-path="../ads.html"></div>
+  </main>
+
+  <script src="../assets/load-ads.js"></script>
+  <script>
+    document.querySelectorAll('.collapsible-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const collapsible = header.parentElement;
+        collapsible.classList.toggle('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === 'index.html') {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

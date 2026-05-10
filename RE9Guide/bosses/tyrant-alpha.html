@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident Evil 9 - Tyrant Alpha Boss Guide</title>
+  <meta name="description" content="Complete strategy guide for Tyrant Alpha boss fight">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../characters/index.html">Characters</a></li>
+        <li><a href="index.html" class="active">Bosses</a></li>
+        <li><a href="../builds/index.html">Builds</a></li>
+        <li><a href="../tips/index.html">Tips</a></li>
+        <li><a href="../map/index.html">Map</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Tyrant Alpha</h1>
+    
+    <div class="card">
+      <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=horror%20zombie%20brute%20muscle%20monster%20Tyrant%20Resident%20Evil&image_size=landscape_16_9" alt="Tyrant Alpha" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+      <h2 class="card-title">Overview</h2>
+      <p class="card-description">
+        The Tyrant Alpha is an enhanced bioweapon created by Umbrella. Its massive size and strength make it one of the most dangerous enemies in the game.
+      </p>
+      <div style="margin-top: 15px;">
+        <span class="weakness-tag">Headshots</span>
+        <span class="weakness-tag">Heavy Weapons</span>
+        <span class="weakness-tag">Stun Grenades</span>
+      </div>
+    </div>
+
+    <h2>Phase Breakdown</h2>
+    
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 1 - Controlled</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 100% - 60%</p>
+        <p>The Tyrant moves methodically, using powerful but slow attacks. Watch for its tells.</p>
+        <ul>
+          <li><strong>Punch:</strong> Slow but devastating</li>
+          <li><strong>Charge:</strong> Linear dash attack</li>
+          <li><strong>Grab:</strong> Attempts to grab and crush</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 2 - Unleashed</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 60% - 25%</p>
+        <p>The Tyrant breaks free from its programming and becomes faster and more aggressive.</p>
+        <ul>
+          <li><strong>Double Punch:</strong> Two consecutive blows</li>
+          <li><strong>Ground Pound:</strong> Creates shockwave</li>
+          <li><strong>Roar:</strong> Stuns nearby players</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapsible">
+      <div class="collapsible-header">
+        <h4>Phase 3 - Critical</h4>
+        <span class="collapsible-icon">▼</span>
+      </div>
+      <div class="collapsible-content">
+        <p><strong>Health:</strong> 25% - 0%</p>
+        <p>The Tyrant enters a final rage, attacking with everything it has.</p>
+        <ul>
+          <li><strong>Frenzy Mode:</strong> Increased speed and damage</li>
+          <li><strong>Uppercut:</strong> Launches player into air</li>
+          <li><strong>Finishing Blow:</strong> Instant kill move</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Recommended Build</h2>
+    <div class="build-item">
+      <h3>Heavy Firepower</h3>
+      <ul>
+        <li><strong>Primary Weapon:</strong> Magnum (high damage)</li>
+        <li><strong>Secondary Weapon:</strong> Rocket Launcher (heavy damage)</li>
+        <li><strong>Equipment:</strong> Stun Grenades x3</li>
+        <li><strong>Skills:</strong> Precision Aim, Iron Will</li>
+      </ul>
+    </div>
+
+    <h2>Weakness Analysis</h2>
+    <div class="card">
+      <h3 class="card-title">Key Weak Points</h3>
+      <ul>
+        <li><strong>Head:</strong> Critical hit area (2.5x multiplier)</li>
+        <li><strong>Heart:</strong> Visible when exposed (3x multiplier)</li>
+        <li><strong>Knees:</strong> Stagger on hit</li>
+      </ul>
+      <p style="margin-top: 15px;"><strong>Tip:</strong> Use stun grenades to create openings for critical damage.</p>
+    </div>
+
+    <div id="ads-container" data-ads-path="../ads.html"></div>
+  </main>
+
+  <script src="../assets/load-ads.js"></script>
+  <script>
+    document.querySelectorAll('.collapsible-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const collapsible = header.parentElement;
+        collapsible.classList.toggle('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === 'index.html') {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
