@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (adsContainer.dataset.loaded) return;
     adsContainer.dataset.loaded = 'true';
 
-    // 使用 insertAdjacentHTML 插入亚马逊内�?    adsContainer.insertAdjacentHTML('beforebegin', `
+    // 使用 insertAdjacentHTML 插入亚马逊内容
+    adsContainer.insertAdjacentHTML('beforebegin', `
         <div class="amazon-section">
             <h3>Get Diablo 4: Lord of Hatred</h3>
             <p>Support this guide by purchasing through our affiliate link:</p>
@@ -24,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     `);
     
-    // 移除容器本身（已经不需要了�?    adsContainer.remove();
+    // 移除容器本身
+    adsContainer.remove();
     
     // 加载广告脚本
     const headScript = document.createElement('script');
