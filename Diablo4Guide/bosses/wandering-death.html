@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wandering Death - Diablo 4 Guide</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">🔥 Diablo 4 Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../characters/index.html">Characters</a></li>
+                <li><a href="index.html" class="active">Bosses</a></li>
+                <li><a href="../builds/index.html">Builds</a></li>
+                <li><a href="../tips/index.html">Tips</a></li>
+                <li><a href="../map/index.html">Map</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1>The Wandering Death</h1>
+            <p>World Boss</p>
+        </div>
+
+        <div class="card">
+            <h2>Boss Overview</h2>
+            <p>This massive undead abomination summons hordes of skeletons and uses death magic. Keep the adds under control!</p>
+            
+            <div class="grid-3">
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Phases</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Shadow</div>
+                    <div class="stat-label">Damage Type</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">★★★★�?/div>
+                    <div class="stat-label">Difficulty</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Phase Breakdown</h2>
+
+            <div class="phase">
+                <h4>Phase 1: Rising Dead (100% - 70%)</h4>
+                <ul>
+                    <li><strong>Death Wave:</strong> Shadow damage wave</li>
+                    <li><strong>Summon Skeletons:</strong> Many adds - AoE them</li>
+                    <li><strong>Bone Spike:</strong> Projectile attack</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 2: Rotting Away (70% - 40%)</h4>
+                <ul>
+                    <li><strong>Corpse Explosion:</strong> Detonate corpses - move!</li>
+                    <li><strong>Summon Skeletal Mages:</strong> Ranged adds - prioritize</li>
+                    <li><strong>Death Grasp:</strong> Pulls players - break free</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 3: Death Incarnate (40% - 0%)</h4>
+                <ul>
+                    <li><strong>Mass Resurrection:</strong> All adds return - AoE fast!</li>
+                    <li><strong>Death Nova:</strong> Large AoE - get out</li>
+                    <li><strong>Final Curse:</strong> Debuff - heal through it</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="index.html" class="btn">�?Back to All Bosses</a>
+
+        <div id="ads-container" data-ads-path="../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Diablo 4: Lord of Hatred Guide. All rights reserved.</p>
+    </footer>
+
+    <script src="../assets/load-ads.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href').includes('bosses')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

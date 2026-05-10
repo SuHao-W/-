@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashava, the Pestilent - Diablo 4 Guide</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">🔥 Diablo 4 Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../characters/index.html">Characters</a></li>
+                <li><a href="index.html" class="active">Bosses</a></li>
+                <li><a href="../builds/index.html">Builds</a></li>
+                <li><a href="../tips/index.html">Tips</a></li>
+                <li><a href="../map/index.html">Map</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1>Ashava, the Pestilent</h1>
+            <p>World Boss</p>
+        </div>
+
+        <div class="card">
+            <h2>Boss Overview</h2>
+            <p>Ashava is a massive world boss that requires a group of players to defeat. This dragon-like demon uses poison and sweeping attacks.</p>
+            
+            <div class="grid-3">
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Phases</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Poison</div>
+                    <div class="stat-label">Damage Type</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">★★★★�?/div>
+                    <div class="stat-label">Difficulty</div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Requires Group</h4>
+                <p>This is a world boss - you'll need at least 8-12 players!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Phase Breakdown</h2>
+
+            <div class="phase">
+                <h4>Phase 1: Corrupted Scales (100% - 70%)</h4>
+                <ul>
+                    <li><strong>Tail Sweep:</strong> Don't stand behind!</li>
+                    <li><strong>Poison Breath:</strong> Frontal cone - dodge</li>
+                    <li><strong>Pestilent Pools:</strong> Poison on ground - move</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 2: Infestation (70% - 40%)</h4>
+                <ul>
+                    <li><strong>Summon Plague Bearers:</strong> Adds spawn - kill them</li>
+                    <li><strong>Corruption Wave:</strong> Expanding wave - dodge through</li>
+                    <li><strong>Poison Nova:</strong> Large AoE - get distance</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 3: Pestilent Apocalypse (40% - 0%)</h4>
+                <ul>
+                    <li><strong>Ground Slam:</strong> Massive damage - far away!</li>
+                    <li><strong>Poison Rain:</strong> Covers arena - keep moving</li>
+                    <li><strong>Enrage:</strong> Attack speed increases - burn phase!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Weak Points</h2>
+            <p>Attack Ashava's legs to stagger her. When staggered, the weak point on her head is exposed - attack for massive damage!</p>
+        </div>
+
+        <a href="index.html" class="btn">�?Back to All Bosses</a>
+
+        <div id="ads-container" data-ads-path="../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Diablo 4: Lord of Hatred Guide. All rights reserved.</p>
+    </footer>
+
+    <script src="../assets/load-ads.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href').includes('bosses')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

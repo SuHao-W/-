@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avarice, the Gold Cursed - Diablo 4 Guide</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">🔥 Diablo 4 Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../characters/index.html">Characters</a></li>
+                <li><a href="index.html" class="active">Bosses</a></li>
+                <li><a href="../builds/index.html">Builds</a></li>
+                <li><a href="../tips/index.html">Tips</a></li>
+                <li><a href="../map/index.html">Map</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1>Avarice, the Gold Cursed</h1>
+            <p>World Boss</p>
+        </div>
+
+        <div class="card">
+            <h2>Boss Overview</h2>
+            <p>Avarice is a treasure-obsessed world boss who creates gold zones that buff him. Destroy the gold piles to weaken him!</p>
+            
+            <div class="grid-3">
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Phases</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Physical</div>
+                    <div class="stat-label">Damage Type</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">★★★★�?/div>
+                    <div class="stat-label">Difficulty</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Phase Breakdown</h2>
+
+            <div class="phase">
+                <h4>Phase 1: Gold Fever (100% - 70%)</h4>
+                <ul>
+                    <li><strong>Coin Shower:</strong> Falling gold - dodge</li>
+                    <li><strong>Gold Piles:</strong> Spawn gold - destroy them!</li>
+                    <li><strong>Treasure Golem:</strong> Spawns golem - tank it</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 2: Hoard Protector (70% - 40%)</h4>
+                <ul>
+                    <li><strong>Gold Armor:</strong> Gains armor - destroy piles to remove</li>
+                    <li><strong>Rolling Gold:</strong> Boulders roll - dodge sideways</li>
+                    <li><strong>Greedy Teleport:</strong> Jumps to gold piles</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 3: Midas Touch (40% - 0%)</h4>
+                <ul>
+                    <li><strong>Golden Touch:</strong> Turns players to gold - help them!</li>
+                    <li><strong>Gold Storm:</strong> Massive AoE - hide behind pillars</li>
+                    <li><strong>Enrage:</strong> Super fast - burn boss!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Key Mechanic</h2>
+            <p>Always destroy gold piles when they spawn! They buff Avarice and grant him armor.</p>
+        </div>
+
+        <a href="index.html" class="btn">�?Back to All Bosses</a>
+
+        <div id="ads-container" data-ads-path="../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Diablo 4: Lord of Hatred Guide. All rights reserved.</p>
+    </footer>
+
+    <script src="../assets/load-ads.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href').includes('bosses')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

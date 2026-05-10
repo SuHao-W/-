@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diablo 4: Lord of Hatred - Complete Guide</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🔥 Diablo 4 Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="characters/index.html">Characters</a></li>
+                <li><a href="bosses/index.html">Bosses</a></li>
+                <li><a href="builds/index.html">Builds</a></li>
+                <li><a href="tips/index.html">Tips</a></li>
+                <li><a href="map/index.html">Map</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1>Diablo 4: Lord of Hatred</h1>
+            <p>Your complete guide to mastering Sanctuary's latest challenges</p>
+        </section>
+
+        <div class="grid-4">
+            <div class="stat-card">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Playable Classes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">20+</div>
+                <div class="stat-label">Epic Bosses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">100+</div>
+                <div class="stat-label">Hours of Content</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">V1.0</div>
+                <div class="stat-label">Patch Guide</div>
+            </div>
+        </div>
+
+        <div class="nav-cards">
+            <a href="characters/index.html" class="nav-card">
+                <div class="icon">⚔️</div>
+                <h3>Characters</h3>
+                <p>Complete class guides, stats, and abilities</p>
+            </a>
+            <a href="bosses/index.html" class="nav-card">
+                <div class="icon">👹</div>
+                <h3>Boss Guides</h3>
+                <p>Strategies to defeat every boss in the game</p>
+            </a>
+            <a href="builds/index.html" class="nav-card">
+                <div class="icon">🛡️</div>
+                <h3>Builds</h3>
+                <p>Optimal equipment and skill combinations</p>
+            </a>
+            <a href="tips/index.html" class="nav-card">
+                <div class="icon">💡</div>
+                <h3>Tips & Mechanics</h3>
+                <p>Advanced techniques and game mechanics</p>
+            </a>
+            <a href="map/index.html" class="nav-card">
+                <div class="icon">🗺️</div>
+                <h3>Map & Collectibles</h3>
+                <p>Region guides and collectible locations</p>
+            </a>
+            <a href="faq.html" class="nav-card">
+                <div class="icon">❓</div>
+                <h3>FAQ</h3>
+                <p>Frequently asked questions and answers</p>
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>About This Guide</h2>
+            <p>Welcome to the ultimate Diablo 4: Lord of Hatred guide. Whether you're a new player just starting your journey or a veteran looking to optimize your endgame build, this comprehensive guide has everything you need.</p>
+            <h3>What's Inside:</h3>
+            <ul>
+                <li>Detailed class breakdowns and playstyle recommendations</li>
+                <li>Step-by-step boss strategies with phase-by-phase analysis</li>
+                <li>Proven builds for every class and playstyle</li>
+                <li>Advanced combat tips and mechanics explanations</li>
+                <li>Complete map and collectible locations</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Useful External Resources</h2>
+            <div class="grid-3">
+                <a href="https://mugenmonkey.com" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">MugenMonkey - Build Planner</a>
+                <a href="https://fextralife.com" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">Fextralife - Wiki</a>
+                <a href="https://mapgenie.io" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">Map Genie - Interactive Map</a>
+            </div>
+        </div>
+
+        <div id="ads-container" data-ads-path="ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Diablo 4: Lord of Hatred Guide. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/load-ads.js"></script>
+    <script>
+        // 导航高亮
+        (function() {
+            const currentPath = window.location.pathname;
+            const navBrand = document.querySelector('.navbar-brand');
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath.endsWith(linkPath) || (linkPath === 'index.html' && currentPath.endsWith('/'))) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

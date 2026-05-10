@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astaroth - Diablo 4 Guide</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">🔥 Diablo 4 Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../characters/index.html">Characters</a></li>
+                <li><a href="index.html" class="active">Bosses</a></li>
+                <li><a href="../builds/index.html">Builds</a></li>
+                <li><a href="../tips/index.html">Tips</a></li>
+                <li><a href="../map/index.html">Map</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1>Astaroth</h1>
+            <p>Story Boss - Act Boss</p>
+        </div>
+
+        <div class="card">
+            <h2>Boss Overview</h2>
+            <p>Astaroth is a powerful demon boss with fiery attacks and charging mechanics. This is a relatively straightforward fight but requires good movement.</p>
+            
+            <div class="grid-3">
+                <div class="stat-card">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Phases</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Fire</div>
+                    <div class="stat-label">Damage Type</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">★★★☆�?/div>
+                    <div class="stat-label">Difficulty</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Phase Breakdown</h2>
+
+            <div class="phase">
+                <h4>Phase 1: Infernal Onslaught (100% - 50%)</h4>
+                <ul>
+                    <li><strong>Fire Breath:</strong> Frontal cone - dodge sideways</li>
+                    <li><strong>Flame Charge:</strong> Fast charge - get out of way</li>
+                    <li><strong>Summon Imps:</strong> Fire imps spawn - kill them</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <h4>Phase 2: Burning Wrath (50% - 0%)</h4>
+                <ul>
+                    <li><strong>Meteor Swarm:</strong> Multiple meteors - watch ground</li>
+                    <li><strong>Inferno:</strong> Arena fills with fire - find safe spot</li>
+                    <li><strong>Double Charge:</strong> Two charges in a row!</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="index.html" class="btn">�?Back to All Bosses</a>
+
+        <div id="ads-container" data-ads-path="../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Diablo 4: Lord of Hatred Guide. All rights reserved.</p>
+    </footer>
+
+    <script src="../assets/load-ads.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href').includes('bosses')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

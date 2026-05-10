@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosses - Diablo 4: Lord of Hatred Guide</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">🔥 Diablo 4 Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../characters/index.html">Characters</a></li>
+                <li><a href="index.html" class="active">Bosses</a></li>
+                <li><a href="../builds/index.html">Builds</a></li>
+                <li><a href="../tips/index.html">Tips</a></li>
+                <li><a href="../map/index.html">Map</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1>Boss Guides</h1>
+            <p>Complete strategies to defeat every boss in Lord of Hatred</p>
+        </div>
+
+        <div class="card">
+            <h2>Lord of Hatred Expansion Bosses</h2>
+            <div class="grid-2">
+                <div class="boss-card">
+                    <a href="mehrunes.html">
+                        <h4>👹 Mehrunes, Lord of Hatred</h4>
+                        <p>The final boss of the expansion. A formidable foe with multiple phases.</p>
+                        <span class="difficulty">★★★★�?/span>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="azmodan.html">
+                        <h4>🔥 Azmodan, Lord of Sin</h4>
+                        <p>Returns with new mechanics and devastating attacks.</p>
+                        <span class="difficulty">★★★★�?/span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Main Story Bosses</h2>
+            <div class="grid-2">
+                <div class="boss-card">
+                    <a href="andariel.html">
+                        <h4>💉 Andariel, Maiden of Anguish</h4>
+                        <p>Poison-based boss with deadly area attacks.</p>
+                        <span class="difficulty">★★★☆�?/span>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="duriel.html">
+                        <h4>❄️ Duriel, Lord of Pain</h4>
+                        <p>Ice-based boss with freeze mechanics.</p>
+                        <span class="difficulty">★★★★�?/span>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="belial.html">
+                        <h4>🎭 Belial, Lord of Lies</h4>
+                        <p>Deceptive boss with illusion mechanics.</p>
+                        <span class="difficulty">★★★☆�?/span>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="astaroth.html">
+                        <h4>⚔️ Astaroth</h4>
+                        <p>Powerful demon boss in the main campaign.</p>
+                        <span class="difficulty">★★★☆�?/span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>World Bosses</h2>
+            <div class="grid-2">
+                <div class="boss-card">
+                    <a href="ashava.html">
+                        <h4>🐉 Ashava, the Pestilent</h4>
+                        <p>Massive world boss with poison attacks.</p>
+                        <span class="difficulty">★★★★�?/span>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="wandering-death.html">
+                        <h4">💀 The Wandering Death</h4>
+                        <p>Undead world boss with summoning mechanics.</p>
+                        <span class="difficulty">★★★★�?/span>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="avarice.html">
+                        <h4>💰 Avarice, the Gold Cursed</h4>
+                        <p>Treasure-themed world boss.</p>
+                        <span class="difficulty">★★★★�?/span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Boss Fight Tips</h2>
+            <div class="tip-box">
+                <h4>General Strategies</h4>
+                <ul>
+                    <li>Always learn attack patterns - most bosses have tells before big attacks</li>
+                    <li>Bring appropriate resistance gear based on the boss's damage type</li>
+                    <li>Save cooldowns for phases where the boss is vulnerable</li>
+                    <li>Use the environment - pillars and obstacles can block attacks</li>
+                    <li>Don't greed - sometimes it's better to dodge than to get one more hit</li>
+                </ul>
+            </div>
+            <div class="warning-box">
+                <h4>⚠️ Don't Forget</h4>
+                <p>World bosses require multiple players. Make sure you're at the right location when they spawn!</p>
+            </div>
+        </div>
+
+        <div id="ads-container" data-ads-path="../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Diablo 4: Lord of Hatred Guide. All rights reserved.</p>
+    </footer>
+
+    <script src="../assets/load-ads.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath.includes('bosses') && linkPath.includes('bosses')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
