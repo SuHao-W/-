@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bosses - Diablo 4: Lord of Hatred Guide</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        .class-strategy { margin: 20px 0; padding: 15px; background: rgba(232,93,4,0.1); border-radius: 8px; }
+        .class-strategy h4 { color: var(--accent-color); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .class-strategy ul { margin-left: 20px; }
+        .class-strategy li { margin-bottom: 6px; }
+        .resistance-guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 15px 0; }
+        .resistance-item { padding: 10px; background: var(--card-bg); border-radius: 6px; border-left: 3px solid var(--accent-color); }
+        .resistance-item.cold { border-color: #74b9ff; }
+        .resistance-item.fire { border-color: #ff6347; }
+        .resistance-item.poison { border-color: #32cd32; }
+        .resistance-item.shadow { border-color: #da70d6; }
+        .attack-pattern { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 15px 0; }
+        .pattern-card { background: var(--card-bg); padding: 15px; border-radius: 8px; }
+        .pattern-name { font-weight: bold; color: var(--accent-color); margin-bottom: 8px; }
+        .pattern-counter { font-size: 0.9rem; color: #00e676; }
+        .phase-difficulty { display: flex; gap: 10px; margin: 10px 0; }
+        .phase-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; }
+        .phase-badge.easy { background: rgba(0,230,118,0.2); color: #00e676; }
+        .phase-badge.medium { background: rgba(255,193,7,0.2); color: #ffc107; }
+        .phase-badge.hard { background: rgba(196,30,58,0.2); color: #ff6b6b; }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -25,7 +46,7 @@
     <div class="container">
         <div class="hero-section">
             <h1>Boss Guides</h1>
-            <p>Complete strategies to defeat every boss in Lord of Hatred</p>
+            <p>Complete strategies to defeat every boss - Class-specific builds, recommended gear, and attack patterns</p>
         </div>
 
         <div class="card">
@@ -110,20 +131,180 @@
         </div>
 
         <div class="card">
+            <h2>Quick Reference: Resistance Requirements</h2>
+            <p>Before entering any boss fight, ensure you have these minimum resistances:</p>
+            
+            <div class="resistance-guide">
+                <div class="resistance-item cold">
+                    <strong>Cold Resistance</strong>
+                    <p>For: Duriel, Frozen enemies</p>
+                    <p>Minimum: +20%</p>
+                </div>
+                <div class="resistance-item fire">
+                    <strong>Fire Resistance</strong>
+                    <p>For: Andariel, Azmodan</p>
+                    <p>Minimum: +20%</p>
+                </div>
+                <div class="resistance-item poison">
+                    <strong>Poison Resistance</strong>
+                    <p>For: Andariel, Ashava</p>
+                    <p>Minimum: +20%</p>
+                </div>
+                <div class="resistance-item shadow">
+                    <strong>Shadow Resistance</strong>
+                    <p>For: Belial, Mehrunes</p>
+                    <p>Minimum: +20%</p>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Important</h4>
+                <p>World bosses require multiple players (ideally 4). Make sure you're at the right location when they spawn! Check the in-game timer or world boss schedule.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Class-Specific Boss Strategies</h2>
+            <p>Choose your class to see tailored boss fighting advice:</p>
+            
+            <div class="class-strategy">
+                <h4>⚔️ Barbarian Boss Tips</h4>
+                <ul>
+                    <li><strong>Strength:</strong> High sustained DPS, tanky with proper gearing</li>
+                    <li><strong>Key Defensive:</strong> Use War Cry for Unstoppable if frozen/poisoned</li>
+                    <li><strong>Burst Window:</strong> Save Wrath of the Berserker for vulnerability phases</li>
+                    <li><strong>Mobility:</strong> Charge can follow mobile bosses, Leap for dodging</li>
+                    <li><strong>Against Duriel:</strong> Keep moving, use Charge to dodge ice charges</li>
+                    <li><strong>Against Andariel:</strong> Stack Poison Resist, avoid poison pools</li>
+                </ul>
+            </div>
+            
+            <div class="class-strategy">
+                <h4>🗡️ Rogue Boss Tips</h4>
+                <ul>
+                    <li><strong>Strength:</strong> Highest single-target burst, excellent mobility</li>
+                    <li><strong>Key Defensive:</strong> Shadow Step for repositioning, Smoke Grenade for invuln</li>
+                    <li><strong>Burst Window:</strong> Use Ultimate after building 4 Combo Points</li>
+                    <li><strong>Mobility:</strong> Shadow Step has short cooldown - use it freely</li>
+                    <li><strong>Against Duriel:</strong> Stay ranged with Rapid Fire, Shadow Step for charges</li>
+                    <li><strong>Against Andariel:</strong> Use Cold Imbue for self-freeze protection</li>
+                    <li><strong>Against Belial:</strong> Burst during phase transitions when boss is vulnerable</li>
+                </ul>
+            </div>
+            
+            <div class="class-strategy">
+                <h4>🔮 Sorceress Boss Tips</h4>
+                <ul>
+                    <li><strong>Strength:</strong> Best crowd control, safe ranged damage</li>
+                    <li><strong>Key Defensive:</strong> Teleport is essential, Ice Armor for mitigation</li>
+                    <li><strong>Burst Window:</strong> Deep Freeze provides invulnerability frames</li>
+                    <li><strong>Mobility:</strong> Position at range, Teleport for repositioning</li>
+                    <li><strong>Against Duriel:</strong> Constant Blizzard, Teleport for ice prisons</li>
+                    <li><strong>Against Andariel:</strong> Fire Shield + Flame Wall, kite poison pools</li>
+                    <li><strong>Against Azmodan:</strong> Chain Lightning for summoned minions</li>
+                </ul>
+            </div>
+            
+            <div class="class-strategy">
+                <h4>🐺 Druid Boss Tips</h4>
+                <ul>
+                    <li><strong>Strength:</strong> Versatile, tanky in Werebear form</li>
+                    <li><strong>Key Defensive:</strong> Werebear for dangerous phases, Cyclone Armor</li>
+                    <li><strong>Burst Window:</strong> Grizzly Rage for massive damage boost</li>
+                    <li><strong>Mobility:</strong> Werewolf for speed, use Leap/Trample for positioning</li>
+                    <li><strong>Against Duriel:</strong> Stay Werebear, Hurricane during ice phases</li>
+                    <li><strong>Against Andariel:</strong> Werewolf with Poison Resist, Blood Howl for sustain</li>
+                    <li><strong>Against Belial:</strong> Burst during human phase, CC during demon form</li>
+                </ul>
+            </div>
+            
+            <div class="class-strategy">
+                <h4>💀 Necromancer Boss Tips</h4>
+                <ul>
+                    <li><strong>Strength:</strong> Strong pets for aggro, great DoT</li>
+                    <li><strong>Key Defensive:</strong> Golem tanks boss, Blood Surge for shields</li>
+                    <li><strong>Burst Window:</strong> Army of the Dead for massive burst</li>
+                    <li><strong>Mobility:</strong> Stay behind Golem, Bone Spear from safety</li>
+                    <li><strong>Against Duriel:</strong> Golem tanks ice spikes, Bone Spear from range</li>
+                    <li><strong>Against Andariel:</strong> Golem absorbs poison damage</li>
+                    <li><strong>Against Belial:</strong> Bone Prison traps boss during vulnerability</li>
+                </ul>
+            </div>
+            
+            <div class="class-strategy">
+                <h4>🦅 Spiritborn Boss Tips</h4>
+                <ul>
+                    <li><strong>Strength:</strong> Fastest class, excellent evasion</li>
+                    <li><strong>Key Defensive:</strong> Centipede for barriers, dodge everything else</li>
+                    <li><strong>Burst Window:</strong> Jaguar Shift for massive burst damage</li>
+                    <li><strong>Mobility:</strong> Eagle spirit for speed, use Swoop aggressively</li>
+                    <li><strong>Against Duriel:</strong> Eagle spirit for constant movement, dodge all attacks</li>
+                    <li><strong>Against Andariel:</strong> Centipede for defense, manage poison spread</li>
+                    <li><strong>Against Mehrunes:</strong> Jaguar for burst, Eagle for phases</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Common Attack Patterns & Counters</h2>
+            <p>Most bosses share common attack types. Learn these patterns:</p>
+            
+            <div class="attack-pattern">
+                <div class="pattern-card">
+                    <div class="pattern-name">🔴 Frontal Cone Attack</div>
+                    <p>Boss sweeps forward in a cone. Very common.</p>
+                    <p class="pattern-counter">✓ Dodge to the sides or behind</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-name">⚡ Charge Attack</div>
+                    <p>Boss charges in a straight line. Usually telegraphed.</p>
+                    <p class="pattern-counter">✓ Dodge perpendicular to charge direction</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-name">💥 Ground Slam</div>
+                    <p>Boss slams ground, creates AoE damage.</p>
+                    <p class="pattern-counter">✓ Move out of radius or use i-frames</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-name">❄️ Freeze/Immobilize</div>
+                    <p>Boss traps you in place. Precedes big attack.</p>
+                    <p class="pattern-counter">✓ Use Unstoppable skill or CC break</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-name">👥 Summon Minions</div>
+                    <p>Boss summons adds. Common in later phases.</p>
+                    <p class="pattern-counter">✓ AoE clear first, then focus boss</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-name">🎯 Targeted AoE</div>
+                    <p>Marker appears on player, then damage follows.</p>
+                    <p class="pattern-counter">✓ Move away from teammates</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
             <h2>Boss Fight Tips</h2>
             <div class="tip-box">
                 <h4>General Strategies</h4>
                 <ul>
-                    <li>Always learn attack patterns - most bosses have tells before big attacks</li>
-                    <li>Bring appropriate resistance gear based on the boss's damage type</li>
-                    <li>Save cooldowns for phases where the boss is vulnerable</li>
-                    <li>Use the environment - pillars and obstacles can block attacks</li>
-                    <li>Don't greed - sometimes it's better to dodge than to get one more hit</li>
+                    <li><strong>Learn attack patterns</strong> - Most bosses have tells before big attacks (wind-up animations, sound cues)</li>
+                    <li><strong>Bring appropriate resistance gear</strong> - Match your resistances to the boss's damage type</li>
+                    <li><strong>Save cooldowns for vulnerable phases</strong> - Most bosses have phases where they take extra damage</li>
+                    <li><strong>Use the environment</strong> - Pillars, rocks, and obstacles can block some attacks</li>
+                    <li><strong>Don't greed for damage</strong> - Sometimes it's better to dodge than to get one more hit in</li>
+                    <li><strong>Positioning is key</strong> - Stay at optimal range for your class</li>
+                    <li><strong>Interrupt healing</strong> - Some bosses self-heal; interrupt if possible</li>
                 </ul>
             </div>
             <div class="warning-box">
                 <h4>⚠️ Don't Forget</h4>
-                <p>World bosses require multiple players. Make sure you're at the right location when they spawn!</p>
+                <ul>
+                    <li>World bosses require <strong>multiple players</strong> (ideally 4). Check spawn timers!</li>
+                    <li>Bring <strong>healing potions</strong> and don't forget to use them</li>
+                    <li>For story bosses, you can <strong>lower difficulty</strong> if stuck</li>
+                    <li>Some bosses have <strong>enrage timers</strong> - deal damage efficiently</li>
+                </ul>
             </div>
         </div>
 

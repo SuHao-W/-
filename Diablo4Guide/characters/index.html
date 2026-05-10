@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Characters - Diablo 4: Lord of Hatred Guide</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        .stat-priority { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+        .stat-priority span { background: rgba(232,93,4,0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; }
+        .skill-rotation { background: rgba(0,230,118,0.1); border-left: 4px solid #00e676; padding: 15px; margin: 15px 0; border-radius: 0 6px 6px 0; }
+        .skill-rotation ol { margin-left: 20px; }
+        .skill-rotation li { margin-bottom: 8px; font-family: monospace; }
+        .gear-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        .gear-table th, .gear-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--card-border); }
+        .gear-table th { background: rgba(232,93,4,0.2); color: var(--accent-color); }
+        .gear-table tr:hover { background: rgba(232,93,4,0.05); }
+        .playstyle-tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; margin-right: 5px; }
+        .playstyle-tag.dps { background: rgba(196,30,58,0.3); color: #ff6b6b; }
+        .playstyle-tag.tank { background: rgba(0,117,230,0.3); color: #74b9ff; }
+        .playstyle-tag.support { background: rgba(0,230,118,0.3); color: #00e676; }
+        .playstyle-tag.hybrid { background: rgba(255,193,7,0.3); color: #ffc107; }
+        .boss-matchup { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .boss-matchup-item { background: var(--card-bg); padding: 10px; border-radius: 6px; border: 1px solid var(--card-border); }
+        .boss-matchup-item strong { color: var(--accent-color); }
+        .section-divider { border-top: 1px dashed var(--card-border); margin: 20px 0; padding-top: 20px; }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -25,68 +45,307 @@
     <div class="container">
         <div class="hero-section">
             <h1>Classes & Characters</h1>
-            <p>Choose your path - Complete class breakdowns and playstyles</p>
+            <p>Choose your path - Complete class breakdowns, builds, and endgame strategies</p>
         </div>
 
         <div class="character-card">
             <div class="class-icon">⚔️</div>
             <h3>Barbarian</h3>
-            <p><strong>Role:</strong> Melee DPS, Tank</p>
-            <p><strong>Playstyle:</strong> The Barbarian is a master of melee combat, wielding up to four weapons simultaneously. They excel at close-range combat and can absorb massive amounts of damage.</p>
+            <p><strong>Role:</strong> <span class="playstyle-tag dps">DPS</span> <span class="playstyle-tag tank">Tank</span></p>
+            <p><strong>Playstyle:</strong> The Barbarian is a master of melee combat, wielding up to four weapons simultaneously. They excel at close-range combat and can absorb massive amounts of damage. Best for players who enjoy aggressive, in-your-face combat.</p>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">🔧 Stat Priority</h4>
+            <div class="stat-priority">
+                <span>1. Strength (Core Stat)</span>
+                <span>2. Vulnerable Damage</span>
+                <span>3. Critical Strike Damage</span>
+                <span>4. Attack Speed</span>
+                <span>5. Cooldown Reduction</span>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">⚔️ Weapon & Armor Choice</h4>
+            <table class="gear-table">
+                <tr>
+                    <th>Type</th>
+                    <th>Options</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td>Two-Handed</td>
+                    <td>Greatsword, Axe, Hammer</td>
+                    <td>Max AoE DPS, Whirlwind builds</td>
+                </tr>
+                <tr>
+                    <td>Dual Wield</td>
+                    <td>Sword + Sword, Axe + Axe</td>
+                    <td>Attack Speed, resource generation</td>
+                </tr>
+                <tr>
+                    <td>One-Hand + Shield</td>
+                    <td>Sword + Shield, Axe + Shield</td>
+                    <td>High tankiness, solo content</td>
+                </tr>
+                <tr>
+                    <td>Armory System</td>
+                    <td>4 weapon slots</td>
+                    <td>Swap weapons for different situations</td>
+                </tr>
+            </table>
             
             <div class="collapsible">
-                <div class="collapsible-header">Key Abilities</div>
+                <div class="collapsible-header">Core Skills & Rotation</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
+                        <h4>Primary Skills (Generate Fury)</h4>
                         <ul>
-                            <li><strong>Whirlwind:</strong> Spin rapidly, striking all nearby enemies</li>
-                            <li><strong>Hammer of the Ancients:</strong> Slam the ground with massive force</li>
-                            <li><strong>Rend:</strong> Tear enemies apart, causing bleeding damage</li>
-                            <li><strong>War Cry:</strong> Buff allies and intimidate enemies</li>
-                            <li><strong>Charge:</strong> Rush forward and knock enemies back</li>
+                            <li><strong>Charge:</strong> Gap closer + Fury generation</li>
+                            <li><strong>Cash In:</strong> Spend fury for massive damage</li>
+                            <li><strong>Lunging Strike:</strong> Mobile single-target</li>
+                        </ul>
+                        <h4>Secondary Skills (Spend Fury)</h4>
+                        <ul>
+                            <li><strong>Whirlwind:</strong> Main AoE skill - spin to win</li>
+                            <li><strong>Hammer of the Ancients:</strong> Single target burst</li>
+                            <li><strong>Rend:</strong> Bleed DoT, great for elites</li>
+                            <li><strong>Leap:</strong> Mobility + damage</li>
+                        </ul>
+                        <div class="skill-rotation">
+                            <h4>🔄 Standard AoE Rotation</h4>
+                            <ol>
+                                <li>War Cry / Rallying Cry (Buff)</li>
+                                <li>Charge (Gap close + Fury)</li>
+                                <li>Whirlwind (Main DPS)</li>
+                                <li>Ground Stomp (Stun + Fury)</li>
+                                <li>Wrath of the Berserker (Ultimate)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Recommended Gear & Stats</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Key Legendary Aspects</h4>
+                        <table class="gear-table">
+                            <tr><th>Aspect</th><th>Type</th><th>Effect</th></tr>
+                            <tr><td>Gohr's Devastating Whirlwind</td><td>Gloves</td><td>Whirlwind deals 40-60% more damage while Berserking</td></tr>
+                            <tr><td>Ramaladni's Magnum Opus</td><td>Weapon</td><td>Skills that generate Fury reduce Whirlwind CD by 1s</td></tr>
+                            <tr><td>Battle-Mad</td><td>Ring</td><td>+15-25% Attack Speed after killing</td></tr>
+                            <tr><td>Earthquake</td><td>Boots</td><td>Ground Stomp creates earthquake cracks</td></tr>
+                        </table>
+                        <h4>Endgame Stats Target</h4>
+                        <ul>
+                            <li><strong>Critical Strike Damage:</strong> 300%+</li>
+                            <li><strong>Attack Speed:</strong> 1.5+ attacks/sec</li>
+                            <li><strong>Vulnerable Damage:</strong> 40%+</li>
+                            <li><li><strong>Cooldown Reduction:</strong> 30%+</strong></li>
                         </ul>
                     </div>
                 </div>
             </div>
-
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Boss Fighting Tips</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>General:</strong> Barbarian excels at sustained DPS but struggles with mobile bosses. Use Charge to follow.</p>
+                        <div class="boss-matchup">
+                            <div class="boss-matchup-item"><strong>Duriel:</strong> Keep moving, use Charge to dodge ice spikes</div>
+                            <div class="boss-matchup-item"><strong>Andariel:</strong> Stack Poison Resist, avoid standing in poison pools</div>
+                            <div class="boss-matchup-item"><strong>Belial:</strong> Save Leap for laser attacks, burst during vulnerability windows</div>
+                            <div class="boss-matchup-item"><strong>Azmodan:</strong> Ground Stomp to interrupt summoning</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="collapsible">
                 <div class="collapsible-header">Pros & Cons</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
-                        <p><strong>Pros:</strong> High survivability, great AoE damage, flexible weapon choices</p>
-                        <p><strong>Cons:</strong> Melee-only, can struggle with kiting enemies, resource management</p>
+                        <div class="tip-box">
+                            <h4>✅ Pros</h4>
+                            <ul>
+                                <li>Highest raw DPS potential in game</li>
+                                <li>Excellent survivability with proper gearing</li>
+                                <li>Great AoE for clearing dungeons</li>
+                                <li>Flexible weapon choices</li>
+                                <li>Berserker mode for burst windows</li>
+                            </ul>
+                        </div>
+                        <div class="warning-box">
+                            <h4>❌ Cons</h4>
+                            <ul>
+                                <li>Melee-only range - takes more damage</li>
+                                <li>Fury management can be tricky</li>
+                                <li>Struggles against very mobile bosses</li>
+                                <li>Requires good positioning</li>
+                                <li>Limited crowd control compared to casters</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="character-card">
-            <div class="class-icon">🗡�?/div>
+            <div class="class-icon">🗡️</div>
             <h3>Rogue</h3>
-            <p><strong>Role:</strong> Melee/Ranged Hybrid, DPS</p>
-            <p><strong>Playstyle:</strong> The Rogue is a versatile combatant who can switch between ranged and melee attacks. They specialize in precision strikes, traps, and shadow magic.</p>
+            <p><strong>Role:</strong> <span class="playstyle-tag dps">DPS</span> <span class="playstyle-tag hybrid">Hybrid</span></p>
+            <p><strong>Playstyle:</strong> The Rogue is the most versatile class, switching seamlessly between melee and ranged combat. They excel at burst damage, trap placement, and shadow magic. Perfect for players who enjoy combo-based rotations and high mobility.</p>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">🔧 Stat Priority</h4>
+            <div class="stat-priority">
+                <span>1. Dexterity (Core Stat)</span>
+                <span>2. Critical Strike Chance</span>
+                <span>3. Critical Strike Damage</span>
+                <span>4. Trap Damage</span>
+                <span>5. Shadow Damage</span>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">⚔️ Weapon & Armor Choice</h4>
+            <table class="gear-table">
+                <tr>
+                    <th>Type</th>
+                    <th>Options</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td>Dual Daggers</td>
+                    <td>Dagger + Dagger</td>
+                    <td>Melee Twisting Blades builds</td>
+                </tr>
+                <tr>
+                    <td>Bow + Dagger</td>
+                    <td>Ranged + Melee</td>
+                    <td>Rapid Fire / Barrage builds</td>
+                </tr>
+                <tr>
+                    <td>Crossbow + Dagger</td>
+                    <td>Heavy hits + Mobility</td>
+                    <td>Penetrating Shot builds</td>
+                </tr>
+                <tr>
+                    <td>Light Armor</td>
+                    <td>Focus on evade</td>
+                    <td>All builds - Rogue has innate dodge</td>
+                </tr>
+            </table>
             
             <div class="collapsible">
-                <div class="collapsible-header">Key Abilities</div>
+                <div class="collapsible-header">Core Skills & Rotation</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
+                        <h4>Specialization Choices</h4>
                         <ul>
-                            <li><strong>Imbuement:</strong> Enchant weapons with elemental effects</li>
-                            <li><strong>Shadow Step:</strong> Teleport behind enemies</li>
-                            <li><strong>Barrage:</strong> Fire a spread of arrows</li>
-                            <li><strong>Twisting Blades:</strong> Throw and recall blades</li>
-                            <li><strong>Poison Trap:</strong> Lay hidden traps</li>
+                            <li><strong>Combo:</strong> Basic skills generate Combo Points, spend for massive damage</li>
+                            <li><strong>Trap:</strong> Lay陷阱 before fights, increased trap damage</li>
+                            <li><strong>Shadow:</strong> More shadow skills, shadow clone imitation</li>
+                        </ul>
+                        <h4>Key Skills by Build</h4>
+                        <ul>
+                            <li><strong>Twisting Blades:</strong> Throw blades, recall for explosion</li>
+                            <li><strong>Rapid Fire:</strong> Ranged single-target DPS</li>
+                            <li><strong>Penetrating Shot:</strong> Pierce through groups</li>
+                            <li><strong>Shuriken:</strong> Cheap ranged damage</li>
+                        </ul>
+                        <div class="skill-rotation">
+                            <h4>🔄 Twisting Blades Rotation</h4>
+                            <ol>
+                                <li>Shadow Step (Gap close)</li>
+                                <li>Twisting Blades (Apply)</li>
+                                <li>Spam Basic until 4 Combo Points</li>
+                                <li>Dash (Generate Combo)</li>
+                                <li>Twisting Blades (Spend Combo)</li>
+                                <li>Smoke Grenade (Survivability)</li>
+                            </ol>
+                        </div>
+                        <div class="skill-rotation">
+                            <h4>🔄 Rapid Fire Rotation</h4>
+                            <ol>
+                                <li>Caltrops (Zone control)</li>
+                                <li>Poison Trap (DoT)</li>
+                                <li>Rapid Fire (Main DPS)</li>
+                                <li>Frontal Turret (Burst window)</li>
+                                <li>Shadow Step (Reposition)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Recommended Gear & Stats</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Key Legendary Aspects</h4>
+                        <table class="gear-table">
+                            <tr><th>Aspect</th><th>Type</th><th>Effect</th></tr>
+                            <tr><td>Open Rogue</td><td>Gloves</td><td>First attack from stealth guarantees crit</td></tr>
+                            <tr><td>Umbratic</td><td>Chest</td><td>Shadow clone lasts 6s, deals 30% damage</td></tr>
+                            <tr><td>Cheat Death</td><td>Boots</td><td>70% damage reduction when below 20% HP</td></tr>
+                            <tr><td>Unstable</td><td>Ring</td><td>Crits cause explosion</td></tr>
+                        </table>
+                        <h4>Imbue Types</h4>
+                        <ul>
+                            <li><strong>Cold:</strong> Freeze enemies, control</li>
+                            <li><strong>Poison:</strong> DoT, healing reduction</li>
+                            <li><strong>Shadow:</strong> Extra damage + slow</li>
+                            <li><strong>Lightning:</strong> Chain damage</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Boss Fighting Tips</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>General:</strong> Rogues excel at single-target boss damage with Rapid Fire. Use traps and positioning carefully.</p>
+                        <div class="boss-matchup">
+                            <div class="boss-matchup-item"><strong>Duriel:</strong> Stay ranged, save Shadow Step for Charge attacks</div>
+                            <div class="boss-matchup-item"><strong>Andariel:</strong> Use Cold Imbue to freeze self, avoid poison</div>
+                            <div class="boss-matchup-item"><strong>Belial:</strong> Burst during phase transitions, save mobility</div>
+                            <div class="boss-matchup-item"><strong>Azmodan:</strong> Trap placement before laser phase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="collapsible">
                 <div class="collapsible-header">Pros & Cons</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
-                        <p><strong>Pros:</strong> Versatile playstyle, high burst damage, excellent mobility</p>
-                        <p><strong>Cons:</strong> Squishy, requires positioning, complex rotations</p>
+                        <div class="tip-box">
+                            <h4>✅ Pros</h4>
+                            <ul>
+                                <li>Best single-target burst damage</li>
+                                <li>Excellent mobility with Shadow Step</li>
+                                <li>Can play melee or ranged</li>
+                                <li>Great trap utilities</li>
+                                <li>High skill expression ceiling</li>
+                            </ul>
+                        </div>
+                        <div class="warning-box">
+                            <h4>❌ Cons</h4>
+                            <ul>
+                                <li>Squishy - low survivability</li>
+                                <li>Complex combo system</li>
+                                <li>Resource management (Energy) is tight</li>
+                                <li>Requires excellent positioning</li>
+                                <li>Traps can be tricky to use</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,30 +354,155 @@
         <div class="character-card">
             <div class="class-icon">🔮</div>
             <h3>Sorceress</h3>
-            <p><strong>Role:</strong> Ranged Caster, AoE DPS</p>
-            <p><strong>Playstyle:</strong> The Sorceress commands the elements, freezing, burning, and shocking enemies from a distance. They are masters of crowd control and elemental destruction.</p>
+            <p><strong>Role:</strong> <span class="playstyle-tag dps">DPS</span> <span class="playstyle-tag support">Control</span></p>
+            <p><strong>Playstyle:</strong> The Sorceress commands the elements, unleashing devastating AoE damage and unparalleled crowd control. They can freeze, burn, and shock enemies from safety. Best for players who enjoy strategic positioning and spell combos.</p>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">🔧 Stat Priority</h4>
+            <div class="stat-priority">
+                <span>1. Intelligence (Core Stat)</span>
+                <span>2. Critical Strike Chance</span>
+                <span>3. Cooldown Reduction</span>
+                <span>4. Fire/Cold/Lightning Damage</span>
+                <span>5. Mana Regeneration</span>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">⚔️ Weapon & Armor Choice</h4>
+            <table class="gear-table">
+                <tr>
+                    <th>Type</th>
+                    <th>Options</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td>Focus + Source</td>
+                    <td>Orb + Tome</td>
+                    <td>Maximized spell damage</td>
+                </tr>
+                <tr>
+                    <td>Wand + Shield</td>
+                    <td>Magic + Defense</td>
+                    <td>Tankier builds</td>
+                </tr>
+                <tr>
+                    <td>Staff</td>
+                    <td>All-in-one</td>
+                    <td>Meteor / Fireball builds</td>
+                </tr>
+                <tr>
+                    <td>Light Armor</td>
+                    <td>Focus on mana</td>
+                    <td>All builds - spell efficiency</td>
+                </tr>
+            </table>
             
             <div class="collapsible">
-                <div class="collapsible-header">Key Abilities</div>
+                <div class="collapsible-header">Core Skills & Rotation</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
+                        <h4>Elemental Specialties</h4>
                         <ul>
-                            <li><strong>Fireball:</strong> Hurl explosive fire projectiles</li>
-                            <li><strong>Blizzard:</strong> Summon a frozen storm</li>
-                            <li><strong>Lightning Spear:</strong> Chain lightning between enemies</li>
-                            <li><strong>Teleport:</strong> Instantly reposition</li>
-                            <li><strong>Meteor:</strong> Call down devastating meteors</li>
+                            <li><strong>Fire:</strong> Highest raw damage, burning DoT</li>
+                            <li><strong>Cold:</strong> Freeze control, attack speed slow</li>
+                            <li><strong>Lightning:</strong> Chain damage, mana generation</li>
+                            <li><strong>Mixed:</strong> Combine elements for bonuses</li>
+                        </ul>
+                        <h4>Key Skills by Build</h4>
+                        <ul>
+                            <li><strong>Meteor:</strong> Massive AoE burst, requires setup</li>
+                            <li><strong>Blizzard:</strong> Sustained AoE damage + slow</li>
+                            <li><strong>Frozen Orb:</strong> Balanced AoE + freeze</li>
+                            <li><strong>Chain Lightning:</strong> Group clear, mana efficient</li>
+                        </ul>
+                        <div class="skill-rotation">
+                            <h4>🔄 Fire Ball / Meteor Rotation</h4>
+                            <ol>
+                                <li>Hydra (持久 damage)</li>
+                                <li>Fireball (Build to Meteor)</li>
+                                <li>Flame Shield (Defense)</li>
+                                <li>Meteor (Main burst)</li>
+                                <li> Inferno (Close-range AoE)</li>
+                            </ol>
+                        </div>
+                        <div class="skill-rotation">
+                            <h4>🔄 Blizzard / Frost Rotation</h4>
+                            <ol>
+                                <li>Frost Nova (Freeze nearby)</li>
+                                <li>Blizzard (Sustained damage)</li>
+                                <li>Ice Spike (Single target)</li>
+                                <li>Frozen Orb (Area freeze)</li>
+                                <li>Teleport (Reposition)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Recommended Gear & Stats</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Key Legendary Aspects</h4>
+                        <table class="gear-table">
+                            <tr><th>Aspect</th><th>Type</th><th>Effect</th></tr>
+                            <tr><td>Meteor's Legacy</td><td>Staff</td><td>Meteor falls twice</td></tr>
+                            <tr><td>Prodigy</td><td>Gloves</td><td>Casting Basic generates Mana</td></tr>
+                            <tr><td>Undestructible</td><td>Chest</td><td>Auto-revive once per 90s</td></tr>
+                            <tr><td>Conflagrate</td><td>Offhand</td><td>Fireball leaves exploding trail</td></tr>
+                        </table>
+                        <h4>Endgame Stats Target</h4>
+                        <ul>
+                            <li><strong>Mana:</strong> 100+</li>
+                            <li><strong>Cooldown Reduction:</strong> 40%+ (for perma-CC)</li>
+                            <li><strong>Critical Strike Chance:</strong> 30%+</li>
+                            <li><strong>Attack Speed:</strong> 1.0+ (for mana regen)</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Boss Fighting Tips</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>General:</strong> Sorceress is the squishiest class but has best crowd control. Survival depends on positioning and Teleport usage.</p>
+                        <div class="boss-matchup">
+                            <div class="boss-matchup-item"><strong>Duriel:</strong> Constant Blizzard, keep Teleport for ice prisons</div>
+                            <div class="boss-matchup-item"><strong>Andariel:</strong> Fire Shield + Flame Wall, kite poison</div>
+                            <div class="boss-matchup-item"><strong>Belial:</strong> Freeze Nova to interrupt summoning phase</div>
+                            <div class="boss-matchup-item"><strong>Azmodan:</strong> Lightning Chain for minions, Meteor for laser</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="collapsible">
                 <div class="collapsible-header">Pros & Cons</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
-                        <p><strong>Pros:</strong> Best AoE damage, amazing crowd control, teleport mobility</p>
-                        <p><strong>Cons:</strong> Very fragile, resource intensive, positioning critical</p>
+                        <div class="tip-box">
+                            <h4>✅ Pros</h4>
+                            <ul>
+                                <li>Best AoE damage in game</li>
+                                <li>Excellent crowd control (freeze, stun)</li>
+                                <li>Great mobility with Teleport</li>
+                                <li>Safe ranged gameplay</li>
+                                <li>Synergistic elemental combos</li>
+                            </ul>
+                        </div>
+                        <div class="warning-box">
+                            <h4>❌ Cons</h4>
+                            <ul>
+                                <li>Most fragile class</li>
+                                <li>Mana management is challenging</li>
+                                <li>Long cooldowns on key spells</li>
+                                <li>Requires constant repositioning</li>
+                                <li>Vulnerable to interrupt effects</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -127,30 +511,153 @@
         <div class="character-card">
             <div class="class-icon">🐺</div>
             <h3>Druid</h3>
-            <p><strong>Role:</strong> Shapeshifter, Hybrid, Tank/DPS</p>
-            <p><strong>Playstyle:</strong> The Druid can shapeshift between human, werewolf, and werebear forms. They combine nature magic with brutal melee attacks and summon animal companions.</p>
+            <p><strong>Role:</strong> <span class="playstyle-tag hybrid">Hybrid</span> <span class="playstyle-tag tank">Tank</span></p>
+            <p><strong>Playstyle:</strong> The Druid is the ultimate shapeshifter, transforming between human, werewolf, and werebear forms. They combine nature magic with brutal melee attacks and summoning. Best for players who enjoy versatility and transformational combat.</p>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">🔧 Stat Priority</h4>
+            <div class="stat-priority">
+                <span>1. Willpower (Core Stat)</span>
+                <span>2. Critical Strike Damage</span>
+                <span>3. Attack Speed</span>
+                <span>4. Companion Damage</span>
+                <span>5. Shapeshift Damage</span>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">⚔️ Weapon & Armor Choice</h4>
+            <table class="gear-table">
+                <tr>
+                    <th>Type</th>
+                    <th>Options</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td>Two-Handed</td>
+                    <td>Staff, Spearo</td>
+                    <td>Spells + Nature Magic</td>
+                </tr>
+                <tr>
+                    <td>Dual Wield</td>
+                    <td>Claws, Daggers</td>
+                    <td>Shapeshift builds</td>
+                </tr>
+                <tr>
+                    <td>One-Hand + Offhand</td>
+                    <td>Mace + Totem</td>
+                    <td>Summoner builds</td>
+                </tr>
+                <tr>
+                    <td>Heavy Armor</td>
+                    <td>Fortify builds</td>
+                    <td>Tank / Werebear</td>
+                </tr>
+            </table>
             
             <div class="collapsible">
-                <div class="collapsible-header">Key Abilities</div>
+                <div class="collapsible-header">Core Skills & Rotation</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
+                        <h4>Form System</h4>
                         <ul>
-                            <li><strong>Shapeshift:</strong> Transform between forms</li>
-                            <li><strong>Ravens:</strong> Summon attacking ravens</li>
-                            <li><strong>Earthquake:</strong> Shatter the ground</li>
-                            <li><strong>Maul:</strong> Devastating bear attack</li>
-                            <li><strong>Tornado:</strong> Create a devastating vortex</li>
+                            <li><strong>Human:</strong> Access to all skills, spells</li>
+                            <li><strong>Werewolf:</strong> Fast attacks, Bleed, mobility</li>
+                            <li><strong>Werebear:</strong> Heavy hits, Fortify, tankiness</li>
+                        </ul>
+                        <h4>Key Skills by Build</h4>
+                        <ul>
+                            <li><strong>Tornado:</strong> Persistent AoE, Hurricane synergy</li>
+                            <li><strong>Werewolf Maul:</strong> Fast single-target</li>
+                            <li><strong>Trample:</strong> Werebear charge</li>
+                            <li><strong>Pet Druid:</strong> Ravens, Wolves, Vines</li>
+                        </ul>
+                        <div class="skill-rotation">
+                            <h4>🔄 Tornado / Hurricane Rotation</h4>
+                            <ol>
+                                <li>Hurricane (Channel AoE)</li>
+                                <li>Tornado (Procs from Hurricane)</li>
+                                <li>Wilds (Summon plants)</li>
+                                <li>Debilitating Roar (Defensive)</li>
+                                <li>Earth Spike (Interrupt)</li>
+                            </ol>
+                        </div>
+                        <div class="skill-rotation">
+                            <h4>🔄 Werewolf / Shred Rotation</h4>
+                            <ol>
+                                <li>Debilitating Roar (BUFF)</li>
+                                <li>Werewolf (Transform)</li>
+                                <li>Shred (Main damage)</li>
+                                <li>Blood Howl (Heal + Fury)</li>
+                                <li>Rabies (Poison DoT)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Recommended Gear & Stats</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Key Legendary Aspects</h4>
+                        <table class="gear-table">
+                            <tr><th>Aspect</th><th>Type</th><th>Effect</th></tr>
+                            <tr><td>Skinwalkers</td><td>Armor</td><td>Gain Fortify when shapeshifted</td></tr>
+                            <tr><td>Stormclaw</td><td>Claws</td><td>Wind shear deals 40% more</td></tr>
+                            <tr><td>Mighty Storm</td><td>Offhand</td><td>Tornadoes merge together</td></tr>
+                            <tr><td>Insentient</td><td>Ring</td><td>Summons deal 40% of your damage</td></tr>
+                        </table>
+                        <h4>Companion Skills</h4>
+                        <ul>
+                            <li><strong>Ravens:</strong> Swoop attack, +4 canisters</li>
+                            <li><strong>Wolves:</strong> Melee pets, Frost Wolf for slow</li>
+                            <li><strong>Vines:</strong> Root enemies, Nature's Reach</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Boss Fighting Tips</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>General:</strong> Druid is tanky but has slow damage. Use Werebear form for dangerous phases, Werewolf for DPS windows.</p>
+                        <div class="boss-matchup">
+                            <div class="boss-matchup-item"><strong>Duriel:</strong> Stay Werebear, Hurricane for ice phases</div>
+                            <div class="boss-matchup-item"><strong>Andariel:</strong> Werewolf with Poison Resist, Blood Howl sustain</div>
+                            <div class="boss-matchup-item"><strong>Belial:</strong> Burst during human phase, CC during demon form</div>
+                            <div class="boss-matchup-item"><strong>Azmodan:</strong> Pet distraction + Tornado damage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="collapsible">
                 <div class="collapsible-header">Pros & Cons</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
-                        <p><strong>Pros:</strong> Extremely versatile, multiple playstyles, great sustain</p>
-                        <p><strong>Cons:</strong> Complex gearing, form management, spread out skills</p>
+                        <div class="tip-box">
+                            <h4>✅ Pros</h4>
+                            <ul>
+                                <li>Most versatile class - spells + melee + pets</li>
+                                <li>Great survivability in Werebear form</li>
+                                <li>Excellent DoT with Rabies + Tornado</li>
+                                <li>Strong pet synergies</li>
+                                <li>Good solo or group play</li>
+                            </ul>
+                        </div>
+                        <div class="warning-box">
+                            <h4>❌ Cons</h4>
+                            <ul>
+                                <li>Slow attack speed</li>
+                                <li>Complex form management</li>
+                                <li>Spread thin - less specialization</li>
+                                <li>Pet AI can be unreliable</li>
+                                <li>Resource (Spirit) is tight</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -159,76 +666,303 @@
         <div class="character-card">
             <div class="class-icon">💀</div>
             <h3>Necromancer</h3>
-            <p><strong>Role:</strong> Summoner, Caster, DoT</p>
-            <p><strong>Playstyle:</strong> The Necromancer raises armies of the dead and commands dark magic. They excel at overwhelming enemies with minions and dealing damage over time.</p>
+            <p><strong>Role:</strong> <span class="playstyle-tag dps">DPS</span> <span class="playstyle-tag support">Summoner</span></p>
+            <p><strong>Playstyle:</strong> The Necromancer commands an army of the undead and wields powerful dark magic. They excel at overwhelming enemies with minions and dealing damage over time. Best for players who enjoy pet armies and strategic curse usage.</p>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">🔧 Stat Priority</h4>
+            <div class="stat-priority">
+                <span>1. Intelligence (Core Stat)</span>
+                <span>2. Minion Damage</span>
+                <span>3. Critical Strike Damage</span>
+                <span>4. Damage over Time</span>
+                <span>5. Cooldown Reduction</span>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">⚔️ Weapon & Armor Choice</h4>
+            <table class="gear-table">
+                <tr>
+                    <th>Type</th>
+                    <th>Options</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td>Two-Handed</td>
+                    <td>Scythe, Sword</td>
+                    <td>Bone Spear / Corpse builds</td>
+                </tr>
+                <tr>
+                    <td>One-Hand + Shield</td>
+                    <td>Sword + Shield</td>
+                    <td>Tankier minion builds</td>
+                </tr>
+                <tr>
+                    <td>Focus + Source</td>
+                    <td>Orb + Tome</td>
+                    <td>Spell-focused builds</td>
+                </tr>
+                <tr>
+                    <td>Armor Priority</td>
+                    <td>Minion damage</td>
+                    <td>Pet builds - let minions deal damage</td>
+                </tr>
+            </table>
             
             <div class="collapsible">
-                <div class="collapsible-header">Key Abilities</div>
+                <div class="collapsible-header">Core Skills & Rotation</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
+                        <h4>Book of the Dead - Minion System</h4>
                         <ul>
-                            <li><strong>Summon Skeletons:</strong> Raise skeletal warriors</li>
-                            <li><strong>Blood Surge:</strong> Sacrifice health for power</li>
-                            <li><strong>Bone Spear:</strong> Piercing projectile attack</li>
-                            <li><strong>Corpse Explosion:</strong> Detonate corpses</li>
-                            <li><strong>Decrepify:</strong> Weaken enemies</li>
+                            <li><strong>Skeleton Warriors:</strong> Frontline meat shields</li>
+                            <li><strong>Skeleton Mages:</strong> Ranged damage (can be Cold/Fire/Shadow)</li>
+                            <li><strong>Golem:</strong> Tanky tank - draw aggro</li>
+                            <li><strong>Blood Surge:</strong> Sacrifice minions for power</li>
+                        </ul>
+                        <h4>Key Skills by Build</h4>
+                        <ul>
+                            <li><strong>Bone Spear:</strong> Single target pierce</li>
+                            <li><strong>Corpse Explosion:</strong> AoE from corpses</li>
+                            <li><strong>Blood Surge:</strong> AoE damage + shield</li>
+                            <li><strong>Reap:</strong> Basic skill, generates corpses</li>
+                        </ul>
+                        <div class="skill-rotation">
+                            <h4>🔄 Bone Spear Rotation</h4>
+                            <ol>
+                                <li>Decrepify (Curse enemies)</li>
+                                <li>Bone Spear (Main damage)</li>
+                                <li>Corpse Explosion (Clean up)</li>
+                                <li>Blood Surge (Shield + damage)</li>
+                                <li>Bone Prison (Trap boss)</li>
+                            </ol>
+                        </div>
+                        <div class="skill-rotation">
+                            <h4>🔄 Minion Master Rotation</h4>
+                            <ol>
+                                <li>Summon Skeletons (Army)</li>
+                                <li>Raise Golem (Tank)</li>
+                                <li>Corpse Explosion (Spread)</li>
+                                <li>Blood Wave (Heal minions)</li>
+                                <li>Decrepify (Debuff)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Recommended Gear & Stats</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Key Legendary Aspects</h4>
+                        <table class="gear-table">
+                            <tr><th>Aspect</th><th>Type</th><th>Effect</th></tr>
+                            <tr><td>Osseo</td><td>Helm</td><td>Minions gain +50% attack speed</td></tr>
+                            <tr><td>Blood Getter</td><td>Gloves</td><td>Blood Surge generates more essence</td></tr>
+                            <tr><td>Explosive</td><td>Chest</td><td>Corpse Explosion has 2 charges</td></tr>
+                            <tr><td>Plague</td><td>Weapon</td><td>Blight slows + increases DoT</td></tr>
+                        </table>
+                        <h4>Unique Items</h4>
+                        <ul>
+                            <li><strong>Ring of the Midnight</strong>: Minions explode on death</li>
+                            <li><strong>Blood Salt</strong>: Blood Surge heals more</li>
+                            <li><strong>Corpse Tender</strong>: Corpse skills have no cooldown</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Boss Fighting Tips</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>General:</strong> Necromancer is tanky due to shields and pets. Golem tanks boss attention while you cast from behind.</p>
+                        <div class="boss-matchup">
+                            <div class="boss-matchup-item"><strong>Duriel:</strong> Golem tanks ice spikes, Bone Spear from range</div>
+                            <div class="boss-matchup-item"><strong>Andariel:</strong> Poison minions absorb damage, Iron Maiden</div>
+                            <div class="boss-matchup-item"><strong>Belial:</strong> Bone Prison locks boss, maximize DPS</div>
+                            <div class="boss-matchup-item"><strong>Azmodan:</strong> Army distracts minions, focus boss</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="collapsible">
                 <div class="collapsible-header">Pros & Cons</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
-                        <p><strong>Pros:</strong> Army of minions, multiple build paths, great DoT damage</p>
-                        <p><strong>Cons:</strong> Minion management, corpse dependency, can be slow</p>
+                        <div class="tip-box">
+                            <h4>✅ Pros</h4>
+                            <ul>
+                                <li>Strong pet army for aggro management</li>
+                                <li>Great DoT with Blight + corpse explosions</li>
+                                <li>Excellent survivability with shields</li>
+                                <li>Good crowd control with curses</li>
+                                <li>Flexible - pets, spells, or hybrid</li>
+                            </ul>
+                        </div>
+                        <div class="warning-box">
+                            <h4>❌ Cons</h4>
+                            <ul>
+                                <li>Pet AI can be frustrating</li>
+                                <li>Depends on corpses for some skills</li>
+                                <li>Minions can die in hard content</li>
+                                <li>Bone Spear is single target</li>
+                                <li>Essence management is tricky</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="character-card">
-            <div class="class-icon">�?/div>
+            <div class="class-icon">🦅</div>
             <h3>Spiritborn</h3>
-            <p><strong>Role:</strong> Melee, Speed, Spirit Magic</p>
-            <p><strong>Playstyle:</strong> The Spiritborn channels ancestral spirits to enhance their combat abilities. They are fast, agile fighters who blend physical attacks with spiritual power.</p>
+            <p><strong>Role:</strong> <span class="playstyle-tag dps">DPS</span> <span class="playstyle-tag hybrid">Hybrid</span></p>
+            <p><strong>Playstyle:</strong> The Spiritborn channels ancestral spirits to enhance their combat abilities. They are fast, agile fighters who blend physical attacks with spiritual power. Best for players who enjoy kinetic, combo-based combat with spirit synergies.</p>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">🔧 Stat Priority</h4>
+            <div class="stat-priority">
+                <span>1. Dexterity (Core Stat)</span>
+                <span>2. Spirit Damage</span>
+                <span>3. Critical Strike Damage</span>
+                <span>4. Attack Speed</span>
+                <span>5. Milli秒</span>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <h4 style="color: var(--accent-color); margin-bottom: 10px;">⚔️ Weapon & Armor Choice</h4>
+            <table class="gear-table">
+                <tr>
+                    <th>Type</th>
+                    <th>Options</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td>Quarterstaff</td>
+                    <td>Two-handed</td>
+                    <td>Maximum spirit damage</td>
+                </tr>
+                <tr>
+                    <td>Dual Wield</td>
+                    <td>Centennial</td>
+                    <td>Attack speed builds</td>
+                </tr>
+                <tr>
+                    <td>Two-Handed</td>
+                    <td>Glaive</td>
+                    <td>Ranged / Throw builds</td>
+                </tr>
+                <tr>
+                    <td>Armor</td>
+                    <td>Light</td>
+                    <td>Dodge-based survivability</td>
+                </tr>
+            </table>
             
             <div class="collapsible">
-                <div class="collapsible-header">Key Abilities</div>
+                <div class="collapsible-header">Core Skills & Spirit System</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
+                        <h4>Spirit Guardians</h4>
                         <ul>
-                            <li><strong>Spirit Strike:</strong> Channel spirits into attacks</li>
-                            <li><strong>Ancestral Dash:</strong> Rapid movement between targets</li>
-                            <li><strong>Totem of Power:</strong> Place buffing totems</li>
-                            <li><strong>Fury of the Ancients:</strong> Call upon ancestors for power</li>
-                            <li><strong>Spirit Shield:</strong> Protective spirit barrier</li>
+                            <li><strong>Eagle:</strong> Lightning, mobility, attack speed</li>
+                            <li><strong>Wolf:</strong> Poison, bleed, attack while moving</li>
+                            <li><strong>Jaguar:</strong> Melee, criticals, evasion</li>
+                            <li><strong>Centipede:</strong> Defensive, barrier, regeneration</li>
+                        </ul>
+                        <h4>Key Skills by Build</h4>
+                        <ul>
+                            <li><strong>Quill Shot:</strong> Primary, spirit generation</li>
+                            <li><strong>Razor Wings:</strong> Spinning attack</li>
+                            <li><strong>Devouring Swarm:</strong> Melee dot</li>
+                            <li><strong>Rock Splitter:</strong> Heavy single target</li>
+                        </ul>
+                        <div class="skill-rotation">
+                            <h4>🔄 Eagle / Jaguar Hybrid Rotation</h4>
+                            <ol>
+                                <li>Eagle Spirit (Primary)</li>
+                                <li>Quill Shot (Spirit gen)</li>
+                                <li>Razor Wings (DPS)</li>
+                                <li>Swoop (Gap close)</li>
+                                <li>Jaguar Shift (Burst)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Recommended Gear & Stats</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Key Legendary Aspects</h4>
+                        <table class="gear-table">
+                            <tr><th>Aspect</th><th>Type</th><th>Effect</th></tr>
+                            <tr><td>Spirit Unity</td><td>Armor</td><td>Two spirits active at once</td></tr>
+                            <tr><td>Eclectic</td><td>Gloves</td><td>Swap spirits for damage bonus</td></tr>
+                            <tr><td>Prodigy</td><td>Boots</td><td>Skills cost less spirit</td></tr>
+                            <tr><td>Racial</td><td>Weapon</td><td>Centipede deals poison</td></tr>
+                        </table>
+                        <h4>Endgame Stats Target</h4>
+                        <ul>
+                            <li><strong>Spirit Cost Reduction:</strong> 30%+</li>
+                            <li><strong>Attack Speed:</strong> 1.8+</li>
+                            <li><strong>Dodge Chance:</strong> 20%+</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
+            
+            <div class="collapsible">
+                <div class="collapsible-header">Boss Fighting Tips</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>General:</strong> Spiritborn is fastest class with best mobility. Use Eagle for speed, Jaguar for burst, Centipede for defense.</p>
+                        <div class="boss-matchup">
+                            <div class="boss-matchup-item"><strong>Duriel:</strong> Eagle spirit for dodging, keep moving</div>
+                            <div class="boss-matchup-item"><strong>Andariel:</strong> Centipede for defense, manage毒 spread</div>
+                            <div class="boss-matchup-item"><strong>Belial:</strong> Jaguar for burst phases</div>
+                            <div class="boss-matchup-item"><strong>Azmodan:</strong> Wolf for continuous damage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="collapsible">
                 <div class="collapsible-header">Pros & Cons</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
-                        <p><strong>Pros:</strong> High mobility, unique mechanics, hybrid damage</p>
-                        <p><strong>Cons:</strong> New player learning curve, spirit resource management</p>
+                        <div class="tip-box">
+                            <h4>✅ Pros</h4>
+                            <ul>
+                                <li>Fastest class in game</li>
+                                <li>Excellent mobility and evasion</li>
+                                <li>High skill expression</li>
+                                <li>Flexible spirit combinations</li>
+                                <li>Great single target damage</li>
+                            </ul>
+                        </div>
+                        <div class="warning-box">
+                            <h4>❌ Cons</h4>
+                            <ul>
+                                <li>New class - less established builds</li>
+                                <li>Squishy without Centipede</li>
+                                <li>Complex spirit management</li>
+                                <li>Relies on dodging</li>
+                                <li>Requires good timing</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="card">
-            <h2>Choosing Your Class</h2>
-            <p>Each class in Diablo 4 offers a unique playstyle. Consider these factors when choosing:</p>
-            <ul>
-                <li><strong>Melee vs Ranged:</strong> Do you prefer to fight up close or from a distance?</li>
-                <li><strong>Solo vs Group:</strong> Some classes excel at solo play, others shine in groups</li>
-                <li><strong>Complexity:</strong> How complicated do you want your rotation to be?</li>
-                <li><strong>Playstyle Preference:</strong> Do you like summoning, spellcasting, or direct combat?</li>
-            </ul>
         </div>
 
         <div id="ads-container" data-ads-path="../ads.html"></div>
@@ -241,18 +975,8 @@
     <script src="../assets/load-ads.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const currentPath = window.location.pathname;
-            const navLinks = document.querySelectorAll('.navbar-nav a');
-            
-            navLinks.forEach(link => {
-                const linkPath = link.getAttribute('href');
-                if (currentPath.includes('characters') && linkPath.includes('characters')) {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                }
-            });
-
-            document.querySelectorAll('.collapsible').forEach(collapsible => {
+            const collapsibles = document.querySelectorAll('.collapsible');
+            collapsibles.forEach(collapsible => {
                 collapsible.addEventListener('click', function() {
                     this.classList.toggle('active');
                 });

@@ -5,6 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Builds - Diablo 4: Lord of Hatred Guide</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        .build-section { margin-bottom: 40px; }
+        .skill-tree { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0; }
+        .skill-node { background: rgba(232,93,4,0.15); padding: 10px; border-radius: 6px; text-align: center; border: 1px solid var(--card-border); }
+        .skill-node.core { background: rgba(196,30,58,0.2); border-color: #c41e3a; }
+        .skill-node.ultimate { background: rgba(255,193,7,0.2); border-color: #ffc107; }
+        .stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--card-border); }
+        .stat-row:last-child { border-bottom: none; }
+        .stat-label { color: var(--text-secondary); }
+        .stat-value { color: var(--accent-color); font-weight: bold; }
+        .gear-slot { display: flex; align-items: center; gap: 10px; padding: 8px; background: var(--card-bg); border-radius: 6px; margin-bottom: 8px; }
+        .gear-icon { width: 40px; height: 40px; background: rgba(232,93,4,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .gear-name { font-weight: bold; }
+        .gear-type { font-size: 0.8rem; color: var(--text-secondary); }
+        .paragon-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0; }
+        .paragon-node { background: rgba(232,93,4,0.1); padding: 12px; border-radius: 6px; border-left: 3px solid var(--accent-color); }
+        .rotation-step { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px dashed var(--card-border); }
+        .rotation-step:last-child { border-bottom: none; }
+        .step-number { width: 24px; height: 24px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; }
+        .step-name { font-weight: bold; color: var(--accent-color); }
+        .step-desc { color: var(--text-secondary); font-size: 0.9rem; }
+        .variant-card { background: var(--card-bg); padding: 15px; border-radius: 8px; margin: 10px 0; border: 1px solid var(--card-border); }
+        .variant-title { color: var(--accent-color); font-weight: bold; margin-bottom: 8px; }
+        .difficulty-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; margin-right: 5px; }
+        .difficulty-badge.easy { background: rgba(0,230,118,0.2); color: #00e676; }
+        .difficulty-badge.medium { background: rgba(255,193,7,0.2); color: #ffc107; }
+        .difficulty-badge.hard { background: rgba(196,30,58,0.2); color: #ff6b6b; }
+        .damage-type { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; margin-right: 5px; }
+        .damage-type.physical { background: rgba(139,69,19,0.3); color: #deb887; }
+        .damage-type.fire { background: rgba(255,69,0,0.3); color: #ff6347; }
+        .damage-type.cold { background: rgba(0,191,255,0.3); color: #74b9ff; }
+        .damage-type.lightning { background: rgba(255,255,0,0.3); color: #ffff00; }
+        .damage-type.shadow { background: rgba(128,0,128,0.3); color: #da70d6; }
+        .damage-type.poison { background: rgba(50,205,50,0.3); color: #32cd32; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 768px) { .pros-cons { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -25,183 +62,956 @@
     <div class="container">
         <div class="hero-section">
             <h1>Builds & Equipment</h1>
-            <p>Optimal setups for every class in endgame</p>
+            <p>Optimal setups for every class in endgame - Complete skill rotations, gear, and paragon boards</p>
         </div>
 
-        <div class="card">
+        <div class="card build-section">
             <h2>Barbarian Builds</h2>
             
             <div class="build-card">
-                <span class="difficulty">⭐⭐ Easy</span>
-                <h3>Whirlwind Barb</h3>
-                <p>The classic spin-to-win build. Great for AoE and survivability.</p>
+                <span class="difficulty">⭐ Easy</span>
+                <h3>Whirlwind Barbarian</h3>
+                <p><span class="damage-type physical">Physical</span> The classic spin-to-win build. Great AoE and survivability. Best starter build for endgame.</p>
                 
                 <div class="collapsible">
-                    <div class="collapsible-header">Skills</div>
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
                     <div class="collapsible-content">
                         <div class="collapsible-inner">
-                            <ul>
-                                <li>Whirlwind (Main Damage)</li>
-                                <li>Rallying Cry (Buff)</li>
-                                <li>Wrath of the Berserker (Ultimate)</li>
-                                <li>Charge (Mobility)</li>
-                                <li>War Cry (Defense)</li>
-                            </ul>
+                            <h4>Core Skills (33 points)</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Whirlwind 5/5</div>
+                                <div class="skill-node">Enhanced Whirlwind</div>
+                                <div class="skill-node">Mighty Whirlwind</div>
+                                <div class="skill-node">Charge 3/3</div>
+                                <div class="skill-node">Enhanced Charge</div>
+                                <div class="skill-node">Ground Stomp 3/3</div>
+                                <div class="skill-node">Enhanced Ground Stomp</div>
+                                <div class="skill-node">War Cry 3/3</div>
+                                <div class="skill-node">Rallying Cry 3/3</div>
+                                <div class="skill-node ultimate">Wrath of the Berserker</div>
+                            </div>
+                            
+                            <h4>Exact Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">War Cry</span>
+                                <span class="step-desc">Buff + Fury generation</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Charge</span>
+                                <span class="step-desc">Gap close + Fury</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Whirlwind</span>
+                                <span class="step-desc">Main DPS - channel it</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Ground Stomp</span>
+                                <span class="step-desc">Stun enemies + Fury gen</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">5</span>
+                                <span class="step-name">Wrath of the Berserker</span>
+                                <span class="step-desc">Ultimate burst window</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="collapsible">
-                    <div class="collapsible-header">Gear</div>
+                    <div class="collapsible-header">Essential Gear</div>
                     <div class="collapsible-content">
                         <div class="collapsible-inner">
-                            <ul>
-                                <li>1H Weapons + Offhand (or 2H)</li>
-                                <li>+Damage, +Attack Speed</li>
-                                <li>Luck Hit effects</li>
-                            </ul>
+                            <table class="gear-table">
+                                <tr><th>Slot</th><th>Item</th><th>Key Stat</th></tr>
+                                <tr><td>Weapon</td><td>Ramaladni's Magnum Opus</td><td>+20% Whirlwind damage</td></tr>
+                                <tr><td>Gloves</td><td>Gohr's Devastating Whirlwind</td><td>Whirlwind +50% while Berserk</td></tr>
+                                <tr><td>Ring</td><td>Battle-Mad</td><td>+25% Attack Speed after kill</td></tr>
+                                <tr><td>Boots</td><td>Earthquake Aspect</td><td>Ground Stomp creates cracks</td></tr>
+                            </table>
+                            <h4>Stat Priority</h4>
+                            <div class="stat-row"><span class="stat-label">1. Vulnerable Damage</span><span class="stat-value">40%+</span></div>
+                            <div class="stat-row"><span class="stat-label">2. Critical Strike Damage</span><span class="stat-value">300%+</span></div>
+                            <div class="stat-row"><span class="stat-label">3. Attack Speed</span><span class="stat-value">1.5/s</span></div>
+                            <div class="stat-row"><span class="stat-label">4. Cooldown Reduction</span><span class="stat-value">30%+</span></div>
                         </div>
                     </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Paragon Board</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <div class="paragon-board">
+                                <div class="paragon-node">
+                                    <strong>Board 1: Blood-fueled</strong>
+                                    <p>Start with Strength, take Vulnerable damage nodes</p>
+                                </div>
+                                <div class="paragon-node">
+                                    <strong>Board 2: Warbringer</strong>
+                                    <p>Fury generation + Attack Speed</p>
+                                </div>
+                                <div class="paragon-node">
+                                    <strong>Board 3: Slog</strong>
+                                    <p>Damage while injured, survivability</p>
+                                </div>
+                                <div class="paragon-node">
+                                    <strong>Board 4: Temper</strong>
+                                    <p>Legendary node: +15% Whirlwind damage</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="variant-card">
+                    <div class="variant-title">🔄 Variations</div>
+                    <p><strong>vs Boss:</strong> Replace Ground Stomp with Leap for mobility</p>
+                    <p><strong>vs Elite:</strong> Add Rend for bleeding DoT</p>
+                    <p><strong>AoE Dungeon:</strong> Keep Whirlwind channeling, use War Cry on pull</p>
                 </div>
             </div>
 
-            <div class="build-card">
-                <span class="difficulty">⭐⭐�?Medium</span>
+            <div class="build-card" style="margin-top: 30px;">
+                <span class="difficulty">⭐⭐ Medium</span>
                 <h3>Hammer of the Ancients</h3>
-                <p>Big damage, big explosions. Focus on single target and burst.</p>
+                <p><span class="damage-type physical">Physical</span> Big single-target damage with ground slam. High burst, requires setup.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Hammer of the Ancients 5/5</div>
+                                <div class="skill-node">Enhanced Hammer of the Ancients</div>
+                                <div class="skill-node">Flank Attack</div>
+                                <div class="skill-node">Charge 3/3</div>
+                                <div class="skill-node">Ground Stomp 3/3</div>
+                                <div class="skill-node">Rend 3/3</div>
+                                <div class="skill-node ultimate">Death Wish</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Charge into enemy</span>
+                                <span class="step-desc">Setup for Flank Attack</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Ground Stomp</span>
+                                <span class="step-desc">Stun + Fury</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Hammer of the Ancients</span>
+                                <span class="step-desc">Massive burst damage</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Rend</span>
+                                <span class="step-desc">Bleed for sustained damage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Essential Gear</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <table class="gear-table">
+                                <tr><th>Slot</th><th>Item</th><th>Key Stat</th></tr>
+                                <tr><td>Weapon</td><td>The Dualist's</td><td>Hammer +100% damage</td></tr>
+                                <tr><td>Helm</td><td>Bold Chieftain's</td><td>War Cry grants Unstoppable</td></tr>
+                                <tr><td>Chest</td><td>Iron Blood</td><td>+30% damage reduction</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card build-section">
             <h2>Sorceress Builds</h2>
             
             <div class="build-card">
-                <span class="difficulty">⭐⭐ Easy</span>
-                <h3>Blizzard Sorc</h3>
-                <p>Freeze everything! Great crowd control and safe playstyle.</p>
+                <span class="difficulty">⭐ Easy</span>
+                <h3>Blizzard / Frozen Sorceress</h3>
+                <p><span class="damage-type cold">Cold</span> Freeze everything! Best crowd control and safe playstyle. Excellent for group content.</p>
                 
                 <div class="collapsible">
-                    <div class="collapsible-header">Skills</div>
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
                     <div class="collapsible-content">
                         <div class="collapsible-inner">
-                            <ul>
-                                <li>Blizzard (Main AoE)</li>
-                                <li>Ice Spike (Single Target)</li>
-                                <li>Teleport (Mobility)</li>
-                                <li>Frozen Orb (Backup)</li>
-                                <li>Ice Armor (Defense)</li>
-                            </ul>
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Blizzard 5/5</div>
+                                <div class="skill-node">Enhanced Blizzard</div>
+                                <div class="skill-node">Mighty Blizzard</div>
+                                <div class="skill-node">Ice Spike 5/5</div>
+                                <div class="skill-node">Frozen Orb 3/3</div>
+                                <div class="skill-node">Frost Nova 3/3</div>
+                                <div class="skill-node">Ice Armor 3/3</div>
+                                <div class="skill-node">Teleport 2/3</div>
+                                <div class="skill-node ultimate">Deep Freeze</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Frost Nova</span>
+                                <span class="step-desc">Freeze nearby enemies</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Blizzard</span>
+                                <span class="step-desc">Channel on frozen enemies</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Ice Spike</span>
+                                <span class="step-desc">Single target while moving</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Frozen Orb</span>
+                                <span class="step-desc">Clean up frozen groups</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">5</span>
+                                <span class="step-name">Deep Freeze</span>
+                                <span class="step-desc">Burst + invulnerability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Essential Gear</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <table class="gear-table">
+                                <tr><th>Slot</th><th>Item</th><th>Key Stat</th></tr>
+                                <tr><td>Staff</td><td>Flickering Wisp</td><td>Blizzard hits 3x</td></tr>
+                                <tr><td>Gloves</td><td>Frostbitten</td><td>Cold skills chill enemies</td></tr>
+                                <tr><td>Ring</td><td>Frigid</td><td>Cold damage slows 30%</td></tr>
+                                <tr><td>Boots</td><td>Esu's</td><td>150% movement speed</td></tr>
+                            </table>
+                            <h4>Stat Priority</h4>
+                            <div class="stat-row"><span class="stat-label">1. Cooldown Reduction</span><span class="stat-value">40%+</span></div>
+                            <div class="stat-row"><span class="stat-label">2. Critical Strike Chance</span><span class="stat-value">30%+</span></div>
+                            <div class="stat-row"><span class="stat-label">3. Cold Damage</span><span class="stat-value">50%+</span></div>
+                            <div class="stat-row"><span class="stat-label">4. Mana Cost Reduction</span><span class="stat-value">20%+</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="build-card">
-                <span class="difficulty">⭐⭐�?Medium</span>
+            <div class="build-card" style="margin-top: 30px;">
+                <span class="difficulty">⭐⭐ Medium</span>
                 <h3>Chain Lightning</h3>
-                <p>Electric damage that bounces between enemies. Great for big groups.</p>
+                <p><span class="damage-type lightning">Lightning</span> Electric damage bouncing between enemies. Great for large groups, mana efficient.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Chain Lightning 5/5</div>
+                                <div class="skill-node">Enhanced Chain Lightning</div>
+                                <div class="skill-node">Destructive Chain Lightning</div>
+                                <div class="skill-node">Arc Lash 5/5</div>
+                                <div class="skill-node">Lightning Speer 3/3</div>
+                                <div class="skill-node">Teleport 2/3</div>
+                                <div class="skill-node">Frost Nova 2/3</div>
+                                <div class="skill-node ultimate">Unstable Currents</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Unstable Currents</span>
+                                <span class="step-desc">Buff + chain damage</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Arc Lash</span>
+                                <span class="step-desc">Generate mana + stun</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Chain Lightning</span>
+                                <span class="step-desc">Main damage to groups</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Lightning Speer</span>
+                                <span class="step-desc">Single target burst</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Essential Gear</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <table class="gear-table">
+                                <tr><th>Slot</th><th>Item</th><th>Key Stat</th></tr>
+                                <tr><td>Wand</td><td>Sparkflint</td><td>Chain Lightning +3 bounces</td></tr>
+                                <tr><td>Source</td><td>Energy Nexus</td><td>Mana generation</td></tr>
+                                <tr><td>Gloves</td><td>Prodigy</td><td>Basic generates mana</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="build-card">
-                <span class="difficulty">⭐⭐ Hard</span>
-                <h3>Meteor Sorc</h3>
-                <p>High risk, high reward. Massive AoE damage from above.</p>
+            <div class="build-card" style="margin-top: 30px;">
+                <span class="difficulty">⭐⭐⭐ Hard</span>
+                <h3>Meteor Sorceress</h3>
+                <p><span class="damage-type fire">Fire</span> High risk, high reward. Massive AoE damage. Requires positioning mastery.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Meteor 5/5</div>
+                                <div class="skill-node">Enhanced Meteor</div>
+                                <div class="skill-node">Meteor's Legacy</div>
+                                <div class="skill-node">Fireball 5/5</div>
+                                <div class="skill-node">Hydra 3/3</div>
+                                <div class="skill-node">Flame Shield 3/3</div>
+                                <div class="skill-node">Frost Nova 2/3</div>
+                                <div class="skill-node ultimate">Conflagration</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Hydra</span>
+                                <span class="step-desc">Persistent damage source</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Fireball</span>
+                                <span class="step-desc">Stack Burning</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Meteor</span>
+                                <span class="step-desc">Burst + stuns</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Flame Shield</span>
+                                <span class="step-desc">Defense</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card build-section">
             <h2>Necromancer Builds</h2>
             
             <div class="build-card">
-                <span class="difficulty">⭐⭐ Easy</span>
-                <h3>Bone Spear Necro</h3>
-                <p>Powerful piercing projectiles. Great single-target damage.</p>
+                <span class="difficulty">⭐ Easy</span>
+                <h3>Bone Spear Necromancer</h3>
+                <p><span class="damage-type shadow">Shadow</span> Powerful piercing projectiles. Great single-target damage. Most popular endgame build.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Bone Spear 5/5</div>
+                                <div class="skill-node">Enhanced Bone Spear</div>
+                                <div class="skill-node">Echoing Bone Spear</div>
+                                <div class="skill-node">Corpse Explosion 3/3</div>
+                                <div class="skill-node">Blood Surge 3/3</div>
+                                <div class="skill-node">Decrepify 3/3</div>
+                                <div class="skill-node">Reap 3/3</div>
+                                <div class="skill-node">Bone Prison 2/3</div>
+                                <div class="skill-node ultimate">Blood Wave</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Decrepify</span>
+                                <span class="step-desc">Curse enemies -20% damage</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Bone Spear</span>
+                                <span class="step-desc">Main damage</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Corpse Explosion</span>
+                                <span class="step-desc">Clean up groups</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Blood Surge</span>
+                                <span class="step-desc">Shield + AoE damage</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">5</span>
+                                <span class="step-name">Bone Prison</span>
+                                <span class="step-desc">Trap bosses</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Essential Gear</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <table class="gear-table">
+                                <tr><th>Slot</th><th>Item</th><th>Key Stat</th></tr>
+                                <tr><td>Two-Handed</td><td>Mortacrux</td><td>Bone Spear pierces 5x</td></tr>
+                                <tr><td>Helm</td><td>Hawpunk's</td><td>+4 Bone Spear</td></tr>
+                                <tr><td>Chest</td><td>Explosive</td><td>Corpse Explosion 2 charges</td></tr>
+                                <tr><td>Gloves</td><td>Blood Getter</td><td>Blood Surge +Essence</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="build-card">
-                <span class="difficulty">⭐⭐ Easy</span>
-                <h3>Minion Master</h3>
-                <p>Command an army of undead. Let your minions do the work!</p>
+            <div class="build-card" style="margin-top: 30px;">
+                <span class="difficulty">⭐ Easy</span>
+                <h3>Minion Master Necromancer</h3>
+                <p><span class="damage-type physical">Physical</span> Command an army of undead. Let your minions do the work! Great for solo.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Book of the Dead</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Book of the Dead Specialization</h4>
+                            <table class="gear-table">
+                                <tr><th>Minion</th><th>Choice</th><th>Reason</th></tr>
+                                <tr><td>Skeleton Warriors</td><td>Shadow</td><td>Best damage output</td></tr>
+                                <tr><td>Skeleton Mages</td><td>Cold</td><td>Slow enemies</td></tr>
+                                <tr><td>Golem</td><td>Blood</td><td>Heals on kill</td></tr>
+                            </table>
+                            
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Summon Skeletons 5/5</div>
+                                <div class="skill-node">Frigid</div>
+                                <div class="skill-node">Reap 3/3</div>
+                                <div class="skill-node">Corpse Explosion 3/3</div>
+                                <div class="skill-node">Blood Wave 3/3</div>
+                                <div class="skill-node">Decrepify 3/3</div>
+                                <div class="skill-node ultimate">Army of the Dead</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Summon minions</span>
+                                <span class="step-desc">Full army at start</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Decrepify</span>
+                                <span class="step-desc">Debuff enemies</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Reap</span>
+                                <span class="step-desc">Generate corpses</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Corpse Explosion</span>
+                                <span class="step-desc">Minion explosions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="build-card">
-                <span class="difficulty">⭐⭐�?Medium</span>
-                <h3>Blood Surge</h3>
-                <p>Sacrifice health for power. High sustain build.</p>
+            <div class="build-card" style="margin-top: 30px;">
+                <span class="difficulty">⭐⭐ Medium</span>
+                <h3>Blood Surge Necromancer</h3>
+                <p><span class="damage-type physical">Physical</span> Sacrifice health for power. High sustain and shield. Tanky playstyle.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Blood Surge 5/5</div>
+                                <div class="skill-node">Enhanced Blood Surge</div>
+                                <div class="skill-node">Pulverizing</div>
+                                <div class="skill-node">Blood Sweep</div>
+                                <div class="skill-node">Hemorrhage 3/3</div>
+                                <div class="skill-node">Reap 3/3</div>
+                                <div class="skill-node">Bone Prison 2/3</div>
+                                <div class="skill-node ultimate">Blood Wave</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Hemorrhage</span>
+                                <span class="step-desc">Apply Vulnerable</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Reap</span>
+                                <span class="step-desc">Generate corpses</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Blood Surge</span>
+                                <span class="step-desc">Main damage + shield</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Blood Wave</span>
+                                <span class="step-desc">Ultimate + heal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card build-section">
             <h2>Rogue Builds</h2>
             
             <div class="build-card">
-                <span class="difficulty">⭐⭐ Easy</span>
-                <h3>Twisting Blades</h3>
-                <p>Throw and recall blades. Fun, fast-paced playstyle.</p>
+                <span class="difficulty">⭐ Easy</span>
+                <h3>Twisting Blades Rogue</h3>
+                <p><span class="damage-type shadow">Shadow</span> Throw and recall blades. Fun, fast-paced melee playstyle. High burst combo damage.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Twisting Blades 5/5</div>
+                                <div class="skill-node">Enhanced Twisting Blades</div>
+                                <div class="skill-node">Spinning</div>
+                                <div class="skill-node">Dash 3/3</div>
+                                <div class="skill-node">Shadow Step 3/3</div>
+                                <div class="skill-node">Smoke Grenade 3/3</div>
+                                <div class="skill-node">Caltrops 2/3</div>
+                                <div class="skill-node ultimate">Shadow Clone</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Shadow Step</span>
+                                <span class="step-desc">Gap close + damage</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Twisting Blades</span>
+                                <span class="step-desc">Apply + generate combo</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Dash</span>
+                                <span class="step-desc">Generate combo points</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Twisting Blades (4 CP)</span>
+                                <span class="step-desc">Massive burst</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">5</span>
+                                <span class="step-name">Smoke Grenade</span>
+                                <span class="step-desc">Survivability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Essential Gear</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <table class="gear-table">
+                                <tr><th>Slot</th><th>Item</th><th>Key Stat</th></tr>
+                                <tr><td>Daggers</td><td>Scorned</td><td>Twisting Blades returns faster</td></tr>
+                                <tr><td>Gloves</td><td>Open Rogue</td><td>First attack crits</td></tr>
+                                <tr><td>Chest</td><td>Umbratic</td><td>Shadow clone 6s</td></tr>
+                                <tr><td>Boots</td><td>Cheat Death</td><td>70% DR below 20% HP</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="build-card">
-                <span class="difficulty">⭐⭐�?Medium</span>
-                <h3>Rapid Fire</h3>
-                <p>High single-target DPS. Great for boss fights.</p>
+            <div class="build-card" style="margin-top: 30px;">
+                <span class="difficulty">⭐⭐ Medium</span>
+                <h3>Rapid Fire Rogue</h3>
+                <p><span class="damage-type physical">Physical</span> High single-target DPS. Great for boss fights. Ranged playstyle.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Rapid Fire 5/5</div>
+                                <div class="skill-node">Enhanced Rapid Fire</div>
+                                <div class="skill-node">Adjudicator</div>
+                                <div class="skill-node">Barrage 3/3</div>
+                                <div class="skill-node">Poison Trap 3/3</div>
+                                <div class="skill-node">Caltrops 3/3</div>
+                                <div class="skill-node">Shadow Step 2/3</div>
+                                <div class="skill-node ultimate">Death Trap</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Caltrops</span>
+                                <span class="step-desc">Zone control</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Poison Trap</span>
+                                <span class="step-desc">DoT + healing reduction</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Rapid Fire</span>
+                                <span class="step-desc">Main single-target</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Barrage</span>
+                                <span class="step-desc">Burst window</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="build-card">
-                <span class="difficulty">⭐⭐�?Medium</span>
-                <h3>Poison Imbue</h3>
-                <p>Damage over time builds. Watch enemies melt!</p>
+            <div class="build-card" style="margin-top: 30px;">
+                <span class="difficulty">⭐⭐ Medium</span>
+                <h3>Poison Imbue Rogue</h3>
+                <p><span class="damage-type poison">Poison</span> Damage over time builds. Enemies melt as poison stacks up. Great for elites.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Poison Imbue 5/5</div>
+                                <div class="skill-node">Enhanced Poison Imbue</div>
+                                <div class="skill-node">Alchemist's</div>
+                                <div class="skill-node">Shuriken 5/5</div>
+                                <div class="skill-node">Poison Trap 3/3</div>
+                                <div class="skill-node">Caltrops 3/3</div>
+                                <div class="skill-node">Shadow Step 2/3</div>
+                                <div class="skill-node ultimate">Death Trap</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Poison Trap</span>
+                                <span class="step-desc">Place trap</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Caltrops</span>
+                                <span class="step-desc">Slow enemies</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Poison Imbue + Shuriken</span>
+                                <span class="step-desc">Stack Poison</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Death Trap</span>
+                                <span class="step-desc">Explosion burst</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card build-section">
             <h2>Druid Builds</h2>
             
             <div class="build-card">
-                <span class="difficulty">⭐⭐ Easy</span>
+                <span class="difficulty">⭐ Easy</span>
                 <h3>Tornado Druid</h3>
-                <p>Spinning wind damage. Great AoE and consistency.</p>
+                <p><span class="damage-type physical">Physical</span> Spinning wind damage. Great AoE and consistency. Safe, channel-based gameplay.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Tornado 5/5</div>
+                                <div class="skill-node">Enhanced Tornado</div>
+                                <div class="skill-node">Raging Tempest</div>
+                                <div class="skill-node">Hurricane 3/3</div>
+                                <div class="skill-node">Debilitating Roar 3/3</div>
+                                <div class="skill-node">Earth Spike 3/3</li>
+                                <div class="skill-node">Cyclone Armor 2/3</div>
+                                <div class="skill-node ultimate">Nature's Wrath</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Debilitating Roar</span>
+                                <span class="step-desc">Buff + reduce enemy damage</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Hurricane</span>
+                                <span class="step-desc">Channel AoE</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Tornado</span>
+                                <span class="step-desc">Procs merge together</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Earth Spike</span>
+                                <span class="step-desc">Interrupt if needed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="build-card">
-                <span class="difficulty">⭐⭐�?Medium</span>
-                <h3>Werebear</h3>
-                <p>Big, tanky shapeshifter. Survive anything!</p>
+            <div class="build-card" style="margin-top: 30px;">
+                <span class="difficulty">⭐⭐ Medium</span>
+                <h3>Werebear Druid</h3>
+                <p><span class="damage-type physical">Physical</span> Big, tanky shapeshifter. Survive anything! High survivability build.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Werebear 5/5</div>
+                                <div class="skill-node">Preserving</div>
+                                <div class="skill-node">Maul 3/3</div>
+                                <div class="skill-node">Trample 3/3</div>
+                                <div class="skill-node">Debilitating Roar 3/3</div>
+                                <div class="skill-node">Blood Howl 3/3</div>
+                                <div class="skill-node">Earth Spike 2/3</div>
+                                <div class="skill-node ultimate">Grizzly Rage</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Werebear</span>
+                                <span class="step-desc">Transform</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Debilitating Roar</span>
+                                <span class="step-desc">Buff + defense</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Trample</span>
+                                <span class="step-desc">Charge + damage</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Maul</span>
+                                <span class="step-desc">Single target</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">5</span>
+                                <span class="step-name">Blood Howl</span>
+                                <span class="step-desc">Heal yourself</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="build-card">
-                <span class="difficulty">⭐⭐ Hard</span>
-                <h3>Werewolf</h3>
-                <p>Fast, feral attacker. High mobility build.</p>
+            <div class="build-card" style="margin-top: 30px;">
+                <span class="difficulty">⭐⭐⭐ Hard</span>
+                <h3>Werewolf Druid</h3>
+                <p><span class="damage-type physical">Physical</span> Fast, feral attacker. High mobility build. Bleed-focused.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Werewolf 5/5</div>
+                                <div class="skill-node">Ferine</div>
+                                <div class="skill-node">Shred 5/5</div>
+                                <div class="skill-node">Predatory</div>
+                                <div class="skill-node">Blood Howl 3/3</div>
+                                <div class="skill-node">Rabies 3/3</div>
+                                <div class="skill-node">Debilitating Roar 2/3</div>
+                                <div class="skill-node ultimate">Lupine</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Werewolf</span>
+                                <span class="step-desc">Transform</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Debilitating Roar</span>
+                                <span class="step-desc">BUFF</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Rabies</span>
+                                <span class="step-desc">Apply Poison</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Shred</span>
+                                <span class="step-desc">Main DPS</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">5</span>
+                                <span class="step-name">Blood Howl</span>
+                                <span class="step-desc">Heal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card build-section">
             <h2>Spiritborn Builds</h2>
             
             <div class="build-card">
-                <span class="difficulty">⭐⭐�?Medium</span>
-                <h3>Ancestral Spirit</h3>
-                <p>New class, new mechanics. Channel spirit power!</p>
+                <span class="difficulty">⭐⭐ Medium</span>
+                <h3>Eagle / Jaguar Hybrid</h3>
+                <p><span class="damage-type lightning">Lightning</span> Fast, mobile build combining Eagle speed and Jaguar burst. Best all-rounder.</p>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Skill Setup & Rotation</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <h4>Core Skills</h4>
+                            <div class="skill-tree">
+                                <div class="skill-node core">Quill Shot 5/5</div>
+                                <div class="skill-node">Eagle Spirit</div>
+                                <div class="skill-node">Razor Wings 5/5</div>
+                                <div class="skill-node">Jaguar Spirit</div>
+                                <div class="skill-node">Swoop 3/3</div>
+                                <div class="skill-node">Devouring Swarm 3/3</div>
+                                <div class="skill-node ultimate">Rending</div>
+                            </div>
+                            
+                            <h4>Rotation</h4>
+                            <div class="rotation-step">
+                                <span class="step-number">1</span>
+                                <span class="step-name">Eagle Spirit</span>
+                                <span class="step-desc">Attack speed buff</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">2</span>
+                                <span class="step-name">Quill Shot</span>
+                                <span class="step-desc">Generate spirit</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">3</span>
+                                <span class="step-name">Razor Wings</span>
+                                <span class="step-desc">Main DPS</span>
+                            </div>
+                            <div class="rotation-step">
+                                <span class="step-number">4</span>
+                                <span class="step-name">Jaguar Shift</span>
+                                <span class="step-desc">Burst window</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header">Essential Gear</div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <table class="gear-table">
+                                <tr><th>Slot</th><th>Item</th><th>Key Stat</th></tr>
+                                <tr><td>Quarterstaff</td><td>Ancestral</td><td>+Spirit damage</td></tr>
+                                <tr><td>Gloves</td><td>Eclectic</td><td>Swap spirits for damage</td></tr>
+                                <tr><td>Armor</td><td>Spirit Unity</td><td>Two spirits active</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="card">
-            <h2>Gearing Tips</h2>
+            <h2>Gearing Tips & Stat Priority Guide</h2>
+            
             <div class="tip-box">
-                <h4>💡 Prioritize</h4>
+                <h4>💡 General Stat Priority by Class</h4>
+                <table class="gear-table">
+                    <tr><th>Class</th><th>Priority 1</th><th>Priority 2</th><th>Priority 3</th></tr>
+                    <tr><td>Barbarian</td><td>Vulnerable Damage</td><td>Critical Damage</td><td>Attack Speed</td></tr>
+                    <tr><td>Rogue</td><td>Critical Chance</td><td>Critical Damage</td><td>Trap Damage</td></tr>
+                    <tr><td>Sorceress</td><td>Cooldown Reduction</td><td>Critical Chance</td><td>Mana</td></tr>
+                    <tr><td>Druid</td><td>Critical Damage</td><td>Attack Speed</td><td>Companion Damage</td></tr>
+                    <tr><td>Necromancer</td><td>Minion Damage</td><td>Critical Damage</td><td>DoT Damage</td></tr>
+                    <tr><td>Spiritborn</td><td>Spirit Damage</td><td>Attack Speed</td><td>Critical Damage</td></tr>
+                </table>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Don't Ignore These Stats</h4>
                 <ul>
-                    <li>Main stat first (Strength, Intelligence, etc.)</li>
-                    <li>Vulnerable Damage</li>
-                    <li>Critical Strike Chance/Damage</li>
-                    <li>Cooldown Reduction</li>
+                    <li><strong>Resistance:</strong> Cap at 70% for endgame content</li>
+                    <li><strong>Armor:</strong> 800+ for Torment content</li>
+                    <li><strong>Life:</strong> 10,000+ HP for survivability</li>
+                    <li><strong>Resource Generation:</strong> Don't overlook - affects rotations</li>
                 </ul>
             </div>
-            <div class="warning-box">
-                <h4>⚠️ Don't Ignore</h4>
+            
+            <div class="tip-box">
+                <h4>🎯 Endgame Gear Checklist</h4>
                 <ul>
-                    <li>Resistances - cap them!</li>
-                    <li>Armor - especially for melee</li>
-                    <li>Max Life - don't skip</li>
+                    <li>2-3 Key Legendaries / Uniques for your build</li>
+                    <li>Correct Aspects on gear (extract if needed)</li>
+                    <li>Synergistic Tempered mods</li>
+                    <li>Masterwork Crits on right slots</li>
+                    <li>Correct gem sockets (Tier 3+)</li>
                 </ul>
             </div>
         </div>
@@ -216,15 +1026,8 @@
     <script src="../assets/load-ads.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.navbar-nav a');
-            navLinks.forEach(link => {
-                if (link.getAttribute('href').includes('builds')) {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                }
-            });
-
-            document.querySelectorAll('.collapsible').forEach(collapsible => {
+            const collapsibles = document.querySelectorAll('.collapsible');
+            collapsibles.forEach(collapsible => {
                 collapsible.addEventListener('click', function() {
                     this.classList.toggle('active');
                 });

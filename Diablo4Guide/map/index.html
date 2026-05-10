@@ -22,162 +22,348 @@
         </div>
     </nav>
 
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
     <div class="container">
         <div class="hero-section">
-            <h1>Map & Regions</h1>
-            <p>Regional guides and collectible locations</p>
+            <h1>🗺️ World of Sanctuary</h1>
+            <p>Complete regional guides, collectible locations, and world events</p>
         </div>
 
         <div class="card">
-            <h2>Expansion Region - The Wastes of Hatred</h2>
-            <p>New zone in Lord of Hatred expansion. Fiery, corrupted lands.</p>
-            <div class="map-region">
-                <h3>Key Locations</h3>
-                <ul>
-                    <li>🏰 Fortress of Hatred - Main hub</li>
-                    <li>🌋 Caldera of Ash - Volcanic zone</li>
-                    <li>💀 Plains of Despair - Barren wasteland</li>
-                    <li>🔥 Spire of Mehrunes - Final dungeon</li>
-                </ul>
-            </div>
-            <div class="map-region">
-                <h3>Collectibles</h3>
-                <ul>
-                    <li>📜 12 Altars of Lilith</li>
-                    <li>📦 28 Chests</li>
-                    <li>🏆 8 Side Quests</li>
-                    <li>📖 15 Lore Pages</li>
-                </ul>
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filterRegions('all')">All Regions</button>
+                <button class="filter-btn" onclick="filterRegions('expansion')">Expansion</button>
+                <button class="filter-btn" onclick="filterRegions('base')">Base Game</button>
+                <button class="filter-btn" onclick="filterRegions('pvp')">PvP Zones</button>
             </div>
         </div>
 
-        <div class="card">
-            <h2>Fractured Peaks</h2>
-            <p>Snowy, mountainous starting zone.</p>
-            <div class="map-region">
-                <h3>Key Locations</h3>
-                <ul>
-                    <li>🏰 Kyovashad - Major city</li>
-                    <li>❄️ Frozen Wilderness</li>
-                    <li>🏔�?Menestad</li>
-                    <li>⚰️ The Forsaken Quarry</li>
-                </ul>
+        <div class="card region-card" data-region="expansion">
+            <div class="region-header">
+                <h2>🔥 The Wastes of Hatred</h2>
+                <button class="favorite-btn" onclick="toggleFavorite(this, 'wastes')">☆</button>
             </div>
-            <div class="map-region">
-                <h3>Collectibles</h3>
-                <ul>
-                    <li>📜 28 Altars of Lilith</li>
-                    <li>📦 48 Chests</li>
-                    <li>🏆 31 Side Quests</li>
-                </ul>
+            <p class="region-desc">The new expansion zone features fiery, corrupted lands with the Fortress of Hatred as its main hub. This end-game area offers the toughest challenges and best loot.</p>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>🏰 Key Locations</h3>
+                    <ul>
+                        <li><strong>Fortress of Hatred</strong> - Main hub city</li>
+                        <li><strong>Caldera of Ash</strong> - Volcanic zone</li>
+                        <li><strong>Plains of Despair</strong> - Barren wasteland</li>
+                        <li><strong>Spire of Mehrunes</strong> - Final dungeon</li>
+                        <li><strong>The Ashfields</strong> - Open world zone</li>
+                    </ul>
+                </div>
+                <div class="map-region">
+                    <h3>📦 Collectibles</h3>
+                    <ul>
+                        <li>📜 12 Altars of Lilith</li>
+                        <li>📦 28 Strongboxes</li>
+                        <li>🏆 8 Side Quests</li>
+                        <li>📖 15 Lore Pages</li>
+                        <li>👹 5 World Bosses</li>
+                    </ul>
+                </div>
             </div>
+            <div class="difficulty-badge">Difficulty: ★★★★★</div>
+        </div>
+
+        <div class="card region-card" data-region="base">
+            <div class="region-header">
+                <h2>❄️ Fractured Peaks</h2>
+                <button class="favorite-btn" onclick="toggleFavorite(this, 'peaks')">☆</button>
+            </div>
+            <p class="region-desc">The snowy, mountainous starting zone. Perfect for new players with relatively easy enemies and beautiful icy vistas.</p>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>🏰 Key Locations</h3>
+                    <ul>
+                        <li><strong>Kyovashad</strong> - Main starting city</li>
+                        <li><strong>Menestad</strong> - Northern village</li>
+                        <li><strong>The Forsaken Quarry</strong> - Mining area</li>
+                        <li><strong>Frigid Expanse</strong> - Frozen wilderness</li>
+                        <li><strong>Derigible Wreckage</strong> - Story location</li>
+                    </ul>
+                </div>
+                <div class="map-region">
+                    <h3>📦 Collectibles</h3>
+                    <ul>
+                        <li>📜 28 Altars of Lilith</li>
+                        <li>📦 48 Chests</li>
+                        <li>🏆 31 Side Quests</li>
+                        <li>📖 24 Lore Pages</li>
+                        <li>🗺️ 12 Dungeons</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="difficulty-badge easy">Difficulty: ★★☆☆☆</div>
+        </div>
+
+        <div class="card region-card" data-region="base">
+            <div class="region-header">
+                <h2>🌲 Scosglen</h2>
+                <button class="favorite-btn" onclick="toggleFavorite(this, 'scosglen')">☆</button>
+            </div>
+            <p class="region-desc">The misty, forested coastal zone home to the Druids. Beware of the werewolf curse that infects many inhabitants.</p>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>🏰 Key Locations</h3>
+                    <ul>
+                        <li><strong>Cerrigar</strong> - Main hub town</li>
+                        <li><strong>Tur Dulra</strong> - Ancient druid grove</li>
+                        <li><strong>The Western Coast</strong> - Coastal area</li>
+                        <li><strong>Caen Adar</strong> - Tower location</li>
+                        <li><strong>The Blind Burrows</strong> - Cave system</li>
+                    </ul>
+                </div>
+                <div class="map-region">
+                    <h3>📦 Collectibles</h3>
+                    <ul>
+                        <li>📜 24 Altars of Lilith</li>
+                        <li>📦 42 Chests</li>
+                        <li>🏆 27 Side Quests</li>
+                        <li>📖 20 Lore Pages</li>
+                        <li>🐺 8 Werewolfdens</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="difficulty-badge">Difficulty: ★★★☆☆</div>
+        </div>
+
+        <div class="card region-card" data-region="base">
+            <div class="region-header">
+                <h2>🏜️ Dry Steppes</h2>
+                <button class="favorite-btn" onclick="toggleFavorite(this, 'steppes')">☆</button>
+            </div>
+            <p class="region-desc">The vast arid desert zone. Home to the merchants of Ked Bardu and the mysterious Temple of Rot cultists.</p>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>🏰 Key Locations</h3>
+                    <ul>
+                        <li><strong>Ked Bardu</strong> - Trading hub city</li>
+                        <li><strong>Untamed Scarp</strong> - Desert cliffs</li>
+                        <li><strong>Temple of Rot</strong> - Cult dungeon</li>
+                        <li><strong>Fields of Hatred</strong> - PvP zone</li>
+                        <li><strong>The Cradle of Blood</strong> - Story location</li>
+                    </ul>
+                </div>
+                <div class="map-region">
+                    <h3>📦 Collectibles</h3>
+                    <ul>
+                        <li>📜 32 Altars of Lilith</li>
+                        <li>📦 56 Chests</li>
+                        <li>🏆 35 Side Quests</li>
+                        <li>📖 22 Lore Pages</li>
+                        <li>⚔️ 1 PvP Zone</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="difficulty-badge">Difficulty: ★★★☆☆</div>
+        </div>
+
+        <div class="card region-card" data-region="base">
+            <div class="region-header">
+                <h2>🐊 Hawezar</h2>
+                <button class="favorite-btn" onclick="toggleFavorite(this, 'hawezar')">☆</button>
+            </div>
+            <p class="region-desc">The swampy, cursed zone filled with poison and ancient secrets. The Snake, Witch, and Spider cults vie for power here.</p>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>🏰 Key Locations</h3>
+                    <ul>
+                        <li><strong>Zarbinzet</strong> - Swamp city</li>
+                        <li><strong>The Blightmarsh</strong> - Main swamp area</li>
+                        <li><strong>Vyeresz</strong> - Witch coven area</li>
+                        <li><strong>The Writhing Mire</strong> - Deep swamp</li>
+                        <li><strong>Garanhod</strong> - Ancient ruins</li>
+                    </ul>
+                </div>
+                <div class="map-region">
+                    <h3>📦 Collectibles</h3>
+                    <ul>
+                        <li>📜 26 Altars of Lilith</li>
+                        <li>📦 44 Chests</li>
+                        <li>🏆 29 Side Quests</li>
+                        <li>📖 18 Lore Pages</li>
+                        <li>🕷️ 6 Spider Dens</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="difficulty-badge">Difficulty: ★★★★☆</div>
+        </div>
+
+        <div class="card region-card" data-region="base">
+            <div class="region-header">
+                <h2>🌴 Kehjistan</h2>
+                <button class="favorite-btn" onclick="toggleFavorite(this, 'kehjistan')">☆</button>
+            </div>
+            <p class="region-desc">The sweltering jungle southern zone. Home to the Zakarum remnants and the mysterious Temple of the Primes.</p>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>🏰 Key Locations</h3>
+                    <ul>
+                        <li><strong>Gea Kul</strong> - Main hub city</li>
+                        <li><strong>Ragged Coast</strong> - Coastal jungle</li>
+                        <li><strong>Temple of the Primes</strong> - Ancient temple</li>
+                        <li><strong>Altar of the Queens</strong> - Secret area</li>
+                        <li><strong>Sepherot</strong> - Desert region</li>
+                    </ul>
+                </div>
+                <div class="map-region">
+                    <h3>📦 Collectibles</h3>
+                    <ul>
+                        <li>📜 30 Altars of Lilith</li>
+                        <li>📦 52 Chests</li>
+                        <li>🏆 33 Side Quests</li>
+                        <li>📖 26 Lore Pages</li>
+                        <li>🏛️ 8 Ruins</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="difficulty-badge">Difficulty: ★★★★☆</div>
         </div>
 
         <div class="card">
-            <h2>Scosglen</h2>
-            <p>Forested, coastal zone with werewolves.</p>
-            <div class="map-region">
-                <h3>Key Locations</h3>
-                <ul>
-                    <li>🏰 Cerrigar</li>
-                    <li>🌲 Tur Dulra</li>
-                    <li>🏖�?The Western Coast</li>
-                    <li>🗼 Caen Adar</li>
-                </ul>
+            <div class="region-header">
+                <h2>📜 Altars of Lilith</h2>
             </div>
-        </div>
-
-        <div class="card">
-            <h2>Dry Steppes</h2>
-            <p>Arid desert zone.</p>
-            <div class="map-region">
-                <h3>Key Locations</h3>
-                <ul>
-                    <li>🏰 Ked Bardu</li>
-                    <li>🏜�?Untamed Scarps</li>
-                    <li>🏛�?Temple of Rot</li>
-                    <li>💎 The Fields of Hatred</li>
-                </ul>
+            <p>Altars grant <strong>permanent account-wide bonuses</strong> that apply to all your characters!</p>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>Bonus Types</h3>
+                    <ul>
+                        <li><strong>+2 to All Stats</strong> - Most common</li>
+                        <li><strong>+5 to Maximum Life</strong> - Health bonus</li>
+                        <li><strong>+5 to Maximum Fury/Spirit/etc</strong> - Resource bonus</li>
+                        <li><strong>+5 Paragon Points</strong> - Rare bonus</li>
+                        <li><strong>+10% to Experience</strong> - Seasonal bonus</li>
+                    </ul>
+                </div>
+                <div class="map-region">
+                    <h3>Total Collection Rewards</h3>
+                    <ul>
+                        <li><strong>All 160 Altars:</strong> +160 to stats or paragon</li>
+                        <li><strong>Mount:</strong> Demon Wings cosmetic</li>
+                        <li><strong>Title:</strong> "Faithful" or "Touched by Lilith"</li>
+                        <li><strong>Puzzle Ring:</strong> In-game item</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-
-        <div class="card">
-            <h2>Hawezar</h2>
-            <p>Swampy, cursed zone.</p>
-            <div class="map-region">
-                <h3>Key Locations</h3>
-                <ul>
-                    <li>🏰 Zarbinzet</li>
-                    <li>🐊 The Blightmarsh</li>
-                    <li>⚰️ Vyeresz</li>
-                    <li>🕷�?The Writhing Mire</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Kehjistan</h2>
-            <p>Jungle, southern zone.</p>
-            <div class="map-region">
-                <h3>Key Locations</h3>
-                <ul>
-                    <li>🏰 Gea Kul</li>
-                    <li>🌴 The Ragged Coast</li>
-                    <li>🏛�?Temple of the Primes</li>
-                    <li>🗿 Altar of the Queens</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Altars of Lilith</h2>
-            <p>Altars grant permanent account-wide bonuses!</p>
-            <ul>
-                <li>+2 to a stat per altar</li>
-                <li>Some grant +5 Paragon points</li>
-                <li>Collect all 160 for maximum bonus</li>
-            </ul>
             <div class="tip-box">
                 <h4>💡 Pro Tip</h4>
-                <p>Collect Altars early! The bonuses apply to all your characters.</p>
+                <p>Use the Map Genie or d4builds.gg interactive maps to find all Altars efficiently. Many are in hard-to-reach places!</p>
             </div>
         </div>
 
         <div class="card">
-            <h2>World Boss Locations</h2>
-            <ul>
-                <li>🗺�?Ashava - Fractured Peaks near Kyovashad</li>
-                <li>🗺�?Wandering Death - Scosglen near Cerrigar</li>
-                <li>🗺�?Avarice - Dry Steppes near Ked Bardu</li>
-                <li>🗺�?Mehrunes - Wastes of Hatred (Expansion)</li>
-            </ul>
+            <div class="region-header">
+                <h2>👹 World Boss Locations</h2>
+            </div>
+            <div class="grid-2">
+                <div class="boss-location">
+                    <h3>🌋 Ashava</h3>
+                    <p><strong>Location:</strong> Fractured Peaks - Near Kyovashad</p>
+                    <p><strong>Spawn:</strong> Every 6 hours (check in-game timer)</p>
+                    <p class="boss-desc">A massive dragon that spawns in the snowy peaks. Rewards legendary items and mount cosmetics.</p>
+                </div>
+                <div class="boss-location">
+                    <h3>💀 Wandering Death</h3>
+                    <p><strong>Location:</strong> Scosglen - Near Cerrigar</p>
+                    <p><strong>Spawn:</strong> Every 6 hours</p>
+                    <p class="boss-desc">A colossal undead horror. Requires a full party for the best rewards.</p>
+                </div>
+                <div class="boss-location">
+                    <h3>⚔️ Avarice</h3>
+                    <p><strong>Location:</strong> Dry Steppes - Near Ked Bardu</p>
+                    <p><strong>Spawn:</strong> Every 6 hours</p>
+                    <p class="boss-desc">A golden-skinned demon. Can drop the "Avarice" mount trophy.</p>
+                </div>
+                <div class="boss-location">
+                    <h3>🔥 Mehrunes</h3>
+                    <p><strong>Location:</strong> Wastes of Hatred - Caldera of Ash</p>
+                    <p><strong>Spawn:</strong> Expansion boss, varies</p>
+                    <p class="boss-desc">The Lord of Hatred himself. Requires endgame gear and a coordinated group.</p>
+                </div>
+            </div>
             <div class="warning-box">
                 <h4>⚠️ Spawn Timers</h4>
-                <p>World bosses spawn every ~6 hours. Check your in-game map for the next spawn!</p>
+                <p>World bosses spawn every ~6 hours. Check your in-game map for the next spawn! Join a Guild or Discord for timer notifications.</p>
             </div>
         </div>
 
         <div class="card">
-            <h2>Helltide Zones</h2>
-            <p>Helltides are events that spawn in random zones. Collect Aberrant Cinders!</p>
-            <ul>
-                <li>🔥 Helltides last 1 hour</li>
-                <li>💀 Collect cinders from enemies, chests, events</li>
-                <li>🎁 Spend cinders at Tortured Gifts of Mystery</li>
-                <li>⚔️ Enemies hit harder, are more dangerous</li>
-            </ul>
+            <div class="region-header">
+                <h2>🌙 Helltide Events</h2>
+            </div>
+            <p>Helltides are dangerous world events that spawn in random zones. Collect <strong>Aberrant Cinders</strong> to spend on reward chests!</p>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>Event Mechanics</h3>
+                    <ul>
+                        <li>🔥 <strong>Duration:</strong> 60 minutes</li>
+                        <li>💀 <strong>Cinders:</strong> Drop from enemies and chests</li>
+                        <li>🎁 <strong>Tortured Gifts:</strong> Spend cinders here</li>
+                        <li>⚔️ <strong>Difficulty:</strong> Increased enemy damage</li>
+                        <li>🌍 <strong>Zones:</strong> Rotates between regions</li>
+                    </ul>
+                </div>
+                <div class="map-region">
+                    <h3>Tortured Gift Chests</h3>
+                    <ul>
+                        <li><strong>Weapon Chest:</strong> Swords, Axes, Maces</li>
+                        <li><strong>Armor Chest:</strong> Chest, Helm, Pants</li>
+                        <li><strong>Jewelry Chest:</strong> Rings, Amulets</li>
+                        <li><strong>Mystery Gift:</strong> Any legendary</li>
+                    </ul>
+                </div>
+            </div>
             <div class="tip-box">
-                <h4>💡 Farming Tip</h4>
-                <p>Target farm specific legendary types with the correct Tortured Gift chest!</p>
+                <h4>💡 Farming Strategy</h4>
+                <p>Focus on events (yellow markers) for fastest cinder collection. Save mystery gifts until you have enough for multiple opens!</p>
             </div>
         </div>
 
         <div class="card">
-            <h2>Useful External Maps</h2>
-            <p>For detailed interactive maps, check out:</p>
+            <div class="region-header">
+                <h2>⚔️ PvP Zone: Fields of Hatred</h2>
+            </div>
+            <p>The <strong>Fields of Hatred</strong> in Dry Steppes is the dedicated PvP zone. Harvest <strong>Crucible Seeds</strong> while PvPing!</p>
+            <div class="map-region">
+                <h3>PvP Mechanics</h3>
+                <ul>
+                    <li>💀 <strong>Open PvP:</strong> Attack any player</li>
+                    <li>🌱 <strong>Harvest Seeds:</strong> From enemies and nodes</li>
+                    <li>📦 <strong>Crucible:</strong> Deposit seeds for rewards</li>
+                    <li>⚠️ <strong>Penalty:</strong> Dying drops some seeds</li>
+                    <li>🏆 <strong>Ranks:</strong> Increase rank for cosmetics</li>
+                </ul>
+            </div>
+            <div class="warning-box">
+                <h4>⚠️ Warning</h4>
+                <p>PvP is dangerous! Bring a group for the best experience. Higher ranks have better rewards but face tougher opponents.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="region-header">
+                <h2>🔗 External Interactive Maps</h2>
+            </div>
+            <p>For detailed interactive maps with exact locations, check out these community resources:</p>
             <div class="grid-3">
-                <a href="https://mapgenie.io/diablo-4" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">Map Genie</a>
-                <a href="https://d4builds.gg/map/" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">D4 Builds</a>
+                <a href="https://mapgenie.io/diablo-4" target="_blank" class="btn" style="display: block; text-align: center;">
+                    🗺️ Map Genie
+                    <br><small>Complete locations & collectibles</small>
+                </a>
+                <a href="https://d4builds.gg/map/" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">
+                    📊 D4 Builds
+                    <br><small>Build-focused map markers</small>
+                </a>
+                <a href="https://diablo4.life/" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">
+                    🌐 Diablo 4 Life
+                    <br><small>Altars & world events</small>
+                </a>
             </div>
         </div>
 
@@ -190,6 +376,47 @@
 
     <script src="../assets/load-ads.js"></script>
     <script>
+        function filterRegions(filter) {
+            const cards = document.querySelectorAll('.region-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (filter === 'all' || card.dataset.region === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleFavorite(btn, regionId) {
+            const isFavorite = btn.textContent === '★';
+            btn.textContent = isFavorite ? '☆' : '★';
+            btn.classList.toggle('favorited', !isFavorite);
+            
+            let favorites = JSON.parse(localStorage.getItem('d4Favorites') || '{}');
+            if (isFavorite) {
+                delete favorites[regionId];
+            } else {
+                favorites[regionId] = true;
+            }
+            localStorage.setItem('d4Favorites', JSON.stringify(favorites));
+        }
+
+        function loadFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('d4Favorites') || '{}');
+            Object.keys(favorites).forEach(regionId => {
+                const btn = document.querySelector(`[onclick*="${regionId}"]`);
+                if (btn) {
+                    btn.textContent = '★';
+                    btn.classList.add('favorited');
+                }
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.navbar-nav a');
             navLinks.forEach(link => {
@@ -198,7 +425,22 @@
                     link.classList.add('active');
                 }
             });
+            
+            loadFavorites();
+
+            window.addEventListener('scroll', function() {
+                const backToTop = document.getElementById('backToTop');
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
         });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>

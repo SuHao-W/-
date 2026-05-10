@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="navbar" id="navbar">
         <div class="container">
             <a href="index.html" class="navbar-brand">🔥 Diablo 4 Guide</a>
             <ul class="navbar-nav" id="nav-links">
@@ -22,62 +24,304 @@
         </div>
     </nav>
 
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
     <div class="container">
         <section class="hero-section">
-            <h1>Diablo 4: Lord of Hatred</h1>
-            <p>Your complete guide to mastering Sanctuary's latest challenges</p>
+            <h1>⚔️ Diablo 4: Lord of Hatred ⚔️</h1>
+            <p>Your ultimate companion for conquering Sanctuary's darkest challenges. From beginner basics to endgame mastery!</p>
+            <div class="hero-cta">
+                <a href="characters/index.html" class="btn">🎮 Explore Classes</a>
+                <a href="builds/index.html" class="btn btn-secondary">⚔️ View Builds</a>
+            </div>
+            <div class="scroll-indicator">▼</div>
         </section>
 
+        <div class="daily-tip">
+            <div class="daily-tip-icon">💡</div>
+            <p class="daily-tip-text" id="dailyTip">Loading today's tip...</p>
+        </div>
+
         <div class="grid-4">
-            <div class="stat-card">
+            <div class="stat-card animate-fadeInUp" style="animation-delay: 0.1s;">
                 <div class="stat-value">6</div>
                 <div class="stat-label">Playable Classes</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card animate-fadeInUp" style="animation-delay: 0.2s;">
                 <div class="stat-value">20+</div>
                 <div class="stat-label">Epic Bosses</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card animate-fadeInUp" style="animation-delay: 0.3s;">
                 <div class="stat-value">100+</div>
                 <div class="stat-label">Hours of Content</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value">V1.0</div>
-                <div class="stat-label">Patch Guide</div>
+            <div class="stat-card animate-fadeInUp" style="animation-delay: 0.4s;">
+                <div class="stat-value">V2.0</div>
+                <div class="stat-label">Latest Patch</div>
             </div>
         </div>
 
-        <div class="nav-cards">
-            <a href="characters/index.html" class="nav-card">
-                <div class="icon">⚔️</div>
-                <h3>Characters</h3>
-                <p>Complete class guides, stats, and abilities</p>
-            </a>
-            <a href="bosses/index.html" class="nav-card">
-                <div class="icon">👹</div>
-                <h3>Boss Guides</h3>
-                <p>Strategies to defeat every boss in the game</p>
-            </a>
-            <a href="builds/index.html" class="nav-card">
-                <div class="icon">🛡️</div>
-                <h3>Builds</h3>
-                <p>Optimal equipment and skill combinations</p>
-            </a>
-            <a href="tips/index.html" class="nav-card">
-                <div class="icon">💡</div>
-                <h3>Tips & Mechanics</h3>
-                <p>Advanced techniques and game mechanics</p>
-            </a>
-            <a href="map/index.html" class="nav-card">
-                <div class="icon">🗺️</div>
-                <h3>Map & Collectibles</h3>
-                <p>Region guides and collectible locations</p>
-            </a>
-            <a href="faq.html" class="nav-card">
-                <div class="icon">❓</div>
-                <h3>FAQ</h3>
-                <p>Frequently asked questions and answers</p>
-            </a>
+        <div class="card animate-fadeInUp" style="animation-delay: 0.5s;">
+            <h2>🔥 Featured Content</h2>
+            <div class="grid-3">
+                <div class="nav-card" style="position: relative;">
+                    <span class="featured-badge">HOT</span>
+                    <div class="icon">🦅</div>
+                    <h3>Spiritborn Guide</h3>
+                    <p>Master the new Spiritborn class with our comprehensive guide!</p>
+                    <a href="characters/index.html" class="btn btn-sm" style="margin-top: 15px;">Learn More</a>
+                </div>
+                <div class="nav-card" style="position: relative;">
+                    <span class="new-badge">NEW</span>
+                    <div class="icon">👹</div>
+                    <h3>Mehrunes Boss Fight</h3>
+                    <p>Complete strategy for the Lord of Hatred final boss!</p>
+                    <a href="bosses/mehrunes.html" class="btn btn-sm" style="margin-top: 15px;">View Guide</a>
+                </div>
+                <div class="nav-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Endgame Builds</h3>
+                    <p>Proven Tier S+ builds for the latest season!</p>
+                    <a href="builds/index.html" class="btn btn-sm" style="margin-top: 15px;">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card animate-fadeInUp" style="animation-delay: 0.6s;">
+            <h2>🎯 Quick Navigation</h2>
+            <div class="nav-cards">
+                <a href="characters/index.html" class="nav-card">
+                    <div class="icon">⚔️</div>
+                    <h3>Characters</h3>
+                    <p>Complete class guides, stats, skills & playstyles</p>
+                </a>
+                <a href="bosses/index.html" class="nav-card">
+                    <div class="icon">👹</div>
+                    <h3>Boss Guides</h3>
+                    <p>Strategies to defeat every boss with phase breakdowns</p>
+                </a>
+                <a href="builds/index.html" class="nav-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Builds</h3>
+                    <p>Optimal equipment, skill rotations & paragon boards</p>
+                </a>
+                <a href="tips/index.html" class="nav-card">
+                    <div class="icon">💡</div>
+                    <h3>Tips & Mechanics</h3>
+                    <p>Advanced techniques and game mechanics</p>
+                </a>
+                <a href="map/index.html" class="nav-card">
+                    <div class="icon">🗺️</div>
+                    <h3>Map & Collectibles</h3>
+                    <p>Region guides and collectible locations</p>
+                </a>
+                <a href="faq.html" class="nav-card">
+                    <div class="icon">❓</div>
+                    <h3>FAQ</h3>
+                    <p>Frequently asked questions and answers</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📊 Class Comparison</h2>
+            <div class="tabs">
+                <button class="tab active" onclick="openTab('dps')">DPS Ranking</button>
+                <button class="tab" onclick="openTab('tank')">Tankiness</button>
+                <button class="tab" onclick="openTab('mobility')">Mobility</button>
+                <button class="tab" onclick="openTab('difficulty')">Difficulty</button>
+            </div>
+            
+            <div id="dps" class="tab-content active">
+                <div class="grid-3">
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-5">1</div>
+                        <div class="stat-label">Spiritborn</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Highest single-target burst</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-4">2</div>
+                        <div class="stat-label">Rogue</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Elite shredder, fast DPS</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-4">3</div>
+                        <div class="stat-label">Sorceress</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Best AoE damage</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-3">4</div>
+                        <div class="stat-label">Barbarian</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Sustained melee DPS</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-3">5</div>
+                        <div class="stat-label">Necromancer</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Strong pet + DoT</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-2">6</div>
+                        <div class="stat-label">Druid</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Versatile, balanced</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tank" class="tab-content">
+                <div class="grid-3">
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-5">1</div>
+                        <div class="stat-label">Barbarian</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Highest armor & HP pool</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-4">2</div>
+                        <div class="stat-label">Druid (Bear)</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Excellent fortify</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-4">3</div>
+                        <div class="stat-label">Necromancer</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Golem + shields</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-3">4</div>
+                        <div class="stat-label">Spiritborn</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Centipede barriers</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-2">5</div>
+                        <div class="stat-label">Sorceress</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Ice Armor + Teleport</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-1">6</div>
+                        <div class="stat-label">Rogue</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Evasion based</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="mobility" class="tab-content">
+                <div class="grid-3">
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-5">1</div>
+                        <div class="stat-label">Spiritborn</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Fastest class in game</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-4">2</div>
+                        <div class="stat-label">Rogue</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Shadow Step + Dash</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-4">3</div>
+                        <div class="stat-label">Sorceress</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Teleport mastery</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-3">4</div>
+                        <div class="stat-label">Barbarian</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Charge + Leap</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-2">5</div>
+                        <div class="stat-label">Druid</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Wolf form speed</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-1">6</div>
+                        <div class="stat-label">Necromancer</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Limited mobility</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="difficulty" class="tab-content">
+                <div class="grid-3">
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-1">1</div>
+                        <div class="stat-label">Barbarian</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Easiest for beginners</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-2">2</div>
+                        <div class="stat-label">Necromancer</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Pet AI handles mobs</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-3">3</div>
+                        <div class="stat-label">Druid</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Straightforward shapeshift</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-3">4</div>
+                        <div class="stat-label">Spiritborn</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Spirit mechanics easy</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-4">5</div>
+                        <div class="stat-label">Sorceress</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Positioning important</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value difficulty-5">6</div>
+                        <div class="stat-label">Rogue</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Complex combo system</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📜 Latest Updates</h2>
+            
+            <div class="update-log">
+                <div class="update-date">📅 May 10, 2026</div>
+                <div class="update-title">Version 2.0 - Season 6 Content Added</div>
+                <ul class="update-items">
+                    <li>Added Spiritborn full build guides</li>
+                    <li>New Mehrunes boss strategy guide</li>
+                    <li>Updated all class meta builds for Season 6</li>
+                    <li>Added paragon board recommendations</li>
+                </ul>
+            </div>
+            
+            <div class="update-log">
+                <div class="update-date">📅 April 25, 2026</div>
+                <div class="update-title">Version 1.5 - Lord of Hatred Expansion</div>
+                <ul class="update-items">
+                    <li>Complete expansion boss guides</li>
+                    <li>New Wastes of Hatred region maps</li>
+                    <li>Added World Boss timers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎮 Getting Started</h2>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>🆕 New Players</h3>
+                    <ul>
+                        <li>🏰 Start with <strong>Barbarian</strong> or <strong>Rogue</strong> - easiest to learn</li>
+                        <li>📋 Complete the main campaign first before endgame</li>
+                        <li>⚡ Focus on ONE damage stat, not all stats</li>
+                        <li>🛡️ Cap your resistances at 70% before World Tier 3</li>
+                        <li>💰 Salvage magic/rare items for crafting materials</li>
+                    </ul>
+                </div>
+                <div class="map-region">
+                    <h3>⚔️ Returning Players</h3>
+                    <ul>
+                        <li>🔄 All classes have been rebalanced - check new builds</li>
+                        <li>📦 New Seasonal mechanics every 3 months</li>
+                        <li>🏆 Tier lists updated for current meta</li>
+                        <li>🎯 New endgame activity: The Pit for gem upgrades</li>
+                        <li>💎 Legendary aspects have been migrated to Codex</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div class="card">
@@ -85,12 +329,24 @@
             <p>Welcome to the ultimate Diablo 4: Lord of Hatred guide. Whether you're a new player just starting your journey or a veteran looking to optimize your endgame build, this comprehensive guide has everything you need.</p>
             <h3>What's Inside:</h3>
             <ul>
-                <li>Detailed class breakdowns and playstyle recommendations</li>
-                <li>Step-by-step boss strategies with phase-by-phase analysis</li>
-                <li>Proven builds for every class and playstyle</li>
-                <li>Advanced combat tips and mechanics explanations</li>
-                <li>Complete map and collectible locations</li>
+                <li>🎯 Detailed class breakdowns with stat priorities and skill rotations</li>
+                <li>👹 Step-by-step boss strategies with phase-by-phase analysis</li>
+                <li>⚔️ Proven Tier S+ builds for every class and playstyle</li>
+                <li>💡 Advanced combat tips, mechanics explanations & calculators</li>
+                <li>🗺️ Complete map and collectible locations with coordinates</li>
+                <li>❓ Comprehensive FAQ covering all game systems</li>
             </ul>
+        </div>
+
+        <div class="card">
+            <h2>Share This Guide</h2>
+            <p>Help your friends find the best Diablo 4 guide!</p>
+            <div class="social-share">
+                <button class="share-btn twitter" onclick="shareTwitter()" title="Share on Twitter">𝕏</button>
+                <button class="share-btn facebook" onclick="shareFacebook()" title="Share on Facebook">f</button>
+                <button class="share-btn reddit" onclick="shareReddit()" title="Share on Reddit">reddit</button>
+                <button class="share-btn copy" onclick="copyLink()" title="Copy Link">🔗</button>
+            </div>
         </div>
 
         <div class="card">
@@ -111,21 +367,88 @@
 
     <script src="assets/load-ads.js"></script>
     <script>
-        // 导航高亮
-        (function() {
+        const dailyTips = [
+            "Stack Vulnerable damage to maximize burst potential!",
+            "In World Boss fights, coordinate interrupts with your team!",
+            "Always keep Health Potion on quick slot - panic clicking works!",
+            "Paragon boards give more stats than gear at endgame!",
+            "Legendary Aspects from extraction can be stored in Codex!",
+            "Use Gems in weapons for % damage, armor for resistance!",
+            "Seasonal mechanics often provide the best XP/hour!",
+            "Dodge attacks, not the damage - timing matters more than distance!",
+            "Elites have 20% CCR - build enough to maintain CC!",
+            "Trading is disabled in Seasonal characters - gear yourself!"
+        ];
+
+        document.getElementById('dailyTip').textContent = dailyTips[Math.floor(Math.random() * dailyTips.length)];
+
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openTab(tabName) {
+            const tabs = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            const tabLinks = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove('active');
+            }
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function shareTwitter() {
+            window.open('https://twitter.com/intent/tweet?text=Check+out+this+Diablo+4+Guide!&url=' + encodeURIComponent(window.location.href), '_blank');
+        }
+
+        function shareFacebook() {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+        }
+
+        function shareReddit() {
+            window.open('https://reddit.com/submit?url=' + encodeURIComponent(window.location.href) + '&title=Diablo+4+Guide', '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Link copied to clipboard!');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
             const currentPath = window.location.pathname;
-            const navBrand = document.querySelector('.navbar-brand');
             const navLinks = document.querySelectorAll('.navbar-nav a');
             
             navLinks.forEach(link => {
                 const linkPath = link.getAttribute('href');
-                if (currentPath.endsWith(linkPath) || (linkPath === 'index.html' && currentPath.endsWith('/'))) {
+                if (currentPath.endsWith(linkPath) || (linkPath === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('index.html')))) {
+                    navLinks.forEach(l => l.classList.remove('active'));
                     link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
                 }
             });
-        })();
+        });
     </script>
 </body>
 </html>

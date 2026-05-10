@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duriel, Lord of Pain - Diablo 4 Guide</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        .resistance-checklist { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 15px 0; }
+        .resistance-item { padding: 12px; background: var(--card-bg); border-radius: 6px; border-left: 4px solid #74b9ff; }
+        .resistance-item strong { display: block; margin-bottom: 5px; }
+        .resistance-item.low { border-color: #ff6b6b; }
+        .resistance-item.ok { border-color: #ffc107; }
+        .resistance-item.good { border-color: #00e676; }
+        .class-advice { padding: 15px; background: rgba(232,93,4,0.1); border-radius: 8px; margin: 10px 0; }
+        .class-advice h4 { color: var(--accent-color); margin-bottom: 10px; }
+        .class-advice ul { margin-left: 20px; }
+        .class-advice li { margin-bottom: 6px; }
+        .phase-danger { display: flex; gap: 10px; margin-top: 10px; }
+        .danger-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; }
+        .danger-badge.low { background: rgba(0,230,118,0.2); color: #00e676; }
+        .danger-badge.medium { background: rgba(255,193,7,0.2); color: #ffc107; }
+        .danger-badge.high { background: rgba(196,30,58,0.2); color: #ff6b6b; }
+        .interrupt-priority { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 15px 0; }
+        .interrupt-card { background: var(--card-bg); padding: 15px; border-radius: 8px; border-left: 4px solid #ff6b6b; }
+        .interrupt-card.must { border-color: #c41e3a; }
+        .interrupt-card.important { border-color: #ffc107; }
+        .interrupt-card.optional { border-color: #00e676; }
+        .interrupt-name { font-weight: bold; color: var(--accent-color); margin-bottom: 5px; }
+        .interrupt-timing { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px; }
+        .recommended-builds { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 15px 0; }
+        .build-recommendation { background: var(--card-bg); padding: 15px; border-radius: 8px; }
+        .build-recommendation strong { color: var(--accent-color); display: block; margin-bottom: 8px; }
+        .timing-guide { background: rgba(232,93,4,0.1); padding: 15px; border-radius: 8px; margin: 15px 0; }
+        .timing-step { display: flex; gap: 15px; padding: 10px 0; border-bottom: 1px dashed var(--card-border); }
+        .timing-step:last-child { border-bottom: none; }
+        .timing-hp { color: var(--accent-color); font-weight: bold; min-width: 80px; }
+        .timing-desc { color: var(--text-secondary); }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -25,12 +57,12 @@
     <div class="container">
         <div class="hero-section">
             <h1>Duriel, Lord of Pain</h1>
-            <p>Story Boss - Act Boss</p>
+            <p>Story Boss - Act Boss | Ice-Based | High Difficulty</p>
         </div>
 
         <div class="card">
             <h2>Boss Overview</h2>
-            <p>Duriel is a massive, ice-based boss with freeze mechanics. The fight takes place in a small arena, so dodging is crucial.</p>
+            <p>Duriel is a massive, ice-based boss with devastating freeze mechanics. The fight takes place in a small arena, making positioning and movement critical. He is known for his aggressive melee attacks and dangerous ice-based abilities that can freeze players in place.</p>
             
             <div class="grid-3">
                 <div class="stat-card">
@@ -38,12 +70,39 @@
                     <div class="stat-label">Phases</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value">Cold</div>
+                    <div class="stat-value">❄️ Cold</div>
                     <div class="stat-label">Damage Type</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value">★★★★★</div>
+                    <div class="stat-value">★★★★☆</div>
                     <div class="stat-label">Difficulty</div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 20px;">⏱️ Fight Duration</h3>
+            <p>Estimated fight time: <strong>4-6 minutes</strong> (longer if undergeared)</p>
+            
+            <h3>🛡️ Resistance Requirements</h3>
+            <div class="resistance-checklist">
+                <div class="resistance-item ok">
+                    <strong>Cold Resistance</strong>
+                    Minimum: +20% (P1-P2)
+                    Recommended: +40%+
+                </div>
+                <div class="resistance-item good">
+                    <strong>Armor</strong>
+                    Minimum: 700
+                    Recommended: 800+
+                </div>
+                <div class="resistance-item good">
+                    <strong>Health</strong>
+                    Minimum: 6,000 HP
+                    Recommended: 8,000+ HP
+                </div>
+                <div class="resistance-item ok">
+                    <strong>Unstoppable</strong>
+                    Required for Phase 3
+                    (interrupt Final Freeze)
                 </div>
             </div>
         </div>
@@ -52,30 +111,225 @@
             <h2>Phase Breakdown</h2>
 
             <div class="phase">
-                <h4>Phase 1: Frozen Terror (100% - 66%)</h4>
+                <h4>Phase 1: Frozen Terror (100% - 66% HP)</h4>
+                <div class="phase-danger">
+                    <span class="danger-badge low">Low Danger</span>
+                </div>
+                <p>Duriel is relatively calm in this phase. Learn his basic attack patterns.</p>
                 <ul>
-                    <li><strong>Ice Slam:</strong> Ground attack - jump or dodge back</li>
-                    <li><strong>Frost Breath:</strong> Frontal cone - don't stand in front</li>
-                    <li><strong>Ice Spikes:</strong> Spikes emerge - watch ground</li>
+                    <li><strong>Ice Slam:</strong> Ground attack - creates ice shockwave. Jump or dodge backward to avoid.</li>
+                    <li><strong>Frost Breath:</strong> Frontal cone attack - don't stand in front of Duriel during this.</li>
+                    <li><strong>Ice Spikes:</strong> Spikes emerge from the ground in sequence - watch for ground indicators and move to safe zones.</li>
+                    <li><strong>Charge:</strong> Duriel charges at players - dodge sideways to avoid.</li>
                 </ul>
+                <p><strong>Strategy:</strong> Stay at mid-range, learn to read his telegraphs. This is the safest phase to deal damage.</p>
             </div>
 
             <div class="phase">
-                <h4>Phase 2: Pain's Embrace (66% - 33%)</h4>
+                <h4>Phase 2: Pain's Embrace (66% - 33% HP)</h4>
+                <div class="phase-danger">
+                    <span class="danger-badge medium">Medium Danger</span>
+                </div>
+                <p>Duriel becomes more aggressive. New dangerous attacks are introduced.</p>
                 <ul>
-                    <li><strong>Freeze Wave:</strong> Arena-wide attack - find safe spot!</li>
-                    <li><strong>Ice Prison:</strong> Traps players - break free</li>
-                    <li><strong>Charge:</strong> Fast charge - dodge sideways</li>
+                    <li><strong>Freeze Wave:</strong> <span style="color: #ff6b6b;">⚠️ ARENA-WIDE attack</span> - Duriel slams the ground and a freezing wave expands outward. Find the safe spot (usually behind him) or use Unstoppable to break out.</li>
+                    <li><strong>Ice Prison:</strong> Traps players in ice blocks - break free quickly or take heavy damage.</li>
+                    <li><strong>Enhanced Charge:</strong> Faster, more aggressive charges with ice trail.</li>
+                    <li><strong>Ice Cyclone:</strong> Creates a spinning ice tornado - keep moving in circles to avoid.</li>
                 </ul>
+                <p><strong>Strategy:</strong> Save movement abilities for Freeze Wave. Don't panic - there's always a safe zone.</p>
             </div>
 
             <div class="phase">
-                <h4>Phase 3: Absolute Zero (33% - 0%)</h4>
+                <h4>Phase 3: Absolute Zero (33% - 0% HP)</h4>
+                <div class="phase-danger">
+                    <span class="danger-badge high">HIGH DANGER</span>
+                </div>
+                <p>Duriel's most dangerous phase. Ice attacks become relentless.</p>
                 <ul>
-                    <li><strong>Blizzard:</strong> Constant ice damage - keep moving</li>
-                    <li><strong>Frozen Ground:</strong> Slippery ice - careful!</li>
-                    <li><strong>Final Freeze:</strong> One-shot mechanic - interrupt!</li>
+                    <li><strong>Blizzard:</strong> Constant ice damage in random areas - keep moving!</li>
+                    <li><strong>Frozen Ground:</strong> Ice covers most of the arena - movement is impaired.</li>
+                    <li><strong>Final Freeze:</strong> <span style="color: #ff6b6b;">⚠️ MUST INTERRUPT</span> - Duriel prepares a massive freeze. If it lands, it deals massive damage and freezes ALL players. Use stuns, knockbacks, or Unstoppable to interrupt!</li>
+                    <li><strong>Desperation Attack:</strong> Combined ice attacks - combination of P1 and P2 attacks faster.</li>
                 </ul>
+                <p><strong>Strategy:</strong> Coordinate with team to interrupt Final Freeze. If solo, ensure you have an Unstoppable ability available when he reaches 33% HP.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🔴 Interrupt Priority</h2>
+            <p>Some attacks MUST be interrupted. Know your interrupt skills!</p>
+            
+            <div class="interrupt-priority">
+                <div class="interrupt-card must">
+                    <div class="interrupt-name">❄️ Final Freeze</div>
+                    <div class="interrupt-timing">Phase 3 (33% HP) - Always</div>
+                    <p><strong>How to interrupt:</strong> Any stun, knockback, or Unstoppable ability will cancel this attack. Time your interrupt carefully!</p>
+                </div>
+                <div class="interrupt-card important">
+                    <div class="interrupt-name">💥 Freeze Wave</div>
+                    <div class="interrupt-timing">Phase 2+ (66% HP) - When available</div>
+                    <p><strong>How to interrupt:</strong> Ground Stomp (Barb), Shadow Step (Rogue), Smoke Grenade (Rogue), War Cry (Barb) can help survive.</p>
+                </div>
+                <div class="interrupt-card optional">
+                    <div class="interrupt-name">🧊 Ice Prison</div>
+                    <div class="interrupt-timing">Phase 2+ (66% HP) - If trapped</div>
+                    <p><strong>How to escape:</strong> Use Unstoppable skill or wait for natural break. Save escape ability for this.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Class-Specific Strategies</h2>
+            
+            <div class="class-advice">
+                <h4>⚔️ Barbarian vs Duriel</h4>
+                <ul>
+                    <li><strong>Positioning:</strong> Stay at melee range, but don't stand directly in front (Frost Breath)</li>
+                    <li><strong>Key Skills:</strong> Charge (mobility), Ground Stomp (interrupt), Leap (dodge)</li>
+                    <li><strong>Burst Window:</strong> Use Wrath of the Berserker during Phase 3</li>
+                    <li><strong>Survival:</strong> War Cry provides Unstoppable for breaking Freeze Wave</li>
+                    <li><strong>Tip:</strong> Charge can follow Duriel's charges - use to stay on him</li>
+                    <li><strong>Gear:</strong> Prioritize Cold Resistance + Armor</li>
+                </ul>
+            </div>
+            
+            <div class="class-advice">
+                <h4>🗡️ Rogue vs Duriel</h4>
+                <ul>
+                    <li><strong>Positioning:</strong> Stay at ranged distance (8-10 meters ideal)</li>
+                    <li><strong>Key Skills:</strong> Rapid Fire (main DPS), Shadow Step (dodge/interrupt), Smoke Grenade (survival)</li>
+                    <li><strong>Burst Window:</strong> Shadow Clone during Phase 3 vulnerability</li>
+                    <li><strong>Survival:</strong> Shadow Step can dodge ice spikes AND charge attacks</li>
+                    <li><strong>Tip:</strong> Shadow Step is your best friend - use it freely, short cooldown</li>
+                    <li><strong>Gear:</strong> Prioritize Cold Resistance, bring healing potions</li>
+                </ul>
+            </div>
+            
+            <div class="class-advice">
+                <h4>🔮 Sorceress vs Duriel</h4>
+                <ul>
+                    <li><strong>Positioning:</strong> Stay at max range, behind Duriel if possible</li>
+                    <li><strong>Key Skills:</strong> Blizzard (main damage), Teleport (mobility), Frost Nova (CC), Ice Armor (defense)</li>
+                    <li><strong>Burst Window:</strong> Deep Freeze provides i-frames during dangerous attacks</li>
+                    <li><strong>Survival:</strong> Teleport is essential - save it for Ice Prison and Freeze Wave</li>
+                    <li><strong>Tip:</strong> Keep Ice Armor active at all times in Phase 3</li>
+                    <li><strong>Gear:</strong> High Mana for constant Blizzard, Cold Damage stats</li>
+                </ul>
+            </div>
+            
+            <div class="class-advice">
+                <h4>🐺 Druid vs Duriel</h4>
+                <ul>
+                    <li><strong>Positioning:</strong> Werebear form for tankiness, Werewolf for mobility</li>
+                    <li><strong>Key Skills:</strong> Hurricane (AoE), Werebear (tank), Blood Howl (heal), Cyclone Armor (defense)</li>
+                    <li><strong>Burst Window:</strong> Grizzly Rage during Phase 3</li>
+                    <li><strong>Survival:</strong> Stay in Werebear during dangerous phases, switch to Werewolf for DPS windows</li>
+                    <li><strong>Tip:</strong> Blood Howl can save you from low HP situations</li>
+                    <li><strong>Gear:</strong> Cold Resistance, Shapeshift damage</li>
+                </ul>
+            </div>
+            
+            <div class="class-advice">
+                <h4>💀 Necromancer vs Duriel</h4>
+                <ul>
+                    <li><strong>Positioning:</strong> Stay behind your Golem - let it tank</li>
+                    <li><strong>Key Skills:</strong> Bone Spear (main DPS), Golem (aggro), Blood Surge (shield), Corpse Explosion (clean up)</li>
+                    <li><strong>Burst Window:</strong> Army of the Dead during Phase 3</li>
+                    <li><strong>Survival:</strong> Golem draws Duriel's attention, Blood Surge provides shields</li>
+                    <li><strong>Tip:</strong> Bone Prison can trap Duriel briefly for safe DPS</li>
+                    <li><strong>Gear:</strong> Minion Damage, Essence generation</li>
+                </ul>
+            </div>
+            
+            <div class="class-advice">
+                <h4>🦅 Spiritborn vs Duriel</h4>
+                <ul>
+                    <li><strong>Positioning:</strong> Use Eagle spirit for constant movement</li>
+                    <li><strong>Key Skills:</strong> Quill Shot (spirit gen), Razor Wings (DPS), Swoop (mobility), Centipede (defense)</li>
+                    <li><strong>Burst Window:</strong> Jaguar Shift during Phase 3</li>
+                    <li><strong>Survival:</strong> Centipede spirit provides barriers, but your best defense is staying mobile</li>
+                    <li><strong>Tip:</strong> Eagle spirit + constant movement = avoid most attacks</li>
+                    <li><strong>Gear:</strong> Spirit Damage, Attack Speed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Recommended Builds for This Fight</h2>
+            <p>These builds excel against Duriel:</p>
+            
+            <div class="recommended-builds">
+                <div class="build-recommendation">
+                    <strong>⚔️ Barbarian: Whirlwind Build</strong>
+                    <p>Great for: Sustained damage, survivability</p>
+                    <p>Why: Charge for mobility, high defense, steady DPS</p>
+                </div>
+                <div class="build-recommendation">
+                    <strong>🗡️ Rogue: Rapid Fire Build</strong>
+                    <p>Great for: Single-target boss damage</p>
+                    <p>Why: Highest boss DPS, Shadow Step for dodging</p>
+                </div>
+                <div class="build-recommendation">
+                    <strong>🔮 Sorceress: Blizzard Build</strong>
+                    <p>Great for: Safe ranged damage</p>
+                    <p>Why: Blizzard can be channeled while moving, Teleport for safety</p>
+                </div>
+                <div class="build-recommendation">
+                    <strong>🐺 Druid: Werebear Build</strong>
+                    <p>Great for: High survivability</p>
+                    <p>Why: Tank form, self-healing, Fortify</p>
+                </div>
+                <div class="build-recommendation">
+                    <strong>💀 Necromancer: Bone Spear Build</strong>
+                    <p>Great for: Safe ranged damage with pets</p>
+                    <p>Why: Golem tanks, Bone Spear from safety</p>
+                </div>
+                <div class="build-recommendation">
+                    <strong>🦅 Spiritborn: Eagle/Jaguar Build</strong>
+                    <p>Great for: Fast, mobile combat</p>
+                    <p>Why: Constant movement, high evasion</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Timing Guide: What to Do When</h2>
+            <p>Follow this timeline to optimize your fight:</p>
+            
+            <div class="timing-guide">
+                <div class="timing-step">
+                    <span class="timing-hp">100-80%</span>
+                    <span class="timing-desc">Learn attack patterns. Deal damage safely. Save movement cooldowns.</span>
+                </div>
+                <div class="timing-step">
+                    <span class="timing-hp">80-66%</span>
+                    <span class="timing-desc">Start dealing more damage. Watch for Freeze Wave telegraph. Stay mobile.</span>
+                </div>
+                <div class="timing-step">
+                    <span class="timing-hp">66% (P2)</span>
+                    <span class="timing-desc">Phase transition - Duriel becomes more aggressive. Be ready to dodge Freeze Wave.</span>
+                </div>
+                <div class="timing-step">
+                    <span class="timing-hp">66-50%</span>
+                    <span class="timing-desc">Positioning becomes critical. Don't greed for damage during Freeze Wave cycles.</span>
+                </div>
+                <div class="timing-step">
+                    <span class="timing-hp">50-33%</span>
+                    <span class="timing-desc">Stay defensive. Blizzard and ice spikes become more frequent. Prepare for Phase 3.</span>
+                </div>
+                <div class="timing-step">
+                    <span class="timing-hp">33% (P3)</span>
+                    <span class="timing-desc">⚠️ SAVE UNSTOPPABLE FOR FINAL FREEZE. This is the most dangerous moment.</span>
+                </div>
+                <div class="timing-step">
+                    <span class="timing-hp">33-15%</span>
+                    <span class="timing-desc">Coordinate interrupts if in group. Solo: manage your Unstoppable carefully.</span>
+                </div>
+                <div class="timing-step">
+                    <span class="timing-hp">15-0%</span>
+                    <span class="timing-desc">Final push. Duriel is desperate - attacks are frantic but he's almost dead!</span>
+                </div>
             </div>
         </div>
 
@@ -83,19 +337,35 @@
             <h2>Essential Tips</h2>
             <div class="warning-box">
                 <h4>⚠️ Critical</h4>
-                <p>Interrupt the Final Freeze at all costs! Use your stuns or CC abilities.</p>
+                <ul>
+                    <li><strong>Interrupt Final Freeze at all costs!</strong> Use stuns, knockbacks, or Unstoppable abilities.</li>
+                    <li><strong>Cold Resistance is mandatory!</strong> Minimum +20%, recommended +40%+</li>
+                    <li><strong>Keep moving!</strong> Standing still = getting hit by ice attacks</li>
+                </ul>
             </div>
             <div class="tip-box">
                 <h4>💡 Do This</h4>
                 <ul>
-                    <li>Bring Unstoppable abilities</li>
-                    <li>Use fire damage to melt ice</li>
-                    <li>Stay at medium range</li>
+                    <li>Bring Unstoppable abilities (especially in Phase 3)</li>
+                    <li>Use fire damage to melt ice effects faster</li>
+                    <li>Stay at mid-range (not too close, not too far)</li>
+                    <li>Watch for ice ground indicators before they appear</li>
+                    <li>In groups: coordinate who interrupts Final Freeze</li>
+                    <li>Don't panic during Freeze Wave - there's always a safe spot</li>
+                </ul>
+            </div>
+            <div class="tip-box">
+                <h4>🎯 Pro Tips</h4>
+                <ul>
+                    <li>Fire-based skills help counter ice mechanics</li>
+                    <li>The arena has pillars - use them to break line of sight</li>
+                    <li>If you get Ice Prison'd, immediately use escape ability</li>
+                    <li>Duriel's charge always leaves an ice trail - avoid it</li>
                 </ul>
             </div>
         </div>
 
-        <a href="index.html" class="btn">&#8592; Back to All Bosses</a>
+        <a href="index.html" class="btn">← Back to All Bosses</a>
 
         <div id="ads-container" data-ads-path="../ads.html"></div>
     </div>

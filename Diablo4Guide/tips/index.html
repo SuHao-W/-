@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tips & Mechanics - Diablo 4: Lord of Hatred Guide</title>
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="../assets/style.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -22,201 +22,408 @@
         </div>
     </nav>
 
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
     <div class="container">
         <div class="hero-section">
-            <h1>Tips & Mechanics</h1>
-            <p>Advanced gameplay tips and mechanics explanations</p>
+            <h1>💡 Tips & Mechanics</h1>
+            <p>Master Diablo 4 with advanced gameplay techniques and system explanations</p>
         </div>
 
         <div class="card">
-            <h2>Combat Mechanics</h2>
+            <h2>🎮 Damage Calculator</h2>
+            <p>Estimate your damage output with this simple calculator:</p>
+            <div class="damage-calculator">
+                <div class="grid-2">
+                    <div>
+                        <label>Base Damage:</label>
+                        <input type="number" class="calc-input" id="baseDamage" value="1000" placeholder="Enter base damage">
+                    </div>
+                    <div>
+                        <label>Critical Damage Bonus (%):</label>
+                        <input type="number" class="calc-input" id="critBonus" value="150" placeholder="e.g. 150 for 150%">
+                    </div>
+                    <div>
+                        <label>Vulnerable Damage (%):</label>
+                        <input type="number" class="calc-input" id="vulnDamage" value="20" placeholder="e.g. 20 for 20%">
+                    </div>
+                    <div>
+                        <label>Damage vs. Elites (%):</label>
+                        <input type="number" class="calc-input" id="eliteDamage" value="30" placeholder="e.g. 30 for 30%">
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 15px;">
+                    <label>
+                        <input type="checkbox" id="isCrit" onchange="calculateDamage()"> Critical Hit
+                    </label>
+                    <label style="margin-left: 20px;">
+                        <input type="checkbox" id="isVuln" onchange="calculateDamage()"> Target is Vulnerable
+                    </label>
+                    <label style="margin-left: 20px;">
+                        <input type="checkbox" id="isElite" onchange="calculateDamage()"> Target is Elite
+                    </label>
+                </div>
+                <div class="calc-result" id="damageResult">DPS: 1,000</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>⚔️ Core Combat Mechanics</h2>
             
-            <div class="collapsible">
-                <div class="collapsible-header">Vulnerable</div>
+            <div class="collapsible active">
+                <div class="collapsible-header">💥 Vulnerable Explained</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
-                        <p>Vulnerable is one of the most powerful effects in the game. Enemies take 20% increased damage while Vulnerable.</p>
+                        <p><strong>Vulnerable</strong> is a status effect causing enemies to take <span style="color: var(--accent-color); font-weight: bold;">20% increased damage</span> from all sources.</p>
+                        <div class="info-box">
+                            <h4>How to Apply:</h4>
+                            <ul>
+                                <li>Specific skills have built-in Vulnerable application</li>
+                                <li>Many skills have "Makes Vulnerable" modifiers</li>
+                                <li>Some Legendary Aspects apply Vulnerable</li>
+                                <li>Paragon nodes can grant Vulnerable on crit</li>
+                            </ul>
+                        </div>
+                        <div class="tip-box">
+                            <h4>💡 Pro Tip</h4>
+                            <p>Vulnerable stacks additively, but the 20% bonus is multiplicative with other damage increases!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header">🛡️ Stagger System</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p>Stagger is a <strong>hidden damage threshold</strong> that, when reached, causes enemies to become stunned and take bonus damage.</p>
                         <ul>
-                            <li>Apply Vulnerable through skills</li>
-                            <li>Stack with other damage bonuses</li>
-                            <li>Excellent for boss burn phases</li>
+                            <li><strong>CC effects build stagger:</strong> Stuns, Freezes, Dazes, Slows</li>
+                            <li><strong>World Bosses</strong> have visible stagger bars</li>
+                            <li><strong>Elite monsters</strong> have reduced stagger building</li>
+                            <li><strong>When staggered:</strong> Enemies are frozen for 2-3 seconds and take 30% more damage</li>
+                        </ul>
+                        <div class="warning-box">
+                            <h4>⚠️ Important</h4>
+                            <p>Save your biggest cooldowns for when the enemy is staggered for maximum burst!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header">🎲 Luck Hit Mechanics</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>Luck Hit</strong> is a chance-based trigger that occurs on each hit (not per attack).</p>
+                        <ul>
+                            <li>Critical strikes <strong>do NOT</strong> affect Luck Hit chances</li>
+                            <li>Each skill hit can trigger Luck Hit effects</li>
+                            <li>Multi-hit skills = multiple chances</li>
+                            <li>Example: "20% Luck Hit to heal" means 20% chance per hit</li>
+                        </ul>
+                        <div class="tip-box">
+                            <h4>💡 Optimization</h4>
+                            <p>Stack multiple different Luck Hit effects for higher overall proc rates!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header">👊 Crowd Control (CC) & CCR</div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>CC Types:</strong> Stun, Freeze, Daze, Fear, Taunt, Slow, Immobilize, Knockback</p>
+                        <p><strong>CC Resistance (CCR)</strong> reduces the duration of CC effects applied to you.</p>
+                        <ul>
+                            <li>Elites have <strong>20% CCR</strong></li>
+                            <li>Nightmare Dungeon monsters have <strong>30%+ CCR</strong></li>
+                            <li>Cap CCR at <strong>85%</strong> for near-immunity</li>
+                            <li><strong>Unstoppable</strong> breaks existing CC and grants immunity</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="collapsible">
-                <div class="collapsible-header">Stagger</div>
+                <div class="collapsible-header">🔥 Damage Scaling</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
-                        <p>Build up stagger by using Crowd Control (CC) effects. Once staggered, enemies are vulnerable and open to big damage!</p>
+                        <p>Damage calculation follows this general formula:</p>
+                        <div style="background: var(--bg-color); padding: 15px; border-radius: 8px; font-family: monospace; margin: 15px 0;">
+                            Final Damage = (Base × Skill%) × (1 + Sum of additive %) × (1 + Multiplicative %) × (1 + Vulnerable bonus if applicable)
+                        </div>
+                        <h4>Additive Bonuses (soft cap around 300%):</h4>
                         <ul>
-                            <li>Stuns, Freezes, Dazes all build stagger</li>
-                            <li>World bosses have visible stagger bar</li>
-                            <li>Save big cooldowns for staggered targets</li>
+                            <li>Core Stat damage (Strength, etc.)</li>
+                            <li>Damage to Close/Range/Far</li>
+                            <li>Damage vs. Elites/Bosses</li>
+                        </ul>
+                        <h4>Multiplicative Bonuses (no cap - prioritize these):</h4>
+                        <ul>
+                            <li>Critical Strike Damage</li>
+                            <li>Vulnerable Damage</li>
+                            <li>Overpower Damage</li>
+                            <li>Damage while Berserk/Cursed/etc.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="collapsible">
-                <div class="collapsible-header">Luck Hit</div>
+                <div class="collapsible-header">💫 Overpower</div>
                 <div class="collapsible-content">
                     <div class="collapsible-inner">
-                        <p>Luck Hit effects have a chance to trigger on hit. Not all hits will trigger them!</p>
+                        <p><strong>Overpower</strong> is bonus damage based on your current HP and Fortify amounts.</p>
                         <ul>
-                            <li>Each effect shows its chance %</li>
-                            <li>Critical strikes don't affect Luck Hit</li>
-                            <li>Stack multiple Luck Hit effects</li>
+                            <li>Each HP/Fortify point gives a small Overpower chance</li>
+                            <li>When triggered: Deal bonus damage equal to a % of your HP</li>
+                            <li>Works on both attacks and crits</li>
+                            <li>Barbarian and Druid have strongest Overpower synergy</li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="collapsible">
-                <div class="collapsible-header">Crowd Control (CC)</div>
-                <div class="collapsible-content">
-                    <div class="collapsible-inner">
-                        <p>CC effects include Stun, Freeze, Daze, Fear, Taunt, Slow, Immobilize, and Knockback.</p>
-                        <ul>
-                            <li>Elites have CC resistance</li>
-                            <li>Use Unstoppable to break free</li>
-                            <li>Build stagger with CC</li>
-                        </ul>
+                        <div class="info-box">
+                            <h4>Overpower Formula:</h4>
+                            <p>Overpower Damage = (Current HP + Fortify) × Overpower stat %</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <h2>Survival Tips</h2>
+            <h2>🎯 Survival Guide</h2>
             
             <div class="tip-box">
-                <h4>💡 Always</h4>
+                <h4>✅ DO These</h4>
                 <ul>
-                    <li>Cap your resistances (70% max)</li>
-                    <li>Use health potions before you get too low</li>
-                    <li>Dodge mechanics - don't stand in bad stuff</li>
-                    <li>Learn enemy attack patterns</li>
+                    <li><strong>Cap resistances at 70%</strong> - Each resistance caps at 70% damage reduction</li>
+                    <li><strong>Keep health potions ready</strong> - Use before you get too low</li>
+                    <li><strong>Maintain mobility</strong> - Dodge, don't face-tank</li>
+                    <li><strong>Learn attack patterns</strong> - Watch for telegraphs</li>
+                    <li><strong>Build Fortify</strong> - Extra effective HP buffer</li>
+                    <li><strong>Use Unstoppable</strong> - Break CC to escape combos</li>
                 </ul>
             </div>
 
             <div class="warning-box">
-                <h4>⚠️ Never</h4>
+                <h4>❌ NEVER Do These</h4>
                 <ul>
-                    <li>Face-tank big attacks</li>
-                    <li>Ignore mechanics for extra damage</li>
-                    <li>Forget about resource management</li>
+                    <li><strong>Face-tank boss mechanics</strong> - Always dodge dangerous attacks</li>
+                    <li><strong>Ignore resource management</strong> - Keep resources for emergencies</li>
+                    <li><strong>Stand in affixes</strong> - Frozen, Poisoned, Burning all hurt</li>
+                    <li><strong>Chase mobile bosses</strong> - Position for their return</li>
+                    <li><strong>Pop cooldowns early</strong> - Save for vulnerability windows</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>📊 Defensive Stats Priority</h4>
+                <p>Armor > Resistance > Life % > HP > Life Regen</p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Note: Armor provides linear damage reduction vs. Physical only. All resistances are universal!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📈 Leveling Roadmap</h2>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="openLevelTab('early')">Early (1-25)</button>
+                <button class="tab" onclick="openLevelTab('mid')">Mid (25-50)</button>
+                <button class="tab" onclick="openLevelTab('late')">Late (50-100)</button>
+            </div>
+
+            <div id="early" class="tab-content active">
+                <div class="phase">
+                    <h4>🌱 Early Game (Level 1-25)</h4>
+                    <ul>
+                        <li><strong>Focus:</strong> Complete the campaign story</li>
+                        <li><strong>Side quests:</strong> Pick up along the way, don't grind</li>
+                        <li><strong>Gear:</strong> Use whatever drops, don't upgrade often</li>
+                        <li><strong>Skills:</strong> Unlock all skills, experiment freely</li>
+                        <li><strong>Respec:</strong> Cheap at low levels, try everything!</li>
+                    </ul>
+                    <div class="tip-box">
+                        <h4>💡 Tip</h4>
+                        <p>Talk to the Class Trainer to unlock all skills before respeccing!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mid" class="tab-content">
+                <div class="phase">
+                    <h4>⚔️ Mid Game (Level 25-50)</h4>
+                    <ul>
+                        <li><strong>Focus:</strong> Start building toward endgame build</li>
+                        <li><strong>Dungeons:</strong> Run for specific Aspects you need</li>
+                        <li><strong>Paragon:</strong> Unlock and start planning boards</li>
+                        <li><strong>World Tier:</strong> Switch to WT3 when comfortable</li>
+                        <li><strong>Gear:</strong> Start looking for upgrade pieces</li>
+                        <li><strong>Aspect Codex:</strong> Extract and store useful aspects</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="late" class="tab-content">
+                <div class="phase">
+                    <h4>🔥 Endgame (Level 50-100)</h4>
+                    <ul>
+                        <li><strong>World Tier 4:</strong> Switch for best loot</li>
+                        <li><strong>Nightmare Dungeons:</strong> Farm for glyphs and gems</li>
+                        <li><strong>Helltides:</strong> Farm cinders for legendary items</li>
+                        <li><strong>The Pit:</strong> Push for gem upgrades</li>
+                        <li><strong>Seasonal Journey:</strong> Complete for best-in-slot items</li>
+                        <li><strong>Paragon:</strong> Fine-tune boards for max power</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💰 Farming Routes & Strategies</h2>
+            
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>🪙 Gold Farming</h3>
+                    <ul>
+                        <li>🏆 <strong>Tree of Whispers</strong> - 15-minute cycles</li>
+                        <li>🌍 <strong>Helltide Chests</strong> - 45-minute windows</li>
+                        <li>📦 <strong>Legion Events</strong> - Big gold drops</li>
+                        <li>🛒 <strong>Sell items</strong> - Vendor trash often</li>
+                        <li>🏰 <strong>Dungeon Chests</strong> - End-of-dungeon rewards</li>
+                    </ul>
+                </div>
+                
+                <div class="map-region">
+                    <h3>⭐ Legendary Farming</h3>
+                    <ul>
+                        <li>👹 <strong>World Bosses</strong> - Guaranteed 2-3 legendaries</li>
+                        <li>🌙 <strong>Helltide</strong> - Best legend/hour ratio</li>
+                        <li>🏔️ <strong>Nightmare Dungeons</strong> - Consistent drops</li>
+                        <li>📜 <strong>Codex Dungeons</strong> - Target specific aspects</li>
+                        <li>🎰 <strong>Cursed Chests</strong> - High density targets</li>
+                    </ul>
+                </div>
+                
+                <div class="map-region">
+                    <h3>⚗️ Material Farming</h3>
+                    <ul>
+                        <li>💎 <strong>Veiled Crystals</strong> - Salvage rare/legendary</li>
+                        <li>👻 <strong>Forgotten Souls</strong> - Helltide chests</li>
+                        <li>🌹 <strong>Fiend Roses</strong> - Helltide whispers</li>
+                        <li>📿 <strong>Coiling Wards</strong> - Nightmare dungeon final chest</li>
+                        <li>🗝️ <strong>Sacred/Ancestral</strong> - Salvage for dust</li>
+                    </ul>
+                </div>
+                
+                <div class="map-region">
+                    <h3>💎 Gem Farming</h3>
+                    <ul>
+                        <li>⛏️ <strong>The Pit</strong> - Best gem XP</li>
+                        <li>📦 <strong>Obducite</strong> - Craft gems from The Pit</li>
+                        <li>🏆 <strong>Ranking up</strong> - Max rank = Tier 10</li>
+                        <li>🔄 <strong>R疗伤</strong> - Push to highest Pit clearable</li>
+                        <li>💫 <strong>Bypass</strong> - Can push directly to desired level</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🗺️ Paragon System Deep Dive</h2>
+            <p>Paragon boards unlock at level 50 and are your primary source of power at endgame.</p>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Board Structure</h3>
+                    <ul>
+                        <li><strong>Starting Board:</strong> Class-specific, includes Legendary node</li>
+                        <li><strong>Socket Nodes:</strong> Connect boards together</li>
+                        <li><strong>Magic Nodes:</strong> +stat bonuses</li>
+                        <li><strong>Rare Nodes:</strong> Better bonuses, require multiple</li>
+                        <li><strong>Legendary Nodes:</strong> Unique powerful effects</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Glyph System</h3>
+                    <ul>
+                        <li><strong>Sockets:</strong> Found on boards, hold one glyph each</li>
+                        <li><strong>Glyph Levels:</strong> XP from Nightmare Dungeons</li>
+                        <li><strong>Radius Bonus:</strong> Nodes in radius count for bonuses</li>
+                        <li><strong>Color Matching:</strong> Match glyph color to node colors</li>
+                        <li><strong>Min/Max:</strong> Some glyphs have level requirements</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Glyph Radius Strategy</h4>
+                <p>Count the nodes of matching color within the glyph's radius to determine bonus effect strength. Place glyphs where they hit the most matching nodes!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🏆 Item Quality Guide</h2>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>⚪ Common (White)</h3>
+                    <p>Basic items. Salvage for crafting materials.</p>
+                </div>
+                <div class="map-region">
+                    <h3>🔵 Magic (Blue)</h3>
+                    <p>1-2 affixes. Salvage for Veiled Crystals.</p>
+                </div>
+                <div class="map-region">
+                    <h3>🟡 Rare (Yellow)</h3>
+                    <p>3-4 affixes. Good for extraction or trading.</p>
+                </div>
+                <div class="map-region">
+                    <h3>🟠 Legendary (Orange)</h3>
+                    <p>1 Aspect + 3-4 affixes. Keep or extract!</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <h4>Sacred vs Ancestral:</h4>
+                <p><strong>Sacred</strong> (WT3) - iLvl 340-460 | <strong>Ancestral</strong> (WT4) - iLvl 460+ | Higher iLvl = Better stats!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🌟 Seasonal Mechanics</h2>
+            <p>Each season brings unique mechanics that provide the fastest leveling and best rewards.</p>
+            
+            <div class="tip-box">
+                <h4>🎮 Current Season Tips</h4>
+                <ul>
+                    <li>Complete Seasonal Journey for guaranteed BIS items</li>
+                    <li>Seasonal mechanics often give XP multipliers</li>
+                    <li>Some seasons allow resource sharing in groups</li>
+                    <li>Season blessings provide powerful buffs</li>
+                    <li>Don't ignore the seasonal questline for story!</li>
                 </ul>
             </div>
         </div>
 
         <div class="card">
-            <h2>Leveling Guide</h2>
-            <h3>Early Game (1-25)</h3>
-            <ul>
-                <li>Complete main story first</li>
-                <li>Pick up side quests along the way</li>
-                <li>Don't worry about perfect gear</li>
-            </ul>
-
-            <h3>Mid Game (25-50)</h3>
-            <ul>
-                <li>Start building your endgame build</li>
-                <li>Do some dungeons for Aspects</li>
-                <li>Unlock your Paragon board</li>
-            </ul>
-
-            <h3>Endgame (50-100)</h3>
-            <ul>
-                <li>Push World Tiers</li>
-                <li>Farm Nightmare Dungeons</li>
-                <li>Do Helltides for materials</li>
-                <li>World Bosses when available</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>Farming Routes</h2>
-            
-            <div class="collapsible">
-                <div class="collapsible-header">Gold Farming</div>
-                <div class="collapsible-content">
-                    <div class="collapsible-inner">
-                        <ul>
-                            <li>Complete events with gold rewards</li>
-                            <li>Sell unwanted items</li>
-                            <li>Helltide chests give good gold</li>
-                            <li>Nightmare Dungeon end chests</li>
-                        </ul>
-                    </div>
+            <h2>⚡ Advanced Combat Techniques</h2>
+            <div class="grid-2">
+                <div class="map-region">
+                    <h3>🎭 Animation Canceling</h3>
+                    <p>Dodge immediately after attacking to cancel the recovery animation. Increases effective DPS.</p>
+                </div>
+                <div class="map-region">
+                    <h3>🧱 Line-of-Sight</h3>
+                    <p>Use pillars and walls to block enemy projectiles and attacks. Some bosses CAN'T follow you.</p>
+                </div>
+                <div class="map-region">
+                    <h3>⚔️ Stacking Buffs</h3>
+                    <p>Apply all damage buffs before using burst skills. Order matters for max damage!</p>
+                </div>
+                <div class="map-region">
+                    <h3>🏃 Kiting</h3>
+                    <p>Move while dealing damage. Many classes can kite dangerous enemies indefinitely.</p>
                 </div>
             </div>
-
-            <div class="collapsible">
-                <div class="collapsible-header">Legendary Farming</div>
-                <div class="collapsible-content">
-                    <div class="collapsible-inner">
-                        <ul>
-                            <li>Nightmare Dungeons - most consistent</li>
-                            <li>World Bosses - guaranteed legendary</li>
-                            <li>Helltides - target farm with cinders</li>
-                            <li>Tree of Whispers rewards</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="collapsible">
-                <div class="collapsible-header">Material Farming</div>
-                <div class="collapsible-content">
-                    <div class="collapsible-inner">
-                        <ul>
-                            <li>Veiled Crystals - salvage rare/legendary items</li>
-                            <li>Forgotten Souls - Helltides</li>
-                            <li>Fiend Roses - Helltides</li>
-                            <li>Coiling Wards - Salvage sacred/ancestral</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Paragon System</h2>
-            <p>Paragon boards unlock at level 50. Plan your board carefully!</p>
-            <ul>
-                <li>Start with your class's starting board</li>
-                <li>Pick up legendary nodes</li>
-                <li>Connect glyph sockets</li>
-                <li>Level up glyphs with Nightmare Dungeons</li>
-                <li>Match glyphs to attuned colors</li>
-            </ul>
-            <div class="tip-box">
-                <h4>💡 Glyph Placement</h4>
-                <p>Count how many nodes match the glyph's color for bonus effects!</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Advanced Combat Tips</h2>
-            <ul>
-                <li>Animation cancel - weave in dodges</li>
-                <li>Group enemies before using AoE</li>
-                <li>Kite dangerous enemies around obstacles</li>
-                <li>Use terrain to your advantage</li>
-                <li>Time cooldowns for damage phases</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>Social Features</h2>
-            <ul>
-                <li>Find friends in Clan chat</li>
-                <li>World Bosses need groups</li>
-                <li>Trade with other players</li>
-                <li>Join parties for faster farming</li>
-            </ul>
         </div>
 
         <div id="ads-container" data-ads-path="../ads.html"></div>
@@ -228,6 +435,45 @@
 
     <script src="../assets/load-ads.js"></script>
     <script>
+        function calculateDamage() {
+            const base = parseFloat(document.getElementById('baseDamage').value) || 0;
+            const critBonus = (parseFloat(document.getElementById('critBonus').value) || 0) / 100;
+            const vulnDamage = (parseFloat(document.getElementById('vulnDamage').value) || 0) / 100;
+            const eliteDamage = (parseFloat(document.getElementById('eliteDamage').value) || 0) / 100;
+            const isCrit = document.getElementById('isCrit').checked;
+            const isVuln = document.getElementById('isVuln').checked;
+            const isElite = document.getElementById('isElite').checked;
+
+            let damage = base;
+            
+            if (isCrit) {
+                damage *= (1 + critBonus);
+            }
+            
+            if (isVuln) {
+                damage *= (1 + vulnDamage);
+            }
+            
+            if (isElite) {
+                damage *= (1 + eliteDamage);
+            }
+
+            document.getElementById('damageResult').textContent = 'Damage: ' + Math.round(damage).toLocaleString();
+        }
+
+        function openLevelTab(tabId) {
+            const contents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+            const tabs = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.navbar-nav a');
             navLinks.forEach(link => {
@@ -242,7 +488,25 @@
                     this.classList.toggle('active');
                 });
             });
+
+            calculateDamage();
+            document.querySelectorAll('.calc-input').forEach(input => {
+                input.addEventListener('input', calculateDamage);
+            });
+
+            window.addEventListener('scroll', function() {
+                const backToTop = document.getElementById('backToTop');
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
         });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
