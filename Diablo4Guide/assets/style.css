@@ -1349,21 +1349,25 @@ footer {
 }
 
 .start-card-content::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
 }
 
 .start-card-content::-webkit-scrollbar-track {
-    background: rgba(42, 42, 42, 0.5);
-    border-radius: 3px;
+    background: transparent;
 }
 
 .start-card-content::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 3px;
+    background: rgba(232, 93, 4, 0.5);
+    border-radius: 2px;
 }
 
 .start-card-content::-webkit-scrollbar-thumb:hover {
-    background: #d35400;
+    background: rgba(232, 93, 4, 0.8);
+}
+
+.start-card-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(232, 93, 4, 0.5) transparent;
 }
 
 .tip-list {
@@ -1376,21 +1380,25 @@ footer {
 }
 
 .tip-list::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
 }
 
 .tip-list::-webkit-scrollbar-track {
-    background: rgba(42, 42, 42, 0.5);
-    border-radius: 3px;
+    background: transparent;
 }
 
 .tip-list::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 3px;
+    background: rgba(232, 93, 4, 0.5);
+    border-radius: 2px;
 }
 
 .tip-list::-webkit-scrollbar-thumb:hover {
-    background: #d35400;
+    background: rgba(232, 93, 4, 0.8);
+}
+
+.tip-list {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(232, 93, 4, 0.5) transparent;
 }
 
 .tip-item {
@@ -1467,9 +1475,31 @@ footer {
     padding-top: 12px;
     border-top: 1px solid var(--card-border);
     animation: fadeIn 0.3s ease;
-    max-height: 300px;
+    max-height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.tip-detail::-webkit-scrollbar {
+    width: 3px;
+}
+
+.tip-detail::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tip-detail::-webkit-scrollbar-thumb {
+    background: rgba(232, 93, 4, 0.4);
+    border-radius: 2px;
+}
+
+.tip-detail::-webkit-scrollbar-thumb:hover {
+    background: rgba(232, 93, 4, 0.7);
+}
+
+.tip-detail {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(232, 93, 4, 0.4) transparent;
 }
 
 .tip-item.active .tip-detail {
