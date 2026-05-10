@@ -290,6 +290,16 @@ body {
     margin-bottom: 10px;
 }
 
+.boss-card .difficulty {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: rgba(232, 93, 4, 0.2);
+    color: var(--accent-color);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
 .phase {
     background-color: rgba(232, 93, 4, 0.1);
     border-left: 4px solid var(--accent-color);
