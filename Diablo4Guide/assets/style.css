@@ -507,6 +507,82 @@ body {
     font-size: 0.9rem;
 }
 
+.btn-lg {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+.btn-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(232, 93, 4, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(232, 93, 4, 0);
+    }
+}
+
+.accent-card {
+    border: 2px solid var(--accent-color);
+    background: linear-gradient(135deg, rgba(232, 93, 4, 0.1) 0%, rgba(30, 30, 30, 0.95) 100%);
+}
+
+.promo-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.promo-icon {
+    font-size: 5rem;
+    filter: drop-shadow(0 0 20px var(--accent-color));
+}
+
+.promo-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.promo-text h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.promo-text p {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.promo-features {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.promo-features li {
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.promo-cta {
+    text-align: center;
+    min-width: 250px;
+}
+
+.promo-note {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    margin-top: 10px;
+    font-style: italic;
+}
+
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
