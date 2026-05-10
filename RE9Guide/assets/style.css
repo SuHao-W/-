@@ -283,6 +283,8 @@ h3 {
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 15px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+  border: 1px solid var(--card-border);
 }
 
 .boss-card h3 {
@@ -385,6 +387,18 @@ h3 {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 15px;
+  height: 200px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+  border: 1px solid var(--card-border);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  height: 200px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+  border: 1px solid var(--card-border);
 }
 
 .map-section h3 {
