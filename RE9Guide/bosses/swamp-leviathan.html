@@ -26,7 +26,7 @@
     <h1>Swamp Leviathan</h1>
     
     <div class="card">
-      <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=giant%20mutant%20crocodile%20boss%20Resident%20Evil%20horror%20game%20swamp&image_size=landscape_16_9" alt="Swamp Leviathan" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" onerror="this.src='../assets/Default.jpg'">
+      <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=giant%20mutant%20crocodile%20boss%20Resident%20Evil%20horror%20game%20swamp&image_size=landscape_16_9" alt="Swamp Leviathan" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" onerror="this.src='../assets/Default' + (Math.random() &lt; 0.5 ? '1' : '') + '.jpg'">
       <h2 class="card-title">Overview</h2>
       <p class="card-description">
         The Swamp Leviathan is a massive mutated crocodile that inhabits the murky swamps. It uses its size and strength to crush anything in its path.

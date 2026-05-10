@@ -26,7 +26,7 @@
     <h1>Tyrant Alpha</h1>
     
     <div class="card">
-      <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=horror%20zombie%20brute%20muscle%20monster%20Tyrant%20Resident%20Evil&image_size=landscape_16_9" alt="Tyrant Alpha" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" onerror="this.src='../assets/Default.jpg'">
+      <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=horror%20zombie%20brute%20muscle%20monster%20Tyrant%20Resident%20Evil&image_size=landscape_16_9" alt="Tyrant Alpha" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" onerror="this.src='../assets/Default' + (Math.random() &lt; 0.5 ? '1' : '') + '.jpg'">
       <h2 class="card-title">Overview</h2>
       <p class="card-description">
         The Tyrant Alpha is an enhanced bioweapon created by Umbrella. Its massive size and strength make it one of the most dangerous enemies in the game.
