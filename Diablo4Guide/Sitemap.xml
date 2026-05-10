@@ -80,4 +80,20 @@
     </url>
     <url>
         <loc>https://suhuo-w.github.io/Diablo4Guide/tips/index.html</loc>
-        <lastmod>2026-05-11</last
+        <lastmod>2026-05-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://suhuo-w.github.io/Diablo4Guide/map/index.html</loc>
+        <lastmod>2026-05-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://suhuo-w.github.io/Diablo4Guide/faq.html</loc>
+        <lastmod>2026-05-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+</urlset>
