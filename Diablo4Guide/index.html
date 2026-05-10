@@ -301,25 +301,106 @@
         <div class="card">
             <h2>🎮 Getting Started</h2>
             <div class="grid-2">
-                <div class="map-region">
-                    <h3>🆕 New Players</h3>
-                    <ul>
-                        <li>🏰 Start with <strong>Barbarian</strong> or <strong>Rogue</strong> - easiest to learn</li>
-                        <li>📋 Complete the main campaign first before endgame</li>
-                        <li>⚡ Focus on ONE damage stat, not all stats</li>
-                        <li>🛡️ Cap your resistances at 70% before World Tier 3</li>
-                        <li>💰 Salvage magic/rare items for crafting materials</li>
-                    </ul>
+                <div class="start-card" onclick="toggleStartCard(this)">
+                    <div class="start-card-header">
+                        <span class="start-icon">🆕</span>
+                        <h3>New Players</h3>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="start-card-content">
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <span class="tip-icon">🏰</span>
+                                <div>
+                                    <strong>Choose the Right Class</strong>
+                                    <p>Start with <a href="characters/index.html">Barbarian</a> or <a href="characters/index.html">Rogue</a> - easiest to learn</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">📋</span>
+                                <div>
+                                    <strong>Complete the Campaign First</strong>
+                                    <p>Finish the main story before diving into endgame content</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">⚡</span>
+                                <div>
+                                    <strong>Focus Your Build</strong>
+                                    <p>Pick ONE damage stat to invest in, not all of them</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🛡️</span>
+                                <div>
+                                    <strong>Resistance Cap</strong>
+                                    <p>Cap your resistances at 70% before moving to World Tier 3</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">💰</span>
+                                <div>
+                                    <strong>Salvage Wisely</strong>
+                                    <p>Salvage magic/rare items for crafting materials</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="start-card-footer">
+                            <a href="characters/index.html" class="btn btn-sm">🎮 Explore Classes</a>
+                            <a href="tips/index.html" class="btn btn-sm btn-secondary">💡 Learn More</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="map-region">
-                    <h3>⚔️ Returning Players</h3>
-                    <ul>
-                        <li>🔄 All classes have been rebalanced - check new builds</li>
-                        <li>📦 New Seasonal mechanics every 3 months</li>
-                        <li>🏆 Tier lists updated for current meta</li>
-                        <li>🎯 New endgame activity: The Pit for gem upgrades</li>
-                        <li>💎 Legendary aspects have been migrated to Codex</li>
-                    </ul>
+                
+                <div class="start-card active" onclick="toggleStartCard(this)">
+                    <div class="start-card-header">
+                        <span class="start-icon">⚔️</span>
+                        <h3>Returning Players</h3>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="start-card-content">
+                        <div class="tip-list">
+                            <div class="tip-item">
+                                <span class="tip-icon">🔄</span>
+                                <div>
+                                    <strong>Class Rebalance</strong>
+                                    <p>All classes have been rebalanced - <a href="builds/index.html">check new builds</a></p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">📦</span>
+                                <div>
+                                    <strong>Seasonal Mechanics</strong>
+                                    <p>New mechanics every 3 months - stay updated!</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🏆</span>
+                                <div>
+                                    <strong>Meta Updates</strong>
+                                    <p>Tier lists updated for current meta</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">🎯</span>
+                                <div>
+                                    <strong>The Pit</strong>
+                                    <p>New endgame activity for gem upgrades</p>
+                                </div>
+                            </div>
+                            <div class="tip-item">
+                                <span class="tip-icon">💎</span>
+                                <div>
+                                    <strong>Codex Migration</strong>
+                                    <p>Legendary aspects have been migrated to Codex</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="start-card-footer">
+                            <a href="builds/index.html" class="btn btn-sm">⚔️ View Builds</a>
+                            <a href="tips/index.html" class="btn btn-sm btn-secondary">💡 Advanced Tips</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -418,6 +499,10 @@
             }
             document.getElementById(tabName).classList.add('active');
             event.target.classList.add('active');
+        }
+
+        function toggleStartCard(card) {
+            card.classList.toggle('active');
         }
 
         function shareTwitter() {
