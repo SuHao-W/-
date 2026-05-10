@@ -301,104 +301,231 @@
         <div class="card">
             <h2>🎮 Getting Started</h2>
             <div class="grid-2">
-                <div class="start-card" onclick="toggleStartCard(this)">
+                <div class="start-card active">
                     <div class="start-card-header">
                         <span class="start-icon">🆕</span>
                         <h3>New Players</h3>
-                        <span class="expand-icon">▼</span>
+                        <span class="expand-icon" onclick="toggleStartCard(this.parentElement.parentElement)">▼</span>
                     </div>
                     <div class="start-card-content">
                         <div class="tip-list">
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">🏰</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>Choose the Right Class</strong>
                                     <p>Start with <a href="characters/index.html">Barbarian</a> or <a href="characters/index.html">Rogue</a> - easiest to learn</p>
                                 </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>Recommended Classes for Beginners:</strong></p>
+                                    <ul>
+                                        <li><strong>Barbarian:</strong> High durability, simple mechanics, great for learning combat</li>
+                                        <li><strong>Rogue:</strong> Versatile with ranged and melee options, good mobility</li>
+                                    </ul>
+                                    <p><strong>Avoid These Initially:</strong></p>
+                                    <ul>
+                                        <li><strong>Necromancer:</strong> Complex minion management</li>
+                                        <li><strong>Sorcerer:</strong> Squishy early game, requires careful positioning</li>
+                                    </ul>
+                                    <a href="characters/index.html" class="btn btn-xs">🎮 View All Classes</a>
+                                </div>
                             </div>
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">📋</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>Complete the Campaign First</strong>
                                     <p>Finish the main story before diving into endgame content</p>
                                 </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>Why Complete the Campaign?</strong></p>
+                                    <ul>
+                                        <li>Unlock all World Tiers (up to WT3)</li>
+                                        <li>Access to full skill tree</li>
+                                        <li>Unlock mounts and fast travel</li>
+                                        <li>Story rewards and unique items</li>
+                                        <li>Prepare for endgame mechanics</li>
+                                    </ul>
+                                    <p>Estimated time: 20-30 hours</p>
+                                </div>
                             </div>
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">⚡</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>Focus Your Build</strong>
                                     <p>Pick ONE damage stat to invest in, not all of them</p>
                                 </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>Damage Stats by Class:</strong></p>
+                                    <ul>
+                                        <li><strong>Barbarian:</strong> Strength</li>
+                                        <li><strong>Rogue:</strong> Dexterity</li>
+                                        <li><strong>Sorcerer:</strong> Intelligence</li>
+                                        <li><strong>Druid:</strong> Intelligence (Werewolf) / Strength (Werebear)</li>
+                                        <li><strong>Necromancer:</strong> Intelligence</li>
+                                        <li><strong>Spiritborn:</strong> Spirit</li>
+                                    </ul>
+                                    <p><strong>Why Focus?</strong> Damage bonuses scale additively - spreading stats thin weakens your damage output.</p>
+                                </div>
                             </div>
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">🛡️</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>Resistance Cap</strong>
                                     <p>Cap your resistances at 70% before moving to World Tier 3</p>
                                 </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>Resistance Mechanics:</strong></p>
+                                    <ul>
+                                        <li>Each resistance caps at 70% damage reduction</li>
+                                        <li>All elements share the same resistance value</li>
+                                        <li>World Tier 3 increases enemy damage significantly</li>
+                                        <li>Resistance comes from gear, paragon, and potions</li>
+                                    </ul>
+                                    <p><strong>How to Cap:</strong> Equip gear with "+All Resistances" affixes. Aim for 70% before WT3.</p>
+                                </div>
                             </div>
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">💰</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>Salvage Wisely</strong>
                                     <p>Salvage magic/rare items for crafting materials</p>
+                                </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>What to Salvage:</strong></p>
+                                    <ul>
+                                        <li><strong>Magic Items:</strong> Veiled Crystals (upgrade currency)</li>
+                                        <li><strong>Rare Items:</strong> Crafting materials and Fiend Roses</li>
+                                        <li><strong>Legendaries:</strong> Extract aspects, then salvage</li>
+                                    </ul>
+                                    <p><strong>What to Keep:</strong> Items with good affixes for your build, unique items, and gems.</p>
+                                    <a href="tips/index.html" class="btn btn-xs">💡 Learn More Tips</a>
                                 </div>
                             </div>
                         </div>
                         <div class="start-card-footer">
-                            <a href="characters/index.html" class="btn btn-sm">🎮 Explore Classes</a>
-                            <a href="tips/index.html" class="btn btn-sm btn-secondary">💡 Learn More</a>
+                            <div class="btn-group">
+                                <a href="characters/index.html" class="btn btn-sm">🎮 Explore Classes</a>
+                                <a href="tips/index.html" class="btn btn-sm btn-secondary">💡 Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="start-card active" onclick="toggleStartCard(this)">
+                <div class="start-card active">
                     <div class="start-card-header">
                         <span class="start-icon">⚔️</span>
                         <h3>Returning Players</h3>
-                        <span class="expand-icon">▼</span>
+                        <span class="expand-icon" onclick="toggleStartCard(this.parentElement.parentElement)">▼</span>
                     </div>
                     <div class="start-card-content">
                         <div class="tip-list">
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">🔄</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>Class Rebalance</strong>
                                     <p>All classes have been rebalanced - <a href="builds/index.html">check new builds</a></p>
                                 </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>Key Changes:</strong></p>
+                                    <ul>
+                                        <li><strong>Spiritborn:</strong> New class with spirit powers and totems</li>
+                                        <li><strong>Barbarian:</strong> Improved weapon swapping mechanics</li>
+                                        <li><strong>Rogue:</strong> New combo system and shadow abilities</li>
+                                        <li><strong>Sorcerer:</strong> Enhanced crowd control options</li>
+                                        <li><strong>Druid:</strong> Better werewolf/werebear transformation</li>
+                                        <li><strong>Necromancer:</strong> Improved minion AI and survivability</li>
+                                    </ul>
+                                    <a href="builds/index.html" class="btn btn-xs">⚔️ View Updated Builds</a>
+                                </div>
                             </div>
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">📦</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>Seasonal Mechanics</strong>
                                     <p>New mechanics every 3 months - stay updated!</p>
                                 </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>Seasonal Features:</strong></p>
+                                    <ul>
+                                        <li>Unique seasonal storylines and quests</li>
+                                        <li>Powerful seasonal blessings</li>
+                                        <li>Exclusive seasonal rewards and cosmetics</li>
+                                        <li>Season Journey with milestone rewards</li>
+                                        <li>Leaderboards for competitive play</li>
+                                    </ul>
+                                    <p><strong>Duration:</strong> Each season lasts approximately 3 months.</p>
+                                </div>
                             </div>
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">🏆</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>Meta Updates</strong>
                                     <p>Tier lists updated for current meta</p>
                                 </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>Current S-Tier Builds:</strong></p>
+                                    <ul>
+                                        <li><strong>Spiritborn:</strong> Quill Barrage (AoE), Grizzly Rage (Tank)</li>
+                                        <li><strong>Barbarian:</strong> Whirlwind, Hammer of the Ancients</li>
+                                        <li><strong>Rogue:</strong> Twisting Blades, Rapid Fire</li>
+                                        <li><strong>Sorcerer:</strong> Chain Lightning, Ice Shards</li>
+                                    </ul>
+                                    <p><strong>Meta Trends:</strong> Mobility and crowd control are more important than ever.</p>
+                                    <a href="builds/index.html" class="btn btn-xs">📊 View Tier List</a>
+                                </div>
                             </div>
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">🎯</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>The Pit</strong>
                                     <p>New endgame activity for gem upgrades</p>
                                 </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>The Pit Mechanics:</strong></p>
+                                    <ul>
+                                        <li>Endless wave-based dungeon</li>
+                                        <li>Earn Obducite for gem upgrades</li>
+                                        <li>Leaderboards for fastest clears</li>
+                                        <li>Push directly to desired level</li>
+                                        <li>Max gem rank: Tier 10</li>
+                                    </ul>
+                                    <p><strong>Strategy:</strong> Focus on survival and AoE for higher tiers.</p>
+                                </div>
                             </div>
-                            <div class="tip-item">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
                                 <span class="tip-icon">💎</span>
-                                <div>
+                                <div class="tip-main">
                                     <strong>Codex Migration</strong>
                                     <p>Legendary aspects have been migrated to Codex</p>
+                                </div>
+                                <span class="tip-expand">▶</span>
+                                <div class="tip-detail">
+                                    <p><strong>Codex Features:</strong></p>
+                                    <ul>
+                                        <li>All legendary aspects now in Codex</li>
+                                        <li>Unlocked by completing dungeons</li>
+                                        <li>Apply codex aspects to rare items</li>
+                                        <li>Perfect for gearing new characters</li>
+                                        <li>No need to farm specific legendaries</li>
+                                    </ul>
+                                    <p><strong>Tip:</strong> Prioritize unlocking high-value aspects first!</p>
+                                    <a href="tips/index.html" class="btn btn-xs">💡 Advanced Tips</a>
                                 </div>
                             </div>
                         </div>
                         <div class="start-card-footer">
-                            <a href="builds/index.html" class="btn btn-sm">⚔️ View Builds</a>
-                            <a href="tips/index.html" class="btn btn-sm btn-secondary">💡 Advanced Tips</a>
+                            <div class="btn-group">
+                                <a href="builds/index.html" class="btn btn-sm">⚔️ View Builds</a>
+                                <a href="tips/index.html" class="btn btn-sm btn-secondary">💡 Advanced Tips</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -503,6 +630,18 @@
 
         function toggleStartCard(card) {
             card.classList.toggle('active');
+        }
+
+        function toggleTipDetail(item) {
+            item.classList.toggle('active');
+        }
+
+        function toggleTipDetail(item) {
+            item.classList.toggle('active');
+        }
+
+        function toggleTipDetail(item) {
+            item.classList.toggle('active');
         }
 
         function shareTwitter() {
