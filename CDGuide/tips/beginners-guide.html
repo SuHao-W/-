@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner's Guide - Crimson Desert</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="../../index.html" class="navbar-brand">⚔️ Crimson Desert Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../characters/index.html">Characters</a></li>
+                <li><a href="../../bosses/index.html">Bosses</a></li>
+                <li><a href="../../builds/index.html">Builds</a></li>
+                <li><a href="../index.html" class="active">Tips</a></li>
+                <li><a href="../../map/index.html">Map</a></li>
+                <li><a href="../../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1>🎮 Complete Beginner's Guide</h1>
+            <p>Everything you need to know to get started</p>
+        </section>
+
+        <div class="card">
+            <h2>📋 Table of Contents</h2>
+            <ul>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#controls">Basic Controls</a></li>
+                <li><a href="#combat">Combat Basics</a></li>
+                <li><a href="#exploration">Exploration Guide</a></li>
+                <li><a href="#progression">Leveling & Progression</a></li>
+                <li><a href="#gear">Gear & Equipment</a></li>
+                <li><a href="#early-game">Early Game Tips</a></li>
+                <li><a href="#mistakes">Common Mistakes to Avoid</a></li>
+            </ul>
+        </div>
+
+        <div class="card" id="getting-started">
+            <h2>🚀 Getting Started</h2>
+            <div class="tip-box">
+                <strong>🎯 First Steps</strong>
+                <p>When you start the game, take your time to:</p>
+                <ul>
+                    <li>Watch the intro cutscene to understand the story</li>
+                    <li>Complete the tutorial thoroughly - don't skip!</li>
+                    <li>Get comfortable with the controls</li>
+                    <li>Explore the starting area completely</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <strong>⏱️ Take Your Time</strong>
+                <p>There's no rush! Crimson Desert is meant to be explored slowly. Enjoy the journey!</p>
+            </div>
+        </div>
+
+        <div class="card" id="controls">
+            <h2>🎮 Basic Controls</h2>
+            <div class="grid-2">
+                <div class="build-card">
+                    <h3>Movement</h3>
+                    <ul>
+                        <li><strong>WASD / Left Stick</strong> - Move your character</li>
+                        <li><strong>Space / A Button</strong> - Jump / Dodge</li>
+                        <li><strong>Shift / B Button</strong> - Sprint</li>
+                        <li><strong>C / Right Stick Click</strong> - Crouch</li>
+                    </ul>
+                </div>
+                <div class="build-card">
+                    <h3>Combat</h3>
+                    <ul>
+                        <li><strong>Left Click / RT</strong> - Light Attack</li>
+                        <li><strong>Right Click / LT</strong> - Heavy Attack</li>
+                        <li><strong>L1 / LB</strong> - Block / Parry</li>
+                        <li><strong>R1 / RB</strong> - Special Ability</li>
+                        <li><strong>1-4 / D-Pad</strong> - Quick Items</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="combat">
+            <h2>⚔️ Combat Basics</h2>
+            
+            <div class="collapsible active">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>🎯 Attacking 101</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>Light Attacks:</strong> Fast, low damage. Good for combos and quick hits.</p>
+                        <p><strong>Heavy Attacks:</strong> Slow, high damage. Breaks enemy guards.</p>
+                        <p><strong>Combo Tips:</strong></p>
+                        <ul>
+                            <li>Light → Light → Heavy = Knockback combo</li>
+                            <li>Heavy → Light → Light = Stun combo</li>
+                            <li>Hold Heavy for charged attack</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>🛡️ Defending & Dodging</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>Blocking:</strong> Hold block button to reduce damage. Watch your stamina!</p>
+                        <p><strong>Perfect Parry:</strong> Block right before impact to stun enemies. Timing is key!</p>
+                        <p><strong>Dodging:</strong></p>
+                        <ul>
+                            <li>Dodge into attacks can avoid damage completely</li>
+                            <li>Perfect dodge (last second) grants immunity</li>
+                            <li>Dodge multiple times can create distance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>💪 Stamina Management</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="warning-box">
+                            <strong>⚠️ Critical Tip</strong>
+                            <p>Never let your stamina hit zero!</p>
+                        </div>
+                        <ul>
+                            <li>Stamina regenerates when not attacking/dodging</li>
+                            <li>Each dodge uses ~25% stamina</li>
+                            <li>Heavy attacks use more stamina</li>
+                            <li>Walk to recover stamina faster</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="exploration">
+            <h2>🗺️ Exploration Guide</h2>
+            
+            <div class="tip-box">
+                <strong>🔍 What to Look For</strong>
+                <ul>
+                    <li><strong>Chests:</strong> Contain loot, gear, and resources</li>
+                    <li><strong>NPCs:</strong> Give quests and valuable info</li>
+                    <li><strong>Fast Travel Points:</strong> Unlock these ASAP!</li>
+                    <li><strong>Secrets:</strong> Hidden paths, caves, and treasures</li>
+                    <li><strong>Resources:</strong> Herbs, ores, crafting materials</li>
+                </ul>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>📍 Fast Travel System</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p><strong>How to Unlock:</strong> Approach and activate a fast travel point (usually a stone monument).</p>
+                        <p><strong>How to Use:</strong> Open map, select a point you've unlocked, and confirm travel.</p>
+                        <p><strong>Pro Tip:</strong> Unlock every point you find - it makes backtracking much easier!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>🌿 Collecting Resources</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <ul>
+                            <li><strong>Herbs:</strong> Used for crafting potions and medicine</li>
+                            <li><strong>Ores:</strong> Needed for weapons and armor upgrades</li>
+                            <li><strong>Leather:</strong> From defeated animals, used for gear</li>
+                            <li><strong>Rare Items:</strong> Look for glowing plants and crystals</li>
+                        </ul>
+                        <div class="tip-box">
+                            <strong>💡 Pro Tip</strong>
+                            <p>Collect everything - you'll be glad you did later!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="progression">
+            <h2>📈 Leveling & Progression</h2>
+            
+            <div class="grid-3">
+                <div class="stat-card">
+                    <div class="stat-value">XP</div>
+                    <div class="stat-label">Experience Points</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Levels</div>
+                    <div class="stat-label">Character Level</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Skills</div>
+                    <div class="stat-label">Ability Points</div>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>🎯 How to Get XP</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <ul>
+                            <li><strong>Main Quests:</strong> Biggest XP reward - always prioritize!</li>
+                            <li><strong>Side Quests:</strong> Great XP and usually fun stories</li>
+                            <li><strong>Enemies:</strong> Kill enemies for XP (scale with level)</li>
+                            <li><strong>Bosses:</strong> Huge XP payout - but challenging!</li>
+                            <li><strong>Exploration:</strong> Discover new areas for bonus XP</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>⭐ Skill Points</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p>Each level gives you skill points to spend:</p>
+                        <ul>
+                            <li><strong>Combat Skills:</strong> New attacks and combos</li>
+                            <li><strong>Defense Skills:</strong> Better blocking and dodging</li>
+                            <li><strong>Utility Skills:</strong> Quality of life improvements</li>
+                        </ul>
+                        <div class="tip-box">
+                            <strong>💡 Recommendation</strong>
+                            <p>Unlock 1-2 combat skills first, then invest in defense!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="gear">
+            <h2>⚔️ Gear & Equipment</h2>
+            
+            <div class="grid-2">
+                <div class="build-card">
+                    <h3>🗡️ Weapons</h3>
+                    <ul>
+                        <li><strong>Sword:</strong> Balanced, all-around choice</li>
+                        <li><strong>Axe:</strong> Heavy damage, slow speed</li>
+                        <li><strong>Spear:</strong> Long reach, quick attacks</li>
+                        <li><strong>Bow:</strong> Ranged damage option</li>
+                    </ul>
+                </div>
+                <div class="build-card">
+                    <h3>🛡️ Armor</h3>
+                    <ul>
+                        <li><strong>Light:</strong> More mobility, less defense</li>
+                        <li><strong>Medium:</strong> Balance between defense and mobility</li>
+                        <li><strong>Heavy:</strong> Great defense, less mobility</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>🎒 Item Management</strong>
+                <ul>
+                    <li>Always carry healing items (at least 10)</li>
+                    <li>Keep buff potions for boss fights</li>
+                    <li>Sell duplicate items to merchants</li>
+                    <li>Upgrade your gear whenever possible</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" id="early-game">
+            <h2>🌱 Early Game Tips (First 5 Hours)</h2>
+            
+            <div class="phase">
+                <h4>✅ Things to Do First</h4>
+                <ol>
+                    <li>Complete the entire tutorial</li>
+                    <li>Explore the starting village thoroughly</li>
+                    <li>Talk to every NPC (they give quests!)</li>
+                    <li>Unlock all nearby fast travel points</li>
+                    <li>Gather resources as you explore</li>
+                    <li>Complete at least 3 side quests</li>
+                    <li>Buy your first weapon upgrade</li>
+                    <li>Save before every major fight</li>
+                </ol>
+            </div>
+
+            <div class="phase">
+                <h4>🎒 What to Collect</h4>
+                <ul>
+                    <li>Every herb you see (green plants)</li>
+                    <li>All chests in each area</li>
+                    <li>Any rare glowing items</li>
+                    <li>Money from enemies and quests</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" id="mistakes">
+            <h2>❌ Common Mistakes to Avoid</h2>
+            
+            <div class="warning-box">
+                <strong>1️⃣ Don't Rush!</strong>
+                <p>It's not a race. Explore, talk to NPCs, and enjoy the game!</p>
+            </div>
+            
+            <div class="warning-box">
+                <strong>2️⃣ Don't Ignore Side Quests</strong>
+                <p>They give great rewards and help you level up!</p>
+            </div>
+            
+            <div class="warning-box">
+                <strong>3️⃣ Don't Forget to Save</strong>
+                <p>Save often - especially before boss fights and dangerous areas!</p>
+            </div>
+            
+            <div class="warning-box">
+                <strong>4️⃣ Don't Neglect Upgrades</strong>
+                <p>Upgrade your gear regularly - it makes a huge difference!</p>
+            </div>
+            
+            <div class="warning-box">
+                <strong>5️⃣ Don't Use All Items At Once</strong>
+                <p>Save some healing items and buffs for boss fights!</p>
+            </div>
+        </div>
+
+        <div class="card accent-card">
+            <h2>🏆 Final Tips for Success</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>✅ DO</h3>
+                    <ul>
+                        <li>Learn from your mistakes</li>
+                        <li>Experiment with different weapons</li>
+                        <li>Explore every corner</li>
+                        <li>Talk to everyone</li>
+                        <li>Have fun!</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>❌ DON'T</h3>
+                    <ul>
+                        <li>Get frustrated - you'll get better!</li>
+                        <li>Compare yourself to others</li>
+                        <li>Skip cutscenes (they're good!)</li>
+                        <li>Forget to rest/save</li>
+                        <li>Give up too easily</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="ads-container" data-ads-path="../../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Crimson Desert Guide. All rights reserved. Copyright by SuSu. | <a href="../../privacy.html" style="color: var(--accent-color); text-decoration: underline;">Privacy Policy</a></p>
+    </footer>
+
+    <script src="../../assets/load-ads.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCollapsible(element) {
+            element.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath.includes('/tips/')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    navLinks[4].classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
