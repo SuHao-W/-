@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Golem - Crimson Desert Guide</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">⚔️ Crimson Desert Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../characters/index.html">Characters</a></li>
+                <li><a href="index.html" class="active">Bosses</a></li>
+                <li><a href="../builds/index.html">Builds</a></li>
+                <li><a href="../tips/index.html">Tips</a></li>
+                <li><a href="../map/index.html">Map</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1>🗿 Stone Golem</h1>
+            <p>Ancient guardian of forgotten ruins</p>
+        </section>
+
+        <div class="card">
+            <h2>Overview</h2>
+            <p>The Stone Golem is the easiest boss. Slow attacks and predictable patterns make it great for learning mechanics.</p>
+            <div class="grid-3">
+                <div class="stat-card">
+                    <div class="stat-value difficulty-2">Easy</div>
+                    <div class="stat-label">Difficulty</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">💥</div>
+                    <div class="stat-label">Bludgeon Weakness</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">🗡️</div>
+                    <div class="stat-label">Slash Resistance</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Phase Breakdown</h2>
+            <div class="phase">
+                <h4>Phase 1 (100% - 0% HP)</h4>
+                <p>Simple rock throws and ground pounds.</p>
+                <ul>
+                    <li><strong>Rock Throw:</strong> Side step</li>
+                    <li><strong>Ground Pound:</strong> Jump or roll away</li>
+                    <li><strong>Slam:</strong> Dodge behind</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Recommended Build</h2>
+            <div class="build-card">
+                <h3>⚔️ Warrior - Berserker</h3>
+                <p>Heavy weapons deal bonus damage. Simple fight to practice combos.</p>
+            </div>
+        </div>
+
+        <div id="ads-container" data-ads-path="../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Crimson Desert Guide. All rights reserved. Copyright by SuSu. | <a href="../privacy.html" style="color: var(--accent-color); text-decoration: underline;">Privacy Policy</a></p>
+    </footer>
+
+    <script src="../assets/load-ads.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath.includes('/bosses/')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    navLinks[2].classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

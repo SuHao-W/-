@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map - Crimson Desert Guide</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">⚔️ Crimson Desert Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../characters/index.html">Characters</a></li>
+                <li><a href="../bosses/index.html">Bosses</a></li>
+                <li><a href="../builds/index.html">Builds</a></li>
+                <li><a href="../tips/index.html">Tips</a></li>
+                <li><a href="index.html" class="active">Map</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1>🗺️ Map & Collectibles</h1>
+            <p>Region guides and collectible locations</p>
+        </section>
+
+        <div class="card">
+            <h2>World Regions</h2>
+            <div class="map-region">
+                <h3>🏰 Starting Region</h3>
+                <p>The beginning of your journey, home to the tutorial and early quests.</p>
+                <ul>
+                    <li>✅ 5 Treasure Chests</li>
+                    <li>✅ 3 Side Quests</li>
+                    <li>✅ 2 Fast Travel Points</li>
+                    <li>✅ 1 Boss Encounter</li>
+                </ul>
+            </div>
+            <div class="map-region">
+                <h3>🌲 Forest Region</h3>
+                <p>A dense forest teeming with wildlife and hidden secrets.</p>
+                <ul>
+                    <li>✅ 8 Treasure Chests</li>
+                    <li>✅ 5 Side Quests</li>
+                    <li>✅ 4 Fast Travel Points</li>
+                    <li>✅ 2 Boss Encounters</li>
+                </ul>
+            </div>
+            <div class="map-region">
+                <h3>🏜️ Desert Region</h3>
+                <p>Harsh desert environment with ancient ruins and powerful enemies.</p>
+                <ul>
+                    <li>✅ 10 Treasure Chests</li>
+                    <li>✅ 7 Side Quests</li>
+                    <li>✅ 5 Fast Travel Points</li>
+                    <li>✅ 3 Boss Encounters</li>
+                </ul>
+            </div>
+            <div class="map-region">
+                <h3>❄️ Mountain Region</h3>
+                <p>Frozen peaks with treacherous paths and valuable rewards.</p>
+                <ul>
+                    <li>✅ 12 Treasure Chests</li>
+                    <li>✅ 8 Side Quests</li>
+                    <li>✅ 6 Fast Travel Points</li>
+                    <li>✅ 3 Boss Encounters</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Collectibles Guide</h2>
+            <div class="collapsible active">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>💎 Treasure Chests</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p>Look for glowing chests in every region - they contain valuable loot, gear, and resources.</p>
+                        <ul>
+                            <li>Check hidden corners and caves</li>
+                            <li>Complete puzzles to unlock chests</li>
+                            <li>Some chests require specific keys</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>📜 Lore Items</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p>Collect lore items to uncover the world's history and secrets.</p>
+                        <ul>
+                            <li>Found in buildings and ruins</li>
+                            <li>Often hidden behind objects</li>
+                            <li>Unlocks additional story content</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>🗿 Ancient Relics</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p>Rare and powerful items with unique effects.</p>
+                        <ul>
+                            <li>Very rare spawns</li>
+                            <li>Often guarded by tough enemies</li>
+                            <li>Provides unique bonuses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ads-container" data-ads-path="../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Crimson Desert Guide. All rights reserved. Copyright by SuSu. | <a href="../privacy.html" style="color: var(--accent-color); text-decoration: underline;">Privacy Policy</a></p>
+    </footer>
+
+    <script src="../assets/load-ads.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCollapsible(element) {
+            element.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath.includes('/map/')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    navLinks[5].classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

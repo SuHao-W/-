@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert - Complete Guide</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">⚔️ Crimson Desert Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="characters/index.html">Characters</a></li>
+                <li><a href="bosses/index.html">Bosses</a></li>
+                <li><a href="builds/index.html">Builds</a></li>
+                <li><a href="tips/index.html">Tips</a></li>
+                <li><a href="map/index.html">Map</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1>⚔️ Crimson Desert</h1>
+            <p>Your ultimate companion for conquering the vast open world. From beginner basics to endgame mastery!</p>
+            <div class="hero-cta">
+                <a href="characters/index.html" class="btn">🎮 Explore Characters</a>
+                <a href="builds/index.html" class="btn btn-secondary">⚔️ View Builds</a>
+            </div>
+            <div class="scroll-indicator">▼</div>
+        </section>
+
+        <div class="daily-tip">
+            <div class="daily-tip-icon">💡</div>
+            <p class="daily-tip-text" id="dailyTip">Loading today's tip...</p>
+        </div>
+
+        <div class="grid-4">
+            <div class="stat-card animate-fadeInUp" style="animation-delay: 0.1s;">
+                <div class="stat-value">8+</div>
+                <div class="stat-label">Playable Characters</div>
+            </div>
+            <div class="stat-card animate-fadeInUp" style="animation-delay: 0.2s;">
+                <div class="stat-value">20+</div>
+                <div class="stat-label">Epic Bosses</div>
+            </div>
+            <div class="stat-card animate-fadeInUp" style="animation-delay: 0.3s;">
+                <div class="stat-value">100+</div>
+                <div class="stat-label">Hours of Content</div>
+            </div>
+            <div class="stat-card animate-fadeInUp" style="animation-delay: 0.4s;">
+                <div class="stat-value">Vast</div>
+                <div class="stat-label">Open World</div>
+            </div>
+        </div>
+
+        <div class="card animate-fadeInUp" style="animation-delay: 0.5s;">
+            <h2>🔥 Featured Content</h2>
+            <div class="grid-3">
+                <div class="nav-card" style="position: relative;">
+                    <span class="featured-badge">HOT</span>
+                    <div class="icon">🧙</div>
+                    <h3>Character Guide</h3>
+                    <p>Master all playable characters with our comprehensive guide!</p>
+                    <a href="characters/index.html" class="btn btn-sm" style="margin-top: 15px;">Learn More</a>
+                </div>
+                <div class="nav-card" style="position: relative;">
+                    <span class="new-badge">NEW</span>
+                    <div class="icon">👹</div>
+                    <h3>Boss Strategies</h3>
+                    <p>Complete strategies for all major boss fights!</p>
+                    <a href="bosses/index.html" class="btn btn-sm" style="margin-top: 15px;">View Guide</a>
+                </div>
+                <div class="nav-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Best Builds</h3>
+                    <p>Proven builds for every playstyle!</p>
+                    <a href="builds/index.html" class="btn btn-sm" style="margin-top: 15px;">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card animate-fadeInUp" style="animation-delay: 0.6s;">
+            <h2>🎯 Quick Navigation</h2>
+            <div class="nav-cards">
+                <a href="characters/index.html" class="nav-card">
+                    <div class="icon">⚔️</div>
+                    <h3>Characters</h3>
+                    <p>Complete character guides, skills & abilities</p>
+                </a>
+                <a href="bosses/index.html" class="nav-card">
+                    <div class="icon">👹</div>
+                    <h3>Boss Guides</h3>
+                    <p>Strategies to defeat every boss with phase breakdowns</p>
+                </a>
+                <a href="builds/index.html" class="nav-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Builds</h3>
+                    <p>Optimal equipment, skills & playstyles</p>
+                </a>
+                <a href="tips/index.html" class="nav-card">
+                    <div class="icon">💡</div>
+                    <h3>Tips & Mechanics</h3>
+                    <p>Advanced techniques and game mechanics</p>
+                </a>
+                <a href="map/index.html" class="nav-card">
+                    <div class="icon">🗺️</div>
+                    <h3>Map & Collectibles</h3>
+                    <p>Region guides and collectible locations</p>
+                </a>
+                <a href="faq.html" class="nav-card">
+                    <div class="icon">❓</div>
+                    <h3>FAQ</h3>
+                    <p>Frequently asked questions and answers</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📜 Latest Updates</h2>
+            
+            <div class="update-log">
+                <div class="update-date">📅 May 12, 2026</div>
+                <div class="update-title">Guide Launch</div>
+                <ul class="update-items">
+                    <li>Complete character guides added</li>
+                    <li>All major boss strategies included</li>
+                    <li>Build recommendations for all playstyles</li>
+                    <li>Map and collectible locations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎮 Getting Started</h2>
+            <div class="grid-2">
+                <div class="start-card active">
+                    <div class="start-card-header">
+                        <span class="start-icon">🆕</span>
+                        <h3>New Players</h3>
+                        <span class="expand-icon" onclick="toggleStartCard(this.parentElement.parentElement)">▼</span>
+                    </div>
+                    <div class="start-card-content">
+                        <div class="tip-list">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
+                                <div class="tip-header">
+                                    <span class="tip-icon">🧙</span>
+                                    <div class="tip-main">
+                                        <strong>Choose Your Character</strong>
+                                        <p>Start with our character guide to find your perfect fit</p>
+                                    </div>
+                                    <span class="tip-expand">▶</span>
+                                </div>
+                                <div class="tip-detail">
+                                    <p><strong>Recommended for Beginners:</strong></p>
+                                    <ul>
+                                        <li>Try different characters to find your playstyle</li>
+                                        <li>Focus on mastering one character first</li>
+                                        <li>Complete the tutorial to learn basic mechanics</li>
+                                    </ul>
+                                    <a href="characters/index.html" class="btn btn-xs">🎮 View All Characters</a>
+                                </div>
+                            </div>
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
+                                <div class="tip-header">
+                                    <span class="tip-icon">📋</span>
+                                    <div class="tip-main">
+                                        <strong>Explore the World</strong>
+                                        <p>Take your time exploring the vast open world</p>
+                                    </div>
+                                    <span class="tip-expand">▶</span>
+                                </div>
+                                <div class="tip-detail">
+                                    <p><strong>Exploration Tips:</strong></p>
+                                    <ul>
+                                        <li>Discover all regions and unlock fast travel</li>
+                                        <li>Collect resources for crafting</li>
+                                        <li>Complete side quests for rewards</li>
+                                        <li>Find hidden treasures and secrets</li>
+                                    </ul>
+                                    <a href="map/index.html" class="btn btn-xs">🗺️ View Map Guide</a>
+                                </div>
+                            </div>
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
+                                <div class="tip-header">
+                                    <span class="tip-icon">⚡</span>
+                                    <div class="tip-main">
+                                        <strong>Master Combat</strong>
+                                        <p>Practice combat mechanics and learn to dodge</p>
+                                    </div>
+                                    <span class="tip-expand">▶</span>
+                                </div>
+                                <div class="tip-detail">
+                                    <p><strong>Combat Tips:</strong></p>
+                                    <ul>
+                                        <li>Learn to dodge and parry attacks</li>
+                                        <li>Experiment with different skills</li>
+                                        <li>Understand enemy patterns</li>
+                                        <li>Use the environment to your advantage</li>
+                                    </ul>
+                                    <a href="tips/index.html" class="btn btn-xs">💡 More Tips</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="start-card-footer">
+                            <div class="btn-group">
+                                <a href="characters/index.html" class="btn btn-sm">🎮 Explore Characters</a>
+                                <a href="tips/index.html" class="btn btn-sm btn-secondary">💡 Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="start-card active">
+                    <div class="start-card-header">
+                        <span class="start-icon">⚔️</span>
+                        <h3>Returning Players</h3>
+                        <span class="expand-icon" onclick="toggleStartCard(this.parentElement.parentElement)">▼</span>
+                    </div>
+                    <div class="start-card-content">
+                        <div class="tip-list">
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
+                                <div class="tip-header">
+                                    <span class="tip-icon">🔄</span>
+                                    <div class="tip-main">
+                                        <strong>New Content</strong>
+                                        <p>Check out all the latest updates and additions</p>
+                                    </div>
+                                    <span class="tip-expand">▶</span>
+                                </div>
+                                <div class="tip-detail">
+                                    <p><strong>What's New:</strong></p>
+                                    <ul>
+                                        <li>New characters and builds</li>
+                                        <li>Additional boss strategies</li>
+                                        <li>Updated collectible locations</li>
+                                        <li>Advanced combat techniques</li>
+                                    </ul>
+                                    <a href="builds/index.html" class="btn btn-xs">⚔️ View Builds</a>
+                                </div>
+                            </div>
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
+                                <div class="tip-header">
+                                    <span class="tip-icon">📦</span>
+                                    <div class="tip-main">
+                                        <strong>Endgame Content</strong>
+                                        <p>Challenge yourself with endgame activities</p>
+                                    </div>
+                                    <span class="tip-expand">▶</span>
+                                </div>
+                                <div class="tip-detail">
+                                    <p><strong>Endgame Activities:</strong></p>
+                                    <ul>
+                                        <li>Defeat the hardest bosses</li>
+                                        <li>Complete all collectibles</li>
+                                        <li>Master all characters</li>
+                                        <li>Discover all secrets</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tip-item" onclick="toggleTipDetail(this)">
+                                <div class="tip-header">
+                                    <span class="tip-icon">🏆</span>
+                                    <div class="tip-main">
+                                        <strong>Optimize Builds</strong>
+                                        <p>Find the best builds for your playstyle</p>
+                                    </div>
+                                    <span class="tip-expand">▶</span>
+                                </div>
+                                <div class="tip-detail">
+                                    <p><strong>Build Optimization:</strong></p>
+                                    <ul>
+                                        <li>Check our tier list for best builds</li>
+                                        <li>Experiment with different combinations</li>
+                                        <li>Find what works best for you</li>
+                                    </ul>
+                                    <a href="builds/index.html" class="btn btn-xs">📊 View Builds</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="start-card-footer">
+                            <div class="btn-group">
+                                <a href="builds/index.html" class="btn btn-sm">⚔️ View Builds</a>
+                                <a href="bosses/index.html" class="btn btn-sm btn-secondary">👹 Boss Guides</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>About This Guide</h2>
+            <p>Welcome to the ultimate Crimson Desert guide. Whether you're a new player just starting your journey or a veteran looking to optimize your playstyle, this comprehensive guide has everything you need.</p>
+            <h3>What's Inside:</h3>
+            <ul>
+                <li>🎯 Detailed character breakdowns with skills & abilities</li>
+                <li>👹 Step-by-step boss strategies with phase-by-phase analysis</li>
+                <li>⚔️ Proven builds for every playstyle</li>
+                <li>💡 Advanced combat tips and mechanics explanations</li>
+                <li>🗺️ Complete map and collectible locations</li>
+                <li>❓ Comprehensive FAQ covering all game systems</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Share This Guide</h2>
+            <p>Help your friends find the best Crimson Desert guide!</p>
+            <div class="social-share">
+                <button class="share-btn twitter" onclick="shareTwitter()" title="Share on Twitter">𝕏</button>
+                <button class="share-btn facebook" onclick="shareFacebook()" title="Share on Facebook">f</button>
+                <button class="share-btn reddit" onclick="shareReddit()" title="Share on Reddit">reddit</button>
+                <button class="share-btn copy" onclick="copyLink()" title="Copy Link">🔗</button>
+            </div>
+        </div>
+
+        <div class="card accent-card animate-fadeInUp">
+            <h2>🎮 Network Issues? No More!</h2>
+            <div class="promo-content">
+                <div class="promo-icon">⚡</div>
+                <div class="promo-text">
+                    <h3>Say Goodbye to Lag, Latency, and Disconnections!</h3>
+                    <p>Experiencing lag, high latency, or frequent disconnections in Crimson Desert?</p>
+                    <p>Use <strong>ExitLag</strong> VPN for a buttery smooth gaming experience!</p>
+                    <ul class="promo-features">
+                        <li>✅ Global high-speed nodes with stable low-latency connections</li>
+                        <li>✅ Supports 700+ games including Crimson Desert</li>
+                        <li>✅ Real-time network route optimization</li>
+                        <li>✅ Free trial with no risk</li>
+                    </ul>
+                </div>
+                <div class="promo-cta">
+                    <a href="https://www.exitlag.com/refer/10303916" target="_blank" class="btn btn-lg btn-pulse">
+                        🚀 Try ExitLag Now
+                    </a>
+                    <p class="promo-note">Click for exclusive benefits!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Useful External Resources</h2>
+            <div class="grid-3">
+                <a href="https://www.crimsondesert.com" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">Official Website</a>
+                <a href="https://www.youtube.com/results?search_query=crimson+desert" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">YouTube Guides</a>
+                <a href="https://www.reddit.com/r/crimsondesert/" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">Reddit Community</a>
+            </div>
+        </div>
+
+        <div id="ads-container" data-ads-path="ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Crimson Desert Guide. All rights reserved. Copyright by SuSu. | <a href="privacy.html" style="color: var(--accent-color); text-decoration: underline;">Privacy Policy</a></p>
+    </footer>
+
+    <script src="assets/load-ads.js"></script>
+    <script>
+        const dailyTips = [
+            "Explore every corner of the map - there are secrets everywhere!",
+            "Master dodging - timing is everything in combat!",
+            "Complete side quests for valuable rewards and experience!",
+            "Collect resources - crafting is essential for powerful gear!",
+            "Learn enemy patterns - knowledge is your greatest weapon!",
+            "Upgrade your gear regularly - don't fall behind!",
+            "Talk to NPCs - they often have useful information!",
+            "Use the environment - it can give you an advantage in fights!",
+            "Save often - you never know when danger will strike!",
+            "Experiment with different skills - find what works best for you!"
+        ];
+
+        document.getElementById('dailyTip').textContent = dailyTips[Math.floor(Math.random() * dailyTips.length)];
+
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openTab(tabName) {
+            const tabs = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            const tabLinks = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove('active');
+            }
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function toggleStartCard(card) {
+            card.classList.toggle('active');
+        }
+
+        function toggleTipDetail(item) {
+            item.classList.toggle('active');
+        }
+
+        function shareTwitter() {
+            window.open('https://twitter.com/intent/tweet?text=Check+out+this+Crimson+Desert+Guide!&url=' + encodeURIComponent(window.location.href), '_blank');
+        }
+
+        function shareFacebook() {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+        }
+
+        function shareReddit() {
+            window.open('https://reddit.com/submit?url=' + encodeURIComponent(window.location.href) + '&title=Crimson+Desert+Guide', '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Link copied to clipboard!');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath.endsWith(linkPath) || (linkPath === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('index.html')))) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

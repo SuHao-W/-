@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosses - Crimson Desert Guide</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">⚔️ Crimson Desert Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../characters/index.html">Characters</a></li>
+                <li><a href="index.html" class="active">Bosses</a></li>
+                <li><a href="../builds/index.html">Builds</a></li>
+                <li><a href="../tips/index.html">Tips</a></li>
+                <li><a href="../map/index.html">Map</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1>👹 Bosses</h1>
+            <p>Strategies to defeat every boss</p>
+        </section>
+
+        <div class="card">
+            <h2>Major Bosses</h2>
+            <div class="grid-3">
+                <div class="boss-card">
+                    <a href="crimson-dragon.html">
+                        <h3>🐉 Crimson Dragon</h3>
+                        <p>The fearsome guardian of the ancient temple.</p>
+                        <div class="difficulty">Difficulty: Very Hard</div>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="dark-knight.html">
+                        <h3>⚔️ Dark Knight</h3>
+                        <p>A fallen hero consumed by darkness.</p>
+                        <div class="difficulty">Difficulty: Hard</div>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="swamp-lord.html">
+                        <h3>🐊 Swamp Lord</h3>
+                        <p>A monstrous creature ruling the murky swamps.</p>
+                        <div class="difficulty">Difficulty: Medium</div>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="ice-giant.html">
+                        <h3>❄️ Ice Giant</h3>
+                        <p>A colossal being frozen in time.</p>
+                        <div class="difficulty">Difficulty: Hard</div>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="fire-elemental.html">
+                        <h3>🔥 Fire Elemental</h3>
+                        <p>A pure manifestation of flame and fury.</p>
+                        <div class="difficulty">Difficulty: Medium</div>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="shadow-assassin.html">
+                        <h3>🗡️ Shadow Assassin</h3>
+                        <p>A silent killer striking from the darkness.</p>
+                        <div class="difficulty">Difficulty: Hard</div>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="stone-golem.html">
+                        <h3>🗿 Stone Golem</h3>
+                        <p>Ancient guardian of forgotten ruins.</p>
+                        <div class="difficulty">Difficulty: Easy</div>
+                    </a>
+                </div>
+                <div class="boss-card">
+                    <a href="demon-lord.html">
+                        <h3>👿 Demon Lord</h3>
+                        <p>The ultimate evil threatening the world.</p>
+                        <div class="difficulty">Difficulty: Very Hard</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Boss Tips</h2>
+            <div class="tip-box">
+                <strong>⚔️ Learn Patterns</strong>
+                <p>Every boss has predictable attack patterns. Observe and learn them.</p>
+            </div>
+            <div class="tip-box">
+                <strong>🛡️ Bring Supplies</strong>
+                <p>Always stock up on health potions and other consumables before boss fights.</p>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ Don't Greed</strong>
+                <p>Know when to back off - greed leads to unnecessary damage.</p>
+            </div>
+        </div>
+
+        <div id="ads-container" data-ads-path="../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Crimson Desert Guide. All rights reserved. Copyright by SuSu. | <a href="../privacy.html" style="color: var(--accent-color); text-decoration: underline;">Privacy Policy</a></p>
+    </footer>
+
+    <script src="../assets/load-ads.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath.includes('/bosses/')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    navLinks[2].classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

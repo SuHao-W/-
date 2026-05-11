@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Crimson Desert Guide</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">⚔️ Crimson Desert Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="characters/index.html">Characters</a></li>
+                <li><a href="bosses/index.html">Bosses</a></li>
+                <li><a href="builds/index.html">Builds</a></li>
+                <li><a href="tips/index.html">Tips</a></li>
+                <li><a href="map/index.html">Map</a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1>❓ FAQ</h1>
+            <p>Frequently asked questions and answers</p>
+        </section>
+
+        <div class="search-container">
+            <input type="text" class="search-input" id="faqSearch" placeholder="Search FAQ..." oninput="filterFAQ()">
+        </div>
+
+        <div class="card" id="faqContainer">
+            <div class="faq-item">
+                <div class="collapsible active">
+                    <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                        <span>🎮 What is Crimson Desert?</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Crimson Desert is an open-world action RPG developed by Pearl Abyss. Set in a vast, living world, it follows the journey of warriors fighting for survival and freedom.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="collapsible">
+                    <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                        <span>💻 What platforms is it available on?</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Crimson Desert is available on PC, PlayStation 5, and Xbox Series X/S.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="collapsible">
+                    <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                        <span>🧙 Can I change characters?</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Yes, you can switch between characters at specific points in the game or at your home base.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="collapsible">
+                    <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                        <span>⚔️ Is there multiplayer?</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Crimson Desert features both single-player and cooperative multiplayer modes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="collapsible">
+                    <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                        <span>⏱️ How long is the game?</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>The main story takes approximately 30-40 hours, with additional side content and exploration adding many more hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="collapsible">
+                    <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                        <span>📦 Is there DLC?</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Yes, there are plans for post-launch DLC including new story content, characters, and regions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="collapsible">
+                    <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                        <span>🎯 What's the best starting character?</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>The Knight or Warrior are great choices for beginners due to their straightforward playstyles and forgiving mechanics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="collapsible">
+                    <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                        <span>🔧 Can I respec my character?</span>
+                    </div>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <p>Yes, you can respec your character's skills and abilities at certain locations in the game.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ads-container" data-ads-path="ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Crimson Desert Guide. All rights reserved. Copyright by SuSu. | <a href="privacy.html" style="color: var(--accent-color); text-decoration: underline;">Privacy Policy</a></p>
+    </footer>
+
+    <script src="assets/load-ads.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCollapsible(element) {
+            element.classList.toggle('active');
+        }
+
+        function filterFAQ() {
+            const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath.endsWith('faq.html')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    navLinks[6].classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

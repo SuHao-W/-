@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters - Crimson Desert Guide</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">⚔️ Crimson Desert Guide</a>
+            <ul class="navbar-nav" id="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html" class="active">Characters</a></li>
+                <li><a href="../bosses/index.html">Bosses</a></li>
+                <li><a href="../builds/index.html">Builds</a></li>
+                <li><a href="../tips/index.html">Tips</a></li>
+                <li><a href="../map/index.html">Map</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1>🧙 Characters</h1>
+            <p>Complete guides for all playable characters</p>
+        </section>
+
+        <div class="card">
+            <h2>Playable Characters</h2>
+            <div class="grid-3">
+                <div class="character-card">
+                    <div class="class-icon">⚔️</div>
+                    <h3>Warrior</h3>
+                    <p>A master of close combat, wielding heavy weapons with devastating power.</p>
+                    <div class="difficulty">Difficulty: Medium</div>
+                </div>
+                <div class="character-card">
+                    <div class="class-icon">🏹</div>
+                    <h3>Archer</h3>
+                    <p>Precision ranged combatant, picking off enemies from a safe distance.</p>
+                    <div class="difficulty">Difficulty: Medium</div>
+                </div>
+                <div class="character-card">
+                    <div class="class-icon">🔮</div>
+                    <h3>Mage</h3>
+                    <p>Powerful spellcaster, controlling the elements to decimate foes.</p>
+                    <div class="difficulty">Difficulty: Hard</div>
+                </div>
+                <div class="character-card">
+                    <div class="class-icon">🗡️</div>
+                    <h3>Assassin</h3>
+                    <p>Stealthy combatant, striking from the shadows with lethal precision.</p>
+                    <div class="difficulty">Difficulty: Hard</div>
+                </div>
+                <div class="character-card">
+                    <div class="class-icon">🛡️</div>
+                    <h3>Knight</h3>
+                    <p>Unwavering defender, protecting allies with impenetrable defense.</p>
+                    <div class="difficulty">Difficulty: Easy</div>
+                </div>
+                <div class="character-card">
+                    <div class="class-icon">⚡</div>
+                    <h3>Monk</h3>
+                    <p>Martial arts master, using speed and agility to overwhelm opponents.</p>
+                    <div class="difficulty">Difficulty: Medium</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Character Tips</h2>
+            <div class="collapsible active">
+                <div class="collapsible-header" onclick="toggleCollapsible(this.parentElement)">
+                    <span>⚔️ General Tips</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <ul>
+                            <li>Experiment with different characters to find your playstyle</li>
+                            <li>Master each character's unique abilities and combos</li>
+                            <li>Upgrade gear and skills as you progress</li>
+                            <li>Learn to dodge and counter effectively</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ads-container" data-ads-path="../ads.html"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Crimson Desert Guide. All rights reserved. Copyright by SuSu. | <a href="../privacy.html" style="color: var(--accent-color); text-decoration: underline;">Privacy Policy</a></p>
+    </footer>
+
+    <script src="../assets/load-ads.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const backToTop = document.getElementById('backToTop');
+            if (winScroll > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCollapsible(element) {
+            element.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath.includes('/characters/')) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    navLinks[1].classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
