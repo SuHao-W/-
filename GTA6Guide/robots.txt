@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://gamepanduan.com/sitemap.xml
 Sitemap: https://gamepanduan.com/GTA6Guide/sitemap.xml
 Crawl-delay: 1
