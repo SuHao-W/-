@@ -728,3 +728,119 @@ footer p {
 .spec-item span {
   color: var(--text-secondary);
 }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border: 2px solid var(--border-card);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-timeline {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+.video-timeline h3 {
+  color: var(--accent);
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+}
+
+.timeline-item .time {
+  background: var(--accent);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.timeline-item .timeline-content h4 {
+  color: var(--accent-secondary);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.timeline-item .timeline-content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.gallery-section {
+  margin: 30px 0;
+}
+
+.gallery-section h2 {
+  margin-bottom: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--border-card);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.02);
+  border-color: var(--accent);
+}
+
+.legal-disclaimer {
+  margin: 15px 0;
+  padding: 15px;
+  background: rgba(255, 0, 128, 0.05);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.legal-disclaimer p {
+  margin-bottom: 5px;
+}
+
+.copyright {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
