@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://gamepanduan.com/ForzaHorizon6Guide/sitemap.xml
+Crawl-delay: 1
