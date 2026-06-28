@@ -2,52 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/index.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/characters/index.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/bosses/index.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/bosses/malenia.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/bosses/radahn.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/builds/index.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/builds/bleed.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/tips/index.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gamepanduan.com/EldenRingGuide/tips/new-player-progression-hub.html</loc>
+        <lastmod>2026-06-13</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/map/index.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gamepanduan.com/EldenRingGuide/map/limgrave-boss-checklist.html</loc>
+        <lastmod>2026-06-12</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://gamepanduan.com/EldenRingGuide/faq.html</loc>
-        <lastmod>2026-05-12</lastmod>
+        <lastmod>2026-06-10</lastmod>
         <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://gamepanduan.com/EldenRingGuide/tips/after-rennala.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gamepanduan.com/EldenRingGuide/tips/early-bosses-without-overpreparing.html</loc>
+        <lastmod>2026-06-11</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gamepanduan.com/EldenRingGuide/tips/underleveled-guide.html</loc>
+        <lastmod>2026-06-13</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gamepanduan.com/EldenRingGuide/tips/low-spoiler-route-hints.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gamepanduan.com/EldenRingGuide/bosses/misbegotten-warrior-crucible-knight.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gamepanduan.com/EldenRingGuide/bosses/placidusax-laser.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gamepanduan.com/EldenRingGuide/builds/fire-knight-seal-vs-erdtree-seal.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <priority>0.8</priority>
     </url>
 </urlset>

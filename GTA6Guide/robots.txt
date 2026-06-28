@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /bosses/
+Disallow: /_archive/
+
 Sitemap: https://gamepanduan.com/GTA6Guide/sitemap.xml
 Crawl-delay: 1

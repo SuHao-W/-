@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTA 6 Asset Profit Calculator - Pre-Launch ROI Estimate</title>
+  <meta name="description" content="GTA 6 pre-launch asset ROI calculator. Compare property and business investments. Based on planning estimates, will be updated after verified in-game data is available.">
+  <meta name="robots" content="index, follow">
+  <meta name="last-modified" content="2026-06-29">
+  <link rel="canonical" href="https://gamepanduan.com/GTA6Guide/tools/gta6-profit-calculator.html">
+  <link rel="icon" href="../assets/images/favicon.png">
+  <style>
+    :root {
+      --bg-primary: #0d0d0d;
+      --bg-card: #141414;
+      --accent: #ff0080;
+      --accent-secondary: #00d4ff;
+      --accent-tertiary: #ffcc00;
+      --border-card: #2a1a2a;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --text-muted: #707070;
+      --gta-glow: #ff008033;
+      --success: #2ecc71;
+      --warning: #f39c12;
+      --danger: #e74c3c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--accent-secondary);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .breadcrumb {
+      padding: 20px 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .breadcrumb a {
+      color: var(--text-muted);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--accent);
+    }
+
+    .breadcrumb span {
+      margin: 0 8px;
+      color: var(--text-muted);
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a0a1a 100%);
+      border-bottom: 3px solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 0 20px var(--gta-glow);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px var(--gta-glow);
+    }
+
+    .logo img {
+      height: 40px;
+      border-radius: 4px;
+      max-height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-primary);
+      font-weight: 500;
+      padding: 5px 10px;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+    }
+
+    main {
+      padding: 40px 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-primary) 100%);
+      border-radius: 15px;
+      margin-bottom: 30px;
+      border: 1px solid var(--border-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .prelaunch-notice {
+      background: linear-gradient(135deg, rgba(255, 204, 0, 0.15) 0%, rgba(255, 204, 0, 0.05) 100%);
+      border: 1px solid var(--accent-tertiary);
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--accent-tertiary);
+      display: inline-block;
+    }
+
+    .top-picks {
+      background: var(--bg-card);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .top-picks::before {
+      content: '⭐';
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      font-size: 4rem;
+      opacity: 0.1;
+    }
+
+    .top-picks h2 {
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-picks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .top-pick-card {
+      background: rgba(255, 0, 128, 0.08);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .top-pick-rank {
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      color: #fff;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .top-pick-info h4 {
+      color: var(--accent-secondary);
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .top-pick-info p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .top-pick-stats {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+
+    .top-pick-stats span {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .top-pick-stats .cost {
+      color: var(--danger);
+    }
+
+    .top-pick-stats .income {
+      color: var(--success);
+    }
+
+    .top-pick-stats .roi {
+      color: var(--accent-tertiary);
+    }
+
+    .filters {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .filters h3 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .filter-group label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .filter-group input,
+    .filter-group select {
+      padding: 10px 15px;
+      border: 1px solid var(--border-card);
+      border-radius: 6px;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      min-width: 150px;
+    }
+
+    .filter-group input:focus,
+    .filter-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .filter-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-tag {
+      padding: 8px 16px;
+      border: 1px solid var(--border-card);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .filter-tag:hover,
+    .filter-tag.active {
+      border-color: var(--accent);
+      background: rgba(255, 0, 128, 0.15);
+      color: var(--accent);
+    }
+
+    .stats-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-card h4 {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      font-weight: normal;
+    }
+
+    .stat-card .value {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .stat-card .value.success {
+      color: var(--success);
+    }
+
+    .stat-card .value.warning {
+      color: var(--warning);
+    }
+
+    .stat-card .value.danger {
+      color: var(--danger);
+    }
+
+    .asset-list {
+      display: grid;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .asset-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .asset-card:hover {
+      border-color: var(--accent);
+      transform: translateX(5px);
+    }
+
+    .asset-card.selected {
+      border-color: var(--success);
+      background: rgba(46, 204, 113, 0.08);
+    }
+
+    .asset-checkbox {
+      width: 24px;
+      height: 24px;
+      accent-color: var(--success);
+      cursor: pointer;
+    }
+
+    .asset-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .asset-info {
+      flex: 1;
+    }
+
+    .asset-info h4 {
+      color: var(--accent-secondary);
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .asset-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .asset-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .asset-stats {
+      text-align: right;
+      min-width: 180px;
+    }
+
+    .asset-cost {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--danger);
+      margin-bottom: 5px;
+    }
+
+    .asset-income {
+      font-size: 0.95rem;
+      color: var(--success);
+      margin-bottom: 5px;
+    }
+
+    .asset-roi {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--accent-tertiary);
+    }
+
+    .roi-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .roi-badge.excellent {
+      background: rgba(46, 204, 113, 0.2);
+      color: var(--success);
+    }
+
+    .roi-badge.good {
+      background: rgba(52, 152, 219, 0.2);
+      color: #3498db;
+    }
+
+    .roi-badge.fair {
+      background: rgba(243, 156, 18, 0.2);
+      color: var(--warning);
+    }
+
+    .roi-badge.poor {
+      background: rgba(231, 76, 60, 0.2);
+      color: var(--danger);
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .back-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255, 0, 128, 0.3);
+      color: #fff;
+    }
+
+    footer {
+      background: var(--bg-card);
+      border-top: 2px solid var(--border-card);
+      padding: 30px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    footer p {
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .legal-disclaimer {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .sort-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .sort-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--border-card);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .sort-btn:hover,
+    .sort-btn.active {
+      border-color: var(--accent-secondary);
+      color: var(--accent-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-card);
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 2px solid var(--border-card);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .asset-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .asset-icon {
+        margin: 0 auto;
+      }
+
+      .asset-stats {
+        text-align: center;
+      }
+
+      .top-picks-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-row {
+        flex-direction: column;
+      }
+
+      .filter-group {
+        width: 100%;
+      }
+
+      .filter-group input,
+      .filter-group select {
+        width: 100%;
+      }
+
+      .stats-summary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .logo img {
+        max-height: 35px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .asset-meta {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../index.html" class="logo"><img src="../assets/images/logo.jpg" alt="GTA 6 Guide"></a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#release-date">Release Date</a></li>
+          <li><a href="../map/index.html">Map</a></li>
+          <li><a href="../characters/index.html">Characters</a></li>
+          <li><a href="../index.html#vehicles">Vehicles</a></li>
+          <li><a href="gta6-profit-calculator.html" class="active">Tools</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+        <div class="menu-toggle"><span></span><span></span><span></span></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>›</span>
+        <a href="../index.html">GTA 6 Guide</a>
+        <span>›</span>
+        <span>Asset Profit Calculator</span>
+      </div>
+
+      <section class="hero">
+        <h1>💰 GTA 6 Asset Profit Calculator</h1>
+        <p>Compare investment returns, calculate ROI, and find the best assets to buy first. Pre-launch planning estimates.</p>
+        <div class="prelaunch-notice">
+          ⚠️ Pre-Launch Estimate: Data is placeholder and will be updated after verified in-game data is available.
+        </div>
+      </section>
+
+      <section class="top-picks">
+        <h2>🎯 Top 3 Priority Purchases</h2>
+        <div class="top-picks-grid" id="topPicks">
+        </div>
+      </section>
+
+      <section class="stats-summary" id="statsSummary">
+        <div class="stat-card">
+          <h4>Selected Assets</h4>
+          <div class="value" id="selectedCount">0</div>
+        </div>
+        <div class="stat-card">
+          <h4>Total Investment</h4>
+          <div class="value danger" id="totalCost">$0</div>
+        </div>
+        <div class="stat-card">
+          <h4>Daily Income</h4>
+          <div class="value success" id="totalIncome">$0</div>
+        </div>
+        <div class="stat-card">
+          <h4>Est. Payback</h4>
+          <div class="value warning" id="totalDays">-</div>
+        </div>
+      </section>
+
+      <section class="filters">
+        <h3>🔍 Filter Assets</h3>
+        <div class="filter-row">
+          <div class="filter-group">
+            <label>Asset Type</label>
+            <div class="filter-tags">
+              <span class="filter-tag active" data-filter="all">All</span>
+              <span class="filter-tag" data-filter="property">Property</span>
+              <span class="filter-tag" data-filter="business">Business</span>
+              <span class="filter-tag" data-filter="vehicle">Vehicle</span>
+              <span class="filter-tag" data-filter="nightclub">Nightclub</span>
+            </div>
+          </div>
+        </div>
+        <div class="filter-row">
+          <div class="filter-group">
+            <label>Cost Range</label>
+            <select id="costFilter">
+              <option value="all">All</option>
+              <option value="low">Under $500K</option>
+              <option value="medium">$500K - $2M</option>
+              <option value="high">$2M - $5M</option>
+              <option value="premium">Above $5M</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Sort By</label>
+            <div class="sort-buttons">
+              <button class="sort-btn active" data-sort="roi">ROI Speed</button>
+              <button class="sort-btn" data-sort="cost-asc">Cost ↑</button>
+              <button class="sort-btn" data-sort="cost-desc">Cost ↓</button>
+              <button class="sort-btn" data-sort="income-desc">Income ↑</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="asset-list" id="assetList">
+      </section>
+
+      <div style="text-align: center;">
+        <a href="../index.html" class="back-button">
+          ← Back to Guide
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="copyright">&copy; 2026 GTA 6 Guide. Not affiliated with Rockstar Games.</p>
+      <div class="legal-disclaimer">
+        <p>All game artwork, screenshots, trailers and trademarks are property of their respective copyright holders.</p>
+        <p>This site is a fan-made game guide. Pre-launch data is based on planning estimates.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    const assets = [
+      { id: 1, name: 'Beach Apartment', type: 'property', icon: '🏠', cost: 250000, dailyIncome: 850, unlock: 'Story 2', description: 'Entry-level property', roiDays: 294 },
+      { id: 2, name: 'Ocean Villa', type: 'property', icon: '🏡', cost: 850000, dailyIncome: 3200, unlock: 'Story 8', description: 'Premium residence', roiDays: 266 },
+      { id: 3, name: 'Downtown Condo', type: 'property', icon: '🏢', cost: 1500000, dailyIncome: 5500, unlock: 'Story 15', description: 'High-traffic location', roiDays: 273 },
+      { id: 4, name: 'Strip Club', type: 'nightclub', icon: '💃', cost: 2000000, dailyIncome: 12000, unlock: 'Side Mission', description: 'Night operations', roiDays: 167 },
+      { id: 5, name: 'Auto Shop', type: 'business', icon: '🔧', cost: 1800000, dailyIncome: 8500, unlock: 'Story 12', description: 'Vehicle-related business', roiDays: 212 },
+      { id: 6, name: 'Gun Shop', type: 'business', icon: '🔫', cost: 2500000, dailyIncome: 15000, unlock: 'Story 18', description: 'Weapon market monopoly', roiDays: 167 },
+      { id: 7, name: 'Premium Nightclub', type: 'nightclub', icon: '🎵', cost: 3500000, dailyIncome: 22000, unlock: 'Story 25', description: 'VIP membership', roiDays: 159 },
+      { id: 8, name: 'Drug Lab', type: 'business', icon: '⚗️', cost: 4200000, dailyIncome: 28000, unlock: 'Story 30', description: 'High-risk high-reward', roiDays: 150 },
+      { id: 9, name: 'Super Yacht', type: 'vehicle', icon: '🛥️', cost: 6000000, dailyIncome: 15000, unlock: 'Story 35', description: 'Mobile base', roiDays: 400 },
+      { id: 10, name: 'Flight Club', type: 'vehicle', icon: '✈️', cost: 4500000, dailyIncome: 18000, unlock: 'Story 28', description: 'Air transport business', roiDays: 250 },
+      { id: 11, name: 'Underground Casino', type: 'nightclub', icon: '🎰', cost: 5500000, dailyIncome: 35000, unlock: 'Story 40', description: 'VIP gambling', roiDays: 157 },
+      { id: 12, name: 'Docks Warehouse', type: 'vehicle', icon: '📦', cost: 750000, dailyIncome: 4200, unlock: 'Story 5', description: 'Smuggling start', roiDays: 179 },
+      { id: 13, name: 'Hacker Studio', type: 'business', icon: '💻', cost: 1200000, dailyIncome: 6000, unlock: 'Story 10', description: 'Digital crime business', roiDays: 200 },
+      { id: 14, name: 'Tattoo Parlor', type: 'business', icon: '🎨', cost: 400000, dailyIncome: 2800, unlock: 'Story 3', description: 'Small stable business', roiDays: 143 },
+      { id: 15, name: 'Money Laundering', type: 'business', icon: '💰', cost: 8000000, dailyIncome: 50000, unlock: 'Story 45', description: 'Core asset, profit king', roiDays: 160 }
+    ];
+
+    let selectedAssets = new Set();
+    let currentFilter = 'all';
+    let currentCostFilter = 'all';
+    let currentSort = 'roi';
+
+    function formatCurrency(amount) {
+      if (amount >= 1000000) return '$' + (amount / 1000000).toFixed(1) + 'M';
+      return '$' + amount.toLocaleString();
+    }
+
+    function getROIBadgeClass(days) {
+      if (days < 180) return 'excellent';
+      if (days < 250) return 'good';
+      if (days < 350) return 'fair';
+      return 'poor';
+    }
+
+    function matchesCostFilter(cost) {
+      if (currentCostFilter === 'all') return true;
+      if (currentCostFilter === 'low') return cost < 500000;
+      if (currentCostFilter === 'medium') return cost >= 500000 && cost < 2000000;
+      if (currentCostFilter === 'high') return cost >= 2000000 && cost < 5000000;
+      if (currentCostFilter === 'premium') return cost >= 5000000;
+      return true;
+    }
+
+    function renderTopPicks() {
+      const sorted = [...assets].sort((a, b) => a.roiDays - b.roiDays);
+      const top3 = sorted.slice(0, 3);
+      const topPicksContainer = document.getElementById('topPicks');
+      topPicksContainer.innerHTML = top3.map((asset, index) => `
+        <div class="top-pick-card">
+          <div class="top-pick-rank">#${index + 1}</div>
+          <div class="top-pick-info">
+            <h4>${asset.icon} ${asset.name}</h4>
+            <p>${asset.description}</p>
+            <div class="top-pick-stats">
+              <span class="cost">Cost: ${formatCurrency(asset.cost)}</span>
+              <span class="income">Daily: ${formatCurrency(asset.dailyIncome)}</span>
+              <span class="roi">ROI: ${asset.roiDays} days</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderAssetList() {
+      let filtered = assets.filter(asset => {
+        if (currentFilter !== 'all' && asset.type !== currentFilter) return false;
+        if (!matchesCostFilter(asset.cost)) return false;
+        return true;
+      });
+
+      if (currentSort === 'roi') filtered.sort((a, b) => a.roiDays - b.roiDays);
+      else if (currentSort === 'cost-asc') filtered.sort((a, b) => a.cost - b.cost);
+      else if (currentSort === 'cost-desc') filtered.sort((a, b) => b.cost - a.cost);
+      else if (currentSort === 'income-desc') filtered.sort((a, b) => b.dailyIncome - a.dailyIncome);
+
+      const assetListContainer = document.getElementById('assetList');
+
+      if (filtered.length === 0) {
+        assetListContainer.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--text-secondary);"><p>No assets match your filters</p></div>';
+        return;
+      }
+
+      assetListContainer.innerHTML = filtered.map(asset => `
+        <div class="asset-card ${selectedAssets.has(asset.id) ? 'selected' : ''}" data-id="${asset.id}">
+          <input type="checkbox" class="asset-checkbox" ${selectedAssets.has(asset.id) ? 'checked' : ''}>
+          <div class="asset-icon">${asset.icon}</div>
+          <div class="asset-info">
+            <h4>${asset.name}</h4>
+            <div class="asset-meta">
+              <span>📍 ${asset.unlock}</span>
+              <span>💡 ${asset.description}</span>
+            </div>
+          </div>
+          <div class="asset-stats">
+            <div class="asset-cost">${formatCurrency(asset.cost)}</div>
+            <div class="asset-income">+${formatCurrency(asset.dailyIncome)}/day</div>
+            <div class="asset-roi">
+              <span class="roi-badge ${getROIBadgeClass(asset.roiDays)}">${asset.roiDays} days ROI</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('.asset-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          if (e.target.classList.contains('asset-checkbox')) return;
+          const id = parseInt(card.dataset.id);
+          const checkbox = card.querySelector('.asset-checkbox');
+          checkbox.checked = !checkbox.checked;
+          toggleAsset(id);
+        });
+
+        card.querySelector('.asset-checkbox').addEventListener('change', (e) => {
+          const id = parseInt(card.dataset.id);
+          toggleAsset(id);
+        });
+      });
+    }
+
+    function toggleAsset(id) {
+      if (selectedAssets.has(id)) selectedAssets.delete(id);
+      else selectedAssets.add(id);
+      renderAssetList();
+      updateStats();
+    }
+
+    function updateStats() {
+      const selectedArray = assets.filter(a => selectedAssets.has(a.id));
+      document.getElementById('selectedCount').textContent = selectedArray.length;
+      document.getElementById('totalCost').textContent = formatCurrency(selectedArray.reduce((sum, a) => sum + a.cost, 0));
+      document.getElementById('totalIncome').textContent = formatCurrency(selectedArray.reduce((sum, a) => sum + a.dailyIncome, 0));
+
+      const totalIncome = selectedArray.reduce((sum, a) => sum + a.dailyIncome, 0);
+      const totalCost = selectedArray.reduce((sum, a) => sum + a.cost, 0);
+      if (totalIncome > 0 && totalCost > 0) {
+        document.getElementById('totalDays').textContent = Math.ceil(totalCost / totalIncome) + ' days';
+      } else {
+        document.getElementById('totalDays').textContent = '-';
+      }
+    }
+
+    document.querySelectorAll('.filter-tag').forEach(tag => {
+      tag.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+        currentFilter = tag.dataset.filter;
+        renderAssetList();
+      });
+    });
+
+    document.getElementById('costFilter').addEventListener('change', (e) => {
+      currentCostFilter = e.target.value;
+      renderAssetList();
+    });
+
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentSort = btn.dataset.sort;
+        renderAssetList();
+      });
+    });
+
+    renderTopPicks();
+    renderAssetList();
+    updateStats();
+  </script>
+</body>
+</html>

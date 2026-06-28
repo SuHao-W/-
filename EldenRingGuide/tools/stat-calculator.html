@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="艾尔登法环属性加点软上限计算器，帮助玩家查看生命、集中、耐力、力量、敏捷、智力、信仰、感应的收益阶段与加点效率。">
+  <link rel="canonical" href="https://gamepanduan.com/EldenRingGuide/tools/stat-calculator.html">
+  <title>艾尔登法环属性加点软上限计算器 - Characters & Stats</title>
+  <style>
+    :root {
+      --gold: #c9a227;
+      --gold-light: #e6c860;
+      --gold-dark: #8a6d1b;
+      --bg-dark: #0d0d0d;
+      --bg-card: #1a1a1a;
+      --bg-card-hover: #252525;
+      --text-primary: #e8e6e3;
+      --text-secondary: #a09d98;
+      --border: #2a2a2a;
+      --danger: #c0392b;
+      --success: #27ae60;
+      --magic: #7d3cff;
+      --warning: #e67e22;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-width: 320px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover { color: var(--gold-light); }
+
+    .navbar {
+      background: linear-gradient(180deg, #111 0%, var(--bg-dark) 100%);
+      border-bottom: 2px solid var(--gold-dark);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .breadcrumb {
+      position: sticky;
+      top: 73px;
+      z-index: 900;
+      background: rgba(13, 13, 13, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumb-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.7rem 2rem;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb strong { color: var(--gold-light); }
+
+    .hero {
+      text-align: center;
+      padding: 3.4rem 2rem 3rem;
+      background: linear-gradient(180deg, rgba(201, 162, 39, 0.1) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0 auto 1rem;
+      color: var(--gold);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.15;
+      text-shadow: 0 2px 10px rgba(201, 162, 39, 0.3);
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--text-secondary);
+      font-size: 1.08rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section { margin: 2.5rem 0; }
+
+    .section h2 {
+      color: var(--gold);
+      font-size: 1.65rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gold-dark);
+      display: inline-block;
+    }
+
+    .section p,
+    .section li {
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .tool-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .summary-panel,
+    .stat-card,
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .summary-panel {
+      position: sticky;
+      top: 128px;
+      padding: 1.25rem;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    .summary-box {
+      background: #101010;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem;
+    }
+
+    .summary-label {
+      display: block;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .summary-value {
+      color: var(--gold-light);
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin: 1rem 0;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .preset-btn,
+    .reset-btn,
+    .home-btn {
+      border: 1px solid var(--gold-dark);
+      background: rgba(201, 162, 39, 0.12);
+      color: var(--gold-light);
+      border-radius: 6px;
+      padding: 0.62rem 0.75rem;
+      font-weight: 800;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+
+    .preset-btn:hover,
+    .reset-btn:hover,
+    .home-btn:hover {
+      border-color: var(--gold);
+      background: rgba(201, 162, 39, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .reset-btn {
+      width: 100%;
+      margin-top: 0.35rem;
+      background: rgba(192, 57, 43, 0.1);
+      color: #e7a19a;
+      border-color: rgba(192, 57, 43, 0.55);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      padding: 1rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .stat-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--gold-dark);
+    }
+
+    .stat-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-name {
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 1.08rem;
+    }
+
+    .stat-code {
+      color: var(--text-secondary);
+      font-size: 0.84rem;
+    }
+
+    .stat-input {
+      width: 72px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #101010;
+      color: var(--text-primary);
+      padding: 0.55rem 0.45rem;
+      text-align: center;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .stat-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.16);
+    }
+
+    .range-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--gold);
+    }
+
+    .cap-line {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.35rem;
+      color: var(--text-secondary);
+      font-size: 0.76rem;
+    }
+
+    .cap-line span:nth-child(2) { text-align: center; }
+    .cap-line span:nth-child(3) { text-align: right; }
+
+    .status-row {
+      margin-top: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 4px;
+      padding: 0.28rem 0.55rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .status-low { background: rgba(192, 57, 43, 0.2); color: #e7a19a; }
+    .status-normal { background: rgba(39, 174, 96, 0.2); color: #79d69c; }
+    .status-soft { background: rgba(201, 162, 39, 0.2); color: var(--gold-light); }
+    .status-hard { background: rgba(125, 60, 255, 0.2); color: #bda7ff; }
+
+    .stat-note {
+      margin-top: 0.65rem;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    .meter {
+      height: 8px;
+      margin-top: 0.75rem;
+      background: #0f0f0f;
+      border-radius: 99px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+      transition: width 0.2s;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .info-card { padding: 1rem; }
+
+    .info-card h3 {
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .info-card strong { color: var(--text-primary); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: var(--bg-card);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 0.78rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    th {
+      background: rgba(201, 162, 39, 0.15);
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    td:first-child {
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .footer-cta {
+      text-align: center;
+      margin: 2.5rem 0 0;
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding-inline: 1.2rem;
+    }
+
+    .disclaimer {
+      background: rgba(255,255,255,0.03);
+      border-left: 3px solid var(--gold-dark);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .disclaimer strong { color: var(--gold); }
+
+    .footer {
+      background: #0a0a0a;
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 980px) {
+      .tool-layout { grid-template-columns: 1fr; }
+      .summary-panel {
+        position: static;
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .breadcrumb { top: 139px; }
+      .breadcrumb-inner { padding: 0.65rem 1rem; }
+      .hero { padding: 2.2rem 1rem; }
+      .container { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+      .stat-grid,
+      .info-grid { grid-template-columns: 1fr; }
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        gap: 0.45rem 0.8rem;
+      }
+
+      .breadcrumb { top: 185px; }
+      .preset-grid,
+      .summary-grid { grid-template-columns: 1fr; }
+      .stat-top { align-items: center; }
+      .stat-input { width: 64px; }
+      .hero h1 { font-size: 1.85rem; }
+      th, td { padding: 0.65rem 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">ER Guide</div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../characters/index.html" class="active">Characters</a></li>
+      <li><a href="../bosses/index.html">Bosses</a></li>
+      <li><a href="../builds/index.html">Builds & Gear</a></li>
+      <li><a href="../tips/index.html">Tips</a></li>
+      <li><a href="../map/index.html">Map</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <div class="breadcrumb-inner">
+      <span>首页</span>
+      <span>&gt;</span>
+      <a href="../index.html">艾尔登法环攻略</a>
+      <span>&gt;</span>
+      <strong>属性加点计算器</strong>
+    </div>
+  </div>
+
+  <header class="hero">
+    <h1>艾尔登法环属性加点软上限计算器</h1>
+    <p>拖动 8 大属性，实时查看当前收益阶段、软上限与硬上限提醒，避免把等级投入到收益明显变低的区间。</p>
+  </header>
+
+  <main class="container">
+    <section class="section" aria-labelledby="calculator-title">
+      <h2 id="calculator-title">属性调节区</h2>
+      <div class="tool-layout">
+        <div class="stat-grid" id="statGrid"></div>
+
+        <aside class="summary-panel" aria-live="polite">
+          <h2>角色统计</h2>
+          <p>等级为参考值，按 Wretch 初始全 10 点估算：<strong>等级 = 总属性点 - 79</strong>。</p>
+          <div class="summary-grid">
+            <div class="summary-box">
+              <span class="summary-label">总属性点</span>
+              <span class="summary-value" id="totalStats">80</span>
+            </div>
+            <div class="summary-box">
+              <span class="summary-label">等级参考</span>
+              <span class="summary-value" id="levelRef">1</span>
+            </div>
+            <div class="summary-box">
+              <span class="summary-label">已投入点数</span>
+              <span class="summary-value" id="spentPoints">0</span>
+            </div>
+            <div class="summary-box">
+              <span class="summary-label">高收益属性</span>
+              <span class="summary-value" id="efficientCount">0</span>
+            </div>
+          </div>
+
+          <h2>流派预设</h2>
+          <div class="preset-grid">
+            <button class="preset-btn" type="button" data-preset="strength">力量猛男</button>
+            <button class="preset-btn" type="button" data-preset="mage">法师流</button>
+            <button class="preset-btn" type="button" data-preset="faith">信仰流</button>
+            <button class="preset-btn" type="button" data-preset="bleed">出血感应流</button>
+          </div>
+          <button class="reset-btn" type="button" id="resetBtn">一键重置初始值</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="howto-title">
+      <h2 id="howto-title">如何理解收益阶段</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>正常收益</h3>
+          <p><strong>优先加点区。</strong>属性对血量、蓝量、耐力、伤害或异常累积的提升仍然明显，适合围绕当前武器和流派继续投入。</p>
+        </div>
+        <div class="info-card">
+          <h3>软上限</h3>
+          <p><strong>收益开始下降。</strong>不是不能加，而是每一点带来的提升变少。新手通常应先补生命、耐力或主输出属性的短板。</p>
+        </div>
+        <div class="info-card">
+          <h3>硬上限</h3>
+          <p><strong>继续加点通常不划算。</strong>除非是高等级角色、特殊武器需求或 PvE 娱乐 Build，否则建议把点数转向其他属性。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="caps-title">
+      <h2 id="caps-title">软上限与硬上限参考</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>推荐观察节点</th>
+            <th>主要影响</th>
+            <th>加点建议</th>
+          </tr>
+        </thead>
+        <tbody id="capTable"></tbody>
+      </table>
+      <div class="disclaimer">
+        <strong>说明：</strong>本工具用于加点规划与新手避坑。不同武器、法杖、圣印记、质变和双持力量修正会改变实际伤害收益，最终仍建议结合你正在使用的装备测试。
+      </div>
+    </section>
+
+    <div class="footer-cta">
+      <a class="home-btn" href="../index.html">回到攻略首页</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Elden Ring Guide - Not affiliated with FromSoftware or Bandai Namco.</p>
+    <p>All game content and trademarks belong to their respective owners.</p>
+  </footer>
+
+  <script>
+    const stats = [
+      {
+        id: "vigor",
+        name: "生命",
+        code: "Vigor",
+        short: "VIG",
+        value: 10,
+        caps: [25, 40, 60],
+        table: "25 / 40 / 60",
+        effect: "HP 与容错率",
+        advice: "新手优先到 40，后期可到 60。",
+        notes: {
+          low: "生命偏低，容易被精英怪或 Boss 两下带走。",
+          normal: "血量提升很明显，是最稳定的新手容错属性。",
+          soft: "进入软上限，仍有收益，但每点 HP 提升开始变少。",
+          hard: "接近硬上限，继续加生命通常不如补输出或耐力。"
+        }
+      },
+      {
+        id: "mind",
+        name: "集中",
+        code: "Mind",
+        short: "MND",
+        value: 10,
+        caps: [20, 55, 60],
+        table: "20 / 55 / 60",
+        effect: "FP、战技与施法续航",
+        advice: "近战少量即可，法师与祷告流再提高。",
+        notes: {
+          low: "FP 较紧张，频繁放战技或法术会很快见底。",
+          normal: "续航提升稳定，适合依赖法术、祷告或战技的 Build。",
+          soft: "已到高投入区，FP 继续增加但性价比下降。",
+          hard: "接近硬上限，除非极端施法流，否则不建议继续堆。"
+        }
+      },
+      {
+        id: "endurance",
+        name: "耐力",
+        code: "Endurance",
+        short: "END",
+        value: 10,
+        caps: [20, 50, 60],
+        table: "20 / 50 / 60",
+        effect: "精力、装备重量",
+        advice: "保证中翻滚，再按武器重量补。",
+        notes: {
+          low: "精力和负重都偏紧，重武器或厚甲容易卡手。",
+          normal: "翻滚、攻击、举盾和负重体验都有明显改善。",
+          soft: "精力收益明显放缓，主要看是否还缺装备重量。",
+          hard: "高等级耐力区，继续加点通常只为特殊重装需求。"
+        }
+      },
+      {
+        id: "strength",
+        name: "力量",
+        code: "Strength",
+        short: "STR",
+        value: 10,
+        caps: [20, 60, 80],
+        table: "20 / 60 / 80",
+        effect: "力量补正武器伤害",
+        advice: "重武器主属性；双持有 1.5 倍力量修正。",
+        notes: {
+          low: "多半只是满足武器需求，伤害成长还不稳定。",
+          normal: "力量武器收益清晰，适合继续投资到主力软上限。",
+          soft: "已进入软上限区，每点伤害提升开始下降。",
+          hard: "80 以后通常是硬上限区，除非超高等级 Build。"
+        }
+      },
+      {
+        id: "dexterity",
+        name: "敏捷",
+        code: "Dexterity",
+        short: "DEX",
+        value: 10,
+        caps: [20, 60, 80],
+        table: "20 / 60 / 80",
+        effect: "敏捷武器伤害、施法速度",
+        advice: "太刀、曲剑、双头剑等常用主属性。",
+        notes: {
+          low: "更像是装备门槛，主输出收益还没完全展开。",
+          normal: "敏捷武器和部分混合 Build 的主要成长区。",
+          soft: "软上限后伤害仍会涨，但每点收益变低。",
+          hard: "80 以上继续堆敏捷通常不如补生命、耐力或副属性。"
+        }
+      },
+      {
+        id: "intelligence",
+        name: "智力",
+        code: "Intelligence",
+        short: "INT",
+        value: 10,
+        caps: [20, 60, 80],
+        table: "20 / 60 / 80",
+        effect: "魔法、法杖与智力武器",
+        advice: "纯法师常见目标 60-80。",
+        notes: {
+          low: "只能满足少量法术或武器需求，魔法伤害有限。",
+          normal: "法术与智力补正武器提升明显，是法师主成长区。",
+          soft: "进入软上限，适合先检查生命、集中和耐力是否够用。",
+          hard: "80 后通常不再适合继续硬堆智力。"
+        }
+      },
+      {
+        id: "faith",
+        name: "信仰",
+        code: "Faith",
+        short: "FTH",
+        value: 10,
+        caps: [20, 60, 80],
+        table: "20 / 60 / 80",
+        effect: "祷告、圣印记与信仰武器",
+        advice: "祷告输出、治疗和 Buff 流派核心属性。",
+        notes: {
+          low: "多半只够拿基础祷告，伤害和治疗量有限。",
+          normal: "祷告、Buff 和信仰武器的主要提升区。",
+          soft: "软上限后继续加点收益下降，先补生存和续航。",
+          hard: "80 以后通常属于高等级娱乐或极限施法规划。"
+        }
+      },
+      {
+        id: "arcane",
+        name: "感应",
+        code: "Arcane",
+        short: "ARC",
+        value: 10,
+        caps: [20, 45, 60],
+        table: "20 / 45 / 60",
+        effect: "出血/中毒累积、发现力、感应补正",
+        advice: "出血流优先看 45 与 60 两个节点。",
+        notes: {
+          low: "异常累积和感应补正都不突出，先满足装备需求。",
+          normal: "出血、毒和感应补正武器收益明显。",
+          soft: "异常累积进入常见软上限，继续加点要看武器补正。",
+          hard: "60 以后异常收益明显变低，通常应转投敏捷或生存。"
+        }
+      }
+    ];
+
+    const presets = {
+      strength: { vigor: 55, mind: 12, endurance: 35, strength: 66, dexterity: 18, intelligence: 10, faith: 15, arcane: 10 },
+      mage: { vigor: 45, mind: 38, endurance: 22, strength: 10, dexterity: 18, intelligence: 80, faith: 10, arcane: 10 },
+      faith: { vigor: 50, mind: 30, endurance: 25, strength: 18, dexterity: 15, intelligence: 10, faith: 70, arcane: 10 },
+      bleed: { vigor: 50, mind: 18, endurance: 28, strength: 12, dexterity: 45, intelligence: 10, faith: 12, arcane: 60 }
+    };
+
+    const state = Object.fromEntries(stats.map((stat) => [stat.id, stat.value]));
+    const statGrid = document.getElementById("statGrid");
+    const capTable = document.getElementById("capTable");
+
+    function getStage(stat, value) {
+      const [lowCap, softCap, hardCap] = stat.caps;
+      if (value < lowCap) return "low";
+      if (value < softCap) return "normal";
+      if (value < hardCap) return "soft";
+      return "hard";
+    }
+
+    function stageLabel(stage) {
+      return {
+        low: "低收益 / 未成型",
+        normal: "正常收益",
+        soft: "软上限区",
+        hard: "硬上限区"
+      }[stage];
+    }
+
+    function stageClass(stage) {
+      return {
+        low: "status-low",
+        normal: "status-normal",
+        soft: "status-soft",
+        hard: "status-hard"
+      }[stage];
+    }
+
+    function render() {
+      statGrid.innerHTML = stats.map((stat) => {
+        const value = state[stat.id];
+        const stage = getStage(stat, value);
+        const fill = Math.min(100, Math.round((value / 99) * 100));
+        return `
+          <article class="stat-card" data-stat-card="${stat.id}">
+            <div class="stat-top">
+              <div>
+                <div class="stat-name">${stat.name}</div>
+                <div class="stat-code">${stat.code} / ${stat.short}</div>
+              </div>
+              <input class="stat-input" id="${stat.id}-number" type="number" min="1" max="99" value="${value}" aria-label="${stat.name}数值">
+            </div>
+            <div class="range-wrap">
+              <input id="${stat.id}-range" type="range" min="1" max="99" value="${value}" aria-label="${stat.name}滑块">
+              <div class="cap-line">
+                <span>${stat.caps[0]}</span>
+                <span>${stat.caps[1]}</span>
+                <span>${stat.caps[2]}</span>
+              </div>
+            </div>
+            <div class="status-row">
+              <span class="status-badge ${stageClass(stage)}" id="${stat.id}-badge">${stageLabel(stage)}</span>
+              <span class="stat-code">影响：${stat.effect}</span>
+            </div>
+            <div class="meter" aria-hidden="true"><div class="meter-fill" id="${stat.id}-meter" style="width:${fill}%"></div></div>
+            <p class="stat-note" id="${stat.id}-note">${stat.notes[stage]}</p>
+          </article>
+        `;
+      }).join("");
+
+      stats.forEach((stat) => {
+        document.getElementById(`${stat.id}-range`).addEventListener("input", (event) => updateStat(stat.id, event.target.value));
+        document.getElementById(`${stat.id}-number`).addEventListener("input", (event) => updateStat(stat.id, event.target.value));
+      });
+
+      updateVisuals();
+    }
+
+    function renderTable() {
+      capTable.innerHTML = stats.map((stat) => `
+        <tr>
+          <td>${stat.name} / ${stat.short}</td>
+          <td>${stat.table}</td>
+          <td>${stat.effect}</td>
+          <td>${stat.advice}</td>
+        </tr>
+      `).join("");
+    }
+
+    function updateStat(id, rawValue) {
+      const value = Math.max(1, Math.min(99, Number(rawValue) || 1));
+      state[id] = value;
+      updateVisuals();
+    }
+
+    function applyPreset(name) {
+      Object.assign(state, presets[name]);
+      updateVisuals();
+    }
+
+    function resetStats() {
+      stats.forEach((stat) => {
+        state[stat.id] = 10;
+      });
+      updateVisuals();
+    }
+
+    function updateVisuals() {
+      stats.forEach((stat) => {
+        const value = state[stat.id];
+        const stage = getStage(stat, value);
+        const fill = Math.min(100, Math.round((value / 99) * 100));
+        const range = document.getElementById(`${stat.id}-range`);
+        const number = document.getElementById(`${stat.id}-number`);
+        const badge = document.getElementById(`${stat.id}-badge`);
+        const meter = document.getElementById(`${stat.id}-meter`);
+        const note = document.getElementById(`${stat.id}-note`);
+
+        range.value = value;
+        if (document.activeElement !== number) number.value = value;
+        badge.className = `status-badge ${stageClass(stage)}`;
+        badge.textContent = stageLabel(stage);
+        meter.style.width = `${fill}%`;
+        note.textContent = stat.notes[stage];
+      });
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const total = Object.values(state).reduce((sum, value) => sum + value, 0);
+      const spent = Math.max(0, total - 80);
+      const level = Math.max(1, total - 79);
+      const efficient = stats.filter((stat) => getStage(stat, state[stat.id]) === "normal").length;
+
+      document.getElementById("totalStats").textContent = total;
+      document.getElementById("levelRef").textContent = level;
+      document.getElementById("spentPoints").textContent = spent;
+      document.getElementById("efficientCount").textContent = efficient;
+    }
+
+    document.querySelectorAll("[data-preset]").forEach((button) => {
+      button.addEventListener("click", () => applyPreset(button.dataset.preset));
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", resetStats);
+
+    renderTable();
+    render();
+  </script>
+</body>
+</html>

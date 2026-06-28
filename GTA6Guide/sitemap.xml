@@ -4,95 +4,90 @@
     <loc>https://gamepanduan.com/GTA6Guide/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-06-29</lastmod>
   </url>
   <url>
     <loc>https://gamepanduan.com/GTA6Guide/index.html</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://gamepanduan.com/GTA6Guide/release-date.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://gamepanduan.com/GTA6Guide/pc-release.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://gamepanduan.com/GTA6Guide/preorder-editions.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://gamepanduan.com/GTA6Guide/platforms.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://gamepanduan.com/GTA6Guide/trailer-breakdown.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://gamepanduan.com/GTA6Guide/online.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
   </url>
   <url>
     <loc>https://gamepanduan.com/GTA6Guide/characters/index.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/index.html</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/mayor-rodrigo.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/viktor-kozlov.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/elena-martinez.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/captain-wilson.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/marcus-rivera.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/terry-ohara.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/sunny-choi.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/benny-romano.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/agent-chen.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/bosses/victoria-crane.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/builds/index.html</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://gamepanduan.com/GTA6Guide/tips/index.html</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-29</lastmod>
   </url>
   <url>
     <loc>https://gamepanduan.com/GTA6Guide/map/index.html</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://gamepanduan.com/GTA6Guide/map/leonida.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://gamepanduan.com/GTA6Guide/vehicles/index.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
   </url>
   <url>
     <loc>https://gamepanduan.com/GTA6Guide/faq.html</loc>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://gamepanduan.com/GTA6Guide/tools/gta6-profit-calculator.html</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-29</lastmod>
   </url>
   <url>
     <loc>https://gamepanduan.com/GTA6Guide/privacy.html</loc>
-    <priority>0.5</priority>
+    <priority>0.3</priority>
     <changefreq>yearly</changefreq>
+    <lastmod>2026-06-29</lastmod>
   </url>
 </urlset>
